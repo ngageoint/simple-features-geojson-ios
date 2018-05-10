@@ -1,6 +1,6 @@
 # Simple Features GeoJSON iOS
 
-Library in progress. For released version of Simple Features with WKB functionality, see [geopackage-wkb-ios](https://github.com/ngageoint/geopackage-wkb-ios).
+Placeholder for future GeoJSON implementation of [simple-features-ios](https://github.com/ngageoint/simple-features-ios), similar to the Java equivalent [simple-features-geojson-java](https://github.com/ngageoint/simple-features-geojson-java).
 
 #### Simple Features GeoJSON Lib ####
 
