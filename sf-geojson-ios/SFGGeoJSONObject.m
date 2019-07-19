@@ -1,14 +1,16 @@
 //
-//  SFGGeoJsonObject.m
+//  SFGGeoJSONObject.m
 //  sf-geojson-ios
 //
 //  Created by Brian Osborn on 7/17/19.
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJsonObject.h"
+#import "SFGGeoJSONObject.h"
 
-@implementation SFGGeoJsonObject
+NSString * const SFG_TYPE = @"type";
+
+@implementation SFGGeoJSONObject
 
 -(NSString *) type{
     [self doesNotRecognizeSelector:_cmd];
@@ -22,13 +24,17 @@
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
-    [tree setObject:[self type] forKey:@"type"];
+    [tree setObject:[self type] forKey:SFG_TYPE];
     // TODO bbox
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
     // TODO bbox
+}
+
++(NSString *) treeType: (NSDictionary *) tree{
+    return [tree objectForKey:SFG_TYPE];
 }
 
 @end

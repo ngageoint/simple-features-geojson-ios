@@ -6,13 +6,18 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJsonObject.h"
+#import "SFGGeoJSONObject.h"
 #import "SFGeometry.h"
+
+/**
+ * Coordinates key
+ */
+extern NSString * const SFG_COORDINATES;
 
 /**
  * Geometry
  */
-@interface SFGGeometry : SFGGeoJsonObject
+@interface SFGGeometry : SFGGeoJSONObject
 
 /**
  * Get the simple geometry
@@ -27,5 +32,12 @@
  * @return coordinates
  */
 -(NSObject *) coordinates;
+
+/**
+ * Get the JSON object coordinates from the JSON tree
+ *
+ * @return coordinates
+ */
++(NSObject *) treeCoordinates: (NSDictionary *) tree;
 
 @end

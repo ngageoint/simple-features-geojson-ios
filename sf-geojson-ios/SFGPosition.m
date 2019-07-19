@@ -59,6 +59,18 @@
     return self;
 }
 
+-(instancetype) initWithCoordinates: (NSArray *) coordinates{
+    self = [super init];
+    if(self != nil){
+        NSMutableArray *coords = [[NSMutableArray alloc] init];
+        for(NSNumber *number in coordinates){
+            [coords addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
+        }
+        self.coordinates = coords;
+    }
+    return self;
+}
+
 -(NSArray<NSDecimalNumber *> *) coordinates{
     return _coordinates;
 }

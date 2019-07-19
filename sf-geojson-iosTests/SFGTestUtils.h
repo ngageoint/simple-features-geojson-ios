@@ -12,9 +12,9 @@
 
 @interface SFGTestUtils : NSObject
 
-+(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) input;
++(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) json;
 
-+(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) input;
++(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) json;
 
 +(void)assertNil:(id) value;
 

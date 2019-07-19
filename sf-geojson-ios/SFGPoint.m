@@ -8,6 +8,8 @@
 
 #import "SFGPoint.h"
 
+NSString * const SFG_TYPE_POINT = @"Point";
+
 @interface SFGPoint()
 
 /**
@@ -32,7 +34,6 @@
     self = [super init];
     if(self != nil){
         [self setCoordinates:position];
-        self.position = position;
     }
     return self;
 }
@@ -50,9 +51,9 @@
     self = [super init];
     if(self != nil){
         [super fromTree:tree];
-        NSObject *coordinates = [tree objectForKey:@"coordinates"];
-        
-        self.point = nil; // TODO
+        NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
+        SFGPosition *position = [[SFGPosition alloc] initWithCoordinates:coordinates];
+        [self setCoordinates:position];
     }
     return self;
 }
@@ -71,7 +72,7 @@
 }
 
 -(NSString *) type{
-    return @"Point";
+    return SFG_TYPE_POINT;
 }
 
 @end

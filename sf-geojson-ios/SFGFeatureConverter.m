@@ -7,7 +7,6 @@
 //
 
 #import "SFGFeatureConverter.h"
-#import "SFGPoint.h"
 #import "SFPoint.h"
 
 @implementation SFGFeatureConverter
@@ -53,27 +52,67 @@
     return content;
 }
 
-+(SFGGeoJsonObject *) treeToObject: (NSDictionary *) tree{
-    SFGGeoJsonObject *object = nil;
++(SFGGeoJSONObject *) treeToObject: (NSDictionary *) tree{
+    SFGGeoJSONObject *object = nil;
     
-    NSString *type = [tree objectForKey:@"type"];
-    if([type isEqualToString:@"Point"]){
-        object = [[SFGPoint alloc] initWithTree:tree];
+    NSString *type = [SFGGeoJSONObject treeType:tree];
+    
+    if(false){ //TODO
+        //TODO
     }else{
-        // TODO
+        object = [self treeToGeometry:tree];
     }
     
     return object;
 }
 
++(SFGGeometry *) treeToGeometry: (NSDictionary *) tree{
+    SFGGeometry *geometry = nil;
+    
+    NSString *type = [SFGGeoJSONObject treeType:tree];
+    
+    if([type isEqualToString:SFG_TYPE_POINT]){
+        geometry = [self treeToPoint:tree];
+    }else{
+        // TODO
+    }
+    
+    return geometry;
+}
+
++(SFGPoint *) treeToPoint: (NSDictionary *) tree{
+    return [[SFGPoint alloc] initWithTree:tree];
+}
+
 +(SFGGeometry *) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = nil;
     if(simpleGeometry != nil){
-        Class simpleGeometryClass = [simpleGeometry class];
-        if(simpleGeometryClass == [SFPoint class]){
-            geometry = [[SFGPoint alloc] initWithPoint:(SFPoint *)simpleGeometry];
-        }else{
-            // TODO
+        enum SFGeometryType geometryType = simpleGeometry.geometryType;
+        switch (geometryType) {
+            case SF_POINT:
+                geometry = [[SFGPoint alloc] initWithPoint:(SFPoint *)simpleGeometry];
+                break;
+            case SF_LINESTRING:
+                // TODO
+                break;
+            case SF_POLYGON:
+                // TODO
+                break;
+            case SF_MULTIPOINT:
+                // TODO
+                break;
+            case SF_MULTILINESTRING:
+                // TODO
+                break;
+            case SF_MULTIPOLYGON:
+                // TODO
+                break;
+            case SF_GEOMETRYCOLLECTION:
+                // TODO
+                break;
+            default:
+                [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", [SFGeometryTypes name:geometryType]];
+                break;
         }
     }
     return geometry;

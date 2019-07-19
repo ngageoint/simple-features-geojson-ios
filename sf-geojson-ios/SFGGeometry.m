@@ -8,6 +8,8 @@
 
 #import "SFGGeometry.h"
 
+NSString * const SFG_COORDINATES = @"coordinates";
+
 @implementation SFGGeometry
 
 -(SFGeometry *) geometry{
@@ -22,12 +24,16 @@
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
-    [tree setObject:[self coordinates] forKey:@"coordinates"];
+    [tree setObject:[self coordinates] forKey:SFG_COORDINATES];
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
+}
+
++(NSObject *) treeCoordinates: (NSDictionary *) tree{
+    return [tree objectForKey:SFG_COORDINATES];
 }
 
 @end

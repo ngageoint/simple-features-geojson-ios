@@ -8,31 +8,28 @@
 
 #import "SFGTestUtils.h"
 #import "SFGFeatureConverter.h"
+#import "SFGGeometryTestUtils.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
 @implementation SFGTestUtils
 
-+(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) input{
++(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) json{
     SFGGeometry *geometry = [SFGFeatureConverter simpleGeometryToGeometry:simpleGeometry];
-    [self compareGeometry:geometry withInput:input];
+    [self compareGeometry:geometry withInput:json];
 }
 
-+(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) input{
++(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) json{
     NSDictionary *treeFromGeometry = [geometry toTree];
-    NSDictionary *treeFromJSON = [SFGFeatureConverter jsonToTree:input];
-    NSString *json = [SFGFeatureConverter treeToJSON:treeFromJSON];
-    NSObject *coordinates = [geometry coordinates];
-    [self assertEqualWithValue:input andValue2:json];
+    NSDictionary *treeFromJSON = [SFGFeatureConverter jsonToTree:json];
     [self assertTrue:[treeFromGeometry isEqualToDictionary:treeFromJSON]];
-    SFGGeoJsonObject *object = [SFGFeatureConverter treeToObject:treeFromJSON];
-    
-    NSNumber *number = [[treeFromJSON objectForKey:@"coordinates"] objectAtIndex:0];
-    BOOL temp = [number class] == [NSDecimalNumber class];
-    BOOL temp2 = [number class] == [NSNumber class];
-    NSDecimalNumber *temp3 = (NSDecimalNumber *) number;
-    BOOL temp4 = [temp3 class] == [NSDecimalNumber class];
-    double value = [number doubleValue];
+    NSString *jsonFromTree = [SFGFeatureConverter treeToJSON:treeFromJSON];
+    [self assertEqualWithValue:json andValue2:jsonFromTree];
+    SFGGeometry *geometryFromTree = [SFGFeatureConverter treeToGeometry:treeFromJSON];
+    [self assertEqualWithValue:[geometry type] andValue2:[geometryFromTree type]];
+    [self assertEqualWithValue:[geometry coordinates] andValue2:[geometryFromTree coordinates]];
+    [self assertEqualWithValue:[[geometry type] uppercaseString] andValue2:[SFGeometryTypes name:[geometry geometry].geometryType]];
+    [SFGGeometryTestUtils compareGeometriesWithExpected:[geometry geometry] andActual:[geometryFromTree geometry]];
 }
 
 +(void)assertNil:(id) value{

@@ -69,6 +69,15 @@
 -(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude andAltitude: (NSNumber *) altitude andAdditionals: (NSArray<NSNumber *>*) additionalElements;
 
 /**
+ *  Initialize
+ *
+ *  @param coordinates  coordinates
+ *
+ *  @return new position
+ */
+-(instancetype) initWithCoordinates: (NSArray<NSDecimalNumber *> *) coordinates;
+
+/**
  * Get the coordinaes
  *
  * @return coordinates

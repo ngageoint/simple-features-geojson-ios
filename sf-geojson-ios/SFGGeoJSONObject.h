@@ -1,5 +1,5 @@
 //
-//  SFGGeoJsonObject.h
+//  SFGGeoJSONObject.h
 //  sf-geojson-ios
 //
 //  Created by Brian Osborn on 7/17/19.
@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 
 /**
+ * Type key
+ */
+extern NSString * const SFG_TYPE;
+
+/**
  * GeoJSON Object
  */
-@interface SFGGeoJsonObject : NSObject
+@interface SFGGeoJSONObject : NSObject
 
 /**
  * Get the GeoJSON object type
@@ -33,5 +38,12 @@
  * @param tree JSON tree
  */
 -(void) fromTree: (NSDictionary *) tree;
+
+/**
+ * Get the type of the JSON tree
+ *
+ * @return type
+ */
++(NSString *) treeType: (NSDictionary *) tree;
 
 @end
