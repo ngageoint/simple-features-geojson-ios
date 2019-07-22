@@ -6,12 +6,13 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJsonObject.h"
+#import "SFGGeoJSONObject.h"
 
-NS_ASSUME_NONNULL_BEGIN
+/**
+ * Feature Collection type
+ */
+extern NSString * const SFG_TYPE_FEATURE_COLLECTION;
 
 @interface SFGFeatureCollection : SFGGeoJSONObject
 
 @end
-
-NS_ASSUME_NONNULL_END

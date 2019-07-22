@@ -19,11 +19,6 @@ NSString * const SFG_BBOX = @"bbox";
     return nil;
 }
 
--(NSDictionary *) tree{
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
-}
-
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
     [tree setObject:[self type] forKey:SFG_TYPE];

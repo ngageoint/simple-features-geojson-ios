@@ -10,4 +10,21 @@
 
 @implementation SFGSimpleFeature
 
+-(instancetype) init{
+    self = [super init];
+    if(self != nil){
+        self.properties = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+-(instancetype) initWithGeometry: (SFGeometry *) geometry andProperties: (NSMutableDictionary<NSString *, NSObject *> *) properties{
+    self = [super init];
+    if(self != nil){
+        self.geometry = geometry;
+        self.properties = properties;
+    }
+    return self;
+}
+
 @end

@@ -7,11 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "SFGeometry.h"
 
 @interface SFGSimpleFeature : NSObject
 
-@end
+/**
+ * Geometry
+ */
+@property (nonatomic, strong) SFGeometry *geometry;
 
-NS_ASSUME_NONNULL_END
+/**
+ * Properties dictionary
+ */
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSObject *> *properties;
+
+/**
+ *  Initialize
+ *
+ *  @return new simple feature
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
+ *  @param geometry geometry
+ *
+ *  @return new simple feature
+ */
+-(instancetype) initWithGeometry: (SFGeometry *) geometry andProperties: (NSMutableDictionary<NSString *, NSObject *> *) properties;
+
+@end
