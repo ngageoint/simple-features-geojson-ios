@@ -10,6 +10,8 @@
 
 NSString * const SFG_TYPE = @"type";
 
+NSString * const SFG_BBOX = @"bbox";
+
 @implementation SFGGeoJSONObject
 
 -(NSString *) type{
@@ -25,12 +27,20 @@ NSString * const SFG_TYPE = @"type";
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
     [tree setObject:[self type] forKey:SFG_TYPE];
-    // TODO bbox
+    if(self.bbox != nil){
+        [tree setObject:self.bbox forKey:SFG_BBOX];
+    }
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
-    // TODO bbox
+    NSArray *boundingBox = (NSArray *)[tree objectForKey:SFG_BBOX];
+    if(boundingBox != nil){
+        self.bbox = [[NSMutableArray alloc] init];
+        for(NSNumber *number in boundingBox){
+            [self.bbox addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
+        }
+    }
 }
 
 +(NSString *) treeType: (NSDictionary *) tree{

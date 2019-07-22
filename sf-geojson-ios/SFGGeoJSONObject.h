@@ -14,9 +14,19 @@
 extern NSString * const SFG_TYPE;
 
 /**
+ * Bounding Box key
+ */
+extern NSString * const SFG_BBOX;
+
+/**
  * GeoJSON Object
  */
 @interface SFGGeoJSONObject : NSObject
+
+/**
+ *  Bounding box
+ */
+@property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *bbox;
 
 /**
  * Get the GeoJSON object type
