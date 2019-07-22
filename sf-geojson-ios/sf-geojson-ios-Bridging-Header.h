@@ -11,5 +11,19 @@
 
 #import "sf-ios-Bridging-Header.h"
 #import "sf_geojson_ios.h"
+#import "SFGFeature.h"
+#import "SFGFeatureCollection.h"
+#import "SFGFeatureConverter.h"
+#import "SFGGeoJSONObject.h"
+#import "SFGGeometry.h"
+#import "SFGGeometryCollection.h"
+#import "SFGLineString.h"
+#import "SFGMultiLineString.h"
+#import "SFGMultiPoint.h"
+#import "SFGMultiPolygon.h"
+#import "SFGPoint.h"
+#import "SFGPolygon.h"
+#import "SFGPosition.h"
+#import "SFGSimpleFeature.h"
 
 #endif /* sf_geojson_ios_Bridging_Header_h */
