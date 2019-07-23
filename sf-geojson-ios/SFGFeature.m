@@ -45,17 +45,25 @@ NSString * const SFG_PROPERTIES = @"properties";
     return self;
 }
 
+-(instancetype) initWithTree: (NSDictionary *) tree{
+    self = [super init];
+    if(self != nil){
+        self.feature = [[SFGSimpleFeature alloc] init];
+        [self fromTree:tree];
+    }
+    return self;
+}
+
 -(SFGGeometry *) geometry{
     return [SFGFeatureConverter simpleGeometryToGeometry:self.feature.geometry];
 }
 
 -(void) setGeometry: (SFGGeometry *) geometry{
-    if([[geometry type] isEqualToString:SFG_TYPE_POINT]){
-        SFGPoint *point = (SFGPoint *) geometry;
-        [self.feature setGeometry:[point geometry]];
-    }else{
-        [self.feature setGeometry:(geometry == nil) ? nil : [geometry geometry]];
+    SFGeometry *simpleGeometry = nil;
+    if(geometry != nil){
+        simpleGeometry = [geometry geometry];
     }
+    [self.feature setGeometry:simpleGeometry];
 }
 
 -(NSMutableDictionary<NSString *, NSObject *> *) properties{
@@ -67,7 +75,7 @@ NSString * const SFG_PROPERTIES = @"properties";
 }
 
 -(SFGSimpleFeature *) feature{
-    return self.feature;
+    return _feature;
 }
 
 -(SFGeometry *) simpleGeometry{
@@ -95,11 +103,17 @@ NSString * const SFG_PROPERTIES = @"properties";
     if(self.id != nil){
         [tree setObject:self.id forKey:SFG_ID];
     }
-    [tree setObject:[[self geometry] toTree] forKey:SFG_GEOMETRY];
-    NSMutableDictionary<NSString *, NSObject *> *properties = [self properties];
-    if(properties != nil){
-        [tree setObject:properties forKey:SFG_PROPERTIES];
+    SFGGeometry *geometry = [self geometry];
+    NSMutableDictionary *geometryTree = nil;
+    if(geometry != nil){
+        geometryTree = [geometry toTree];
     }
+    [tree setObject:geometryTree != nil ? geometryTree : [NSNull null] forKey:SFG_GEOMETRY];
+    NSMutableDictionary<NSString *, NSObject *> *properties = [self properties];
+    if(properties == nil){
+        properties = [[NSMutableDictionary alloc] init];
+    }
+    [tree setObject:properties forKey:SFG_PROPERTIES];
     return tree;
 }
 
@@ -107,9 +121,19 @@ NSString * const SFG_PROPERTIES = @"properties";
     [super fromTree:tree];
     self.id = [tree objectForKey:SFG_ID];
     NSDictionary *geometryTree = [tree objectForKey:SFG_GEOMETRY];
-    SFGGeometry *geometry = [SFGFeatureConverter treeToGeometry:geometryTree];
+    SFGGeometry *geometry = nil;
+    if(![geometryTree isEqual:[NSNull null]] && geometryTree != nil){
+        geometry = [SFGFeatureConverter treeToGeometry:geometryTree];
+    }
     [self setGeometry:geometry];
-    self.properties = [tree objectForKey:SFG_PROPERTIES];
+    NSDictionary *propertiesTree = [tree objectForKey:SFG_PROPERTIES];
+    NSMutableDictionary<NSString *, NSObject *> *properties = [[NSMutableDictionary alloc] init];
+    if(![propertiesTree isEqual:[NSNull null]] && propertiesTree != nil){
+        for(NSString *propertyKey in [propertiesTree allKeys]){
+            [properties setObject:[propertiesTree objectForKey:propertyKey] forKey:propertyKey];
+        }
+    }
+    [self setProperties:properties];
 }
 
 @end

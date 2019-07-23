@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "SFGeometry.h"
 #import "SFGGeometry.h"
+#import "SFMultiPolygon.h"
 
 @interface SFGTestUtils : NSObject
 
 +(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) json;
 
 +(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) json;
+
++(SFMultiPolygon *) multiPolygonWithRings;
 
 +(void)assertNil:(id) value;
 

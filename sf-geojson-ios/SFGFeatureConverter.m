@@ -11,6 +11,74 @@
 
 @implementation SFGFeatureConverter
 
++(SFGFeature *) jsonToFeature: (NSString *) json{
+    return [self treeToFeature:[self jsonToTree:json]];
+}
+
++(SFGFeature *) treeToFeature: (NSDictionary *) tree{
+    return [[SFGFeature alloc] initWithTree:tree];
+}
+
++(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry{
+    SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
+    SFGFeature *feature = [[SFGFeature alloc] initWithGeometry:geometry];
+    return feature;
+}
+
++(SFGGeoJSONObject *) jsonToObject: (NSString *) json{
+    return [self treeToObject:[self jsonToTree:json]];
+}
+
++(SFGGeoJSONObject *) treeToObject: (NSDictionary *) tree{
+    SFGGeoJSONObject *object = nil;
+    
+    NSString *type = [SFGGeoJSONObject treeType:tree];
+    
+    if([type isEqualToString:SFG_TYPE_FEATURE]){
+        object = [self treeToFeature:tree];
+    }else if([type isEqualToString:SFG_TYPE_FEATURE_COLLECTION]){
+        //TODO object = [self treeToFeatureCollection:tree];
+    }else{
+        object = [self treeToGeometry:tree];
+    }
+    
+    return object;
+}
+
++(NSString *) objectToJSON: (SFGGeoJSONObject *) object{
+    NSDictionary *tree = [self objectToTree:object];
+    NSString *json = [self treeToJSON:tree];
+    return json;
+}
+
++(NSString *) simpleGeometryToJSON: (SFGeometry *) simpleGeometry{
+    SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
+    NSString *json = [self objectToJSON:geometry];
+    return json;
+}
+
++(NSString *) treeToJSON: (id) object{
+    
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:object options:kNilOptions error:&error];
+    
+    if(error){
+        [NSException raise:@"Object To JSON" format:@"Failed to convert a JSON Object to JSON. class: %@, error: %@", NSStringFromClass([object class]), error];
+    }
+    
+    NSString *content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    return content;
+}
+
++(NSMutableDictionary *) objectToMutableTree: (SFGGeoJSONObject *) object{
+    return [object toTree];
+}
+
++(NSDictionary *) objectToTree: (SFGGeoJSONObject *) object{
+    return [self objectToMutableTree:object];
+}
+
 +(NSMutableDictionary *) jsonToMutableTree: (NSString *) json{
     return [[self jsonToTree:json] mutableCopy];
 }
@@ -38,32 +106,13 @@
     return tree;
 }
 
-+(NSString *) treeToJSON: (id) object{
-    
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:object options:kNilOptions error:&error];
-    
-    if(error){
-        [NSException raise:@"Object To JSON" format:@"Failed to convert a JSON Object to JSON. class: %@, error: %@", NSStringFromClass([object class]), error];
-    }
-    
-    NSString *content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    return content;
++(NSMutableDictionary *) simpleGeometryToMutableTree: (SFGeometry *) simpleGeometry{
+    SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
+    return [geometry toTree];
 }
 
-+(SFGGeoJSONObject *) treeToObject: (NSDictionary *) tree{
-    SFGGeoJSONObject *object = nil;
-    
-    NSString *type = [SFGGeoJSONObject treeType:tree];
-    
-    if(false){ //TODO
-        //TODO
-    }else{
-        object = [self treeToGeometry:tree];
-    }
-    
-    return object;
++(NSDictionary *) simpleGeometryToTree: (SFGeometry *) simpleGeometry{
+    return [self simpleGeometryToMutableTree:simpleGeometry];
 }
 
 +(SFGGeometry *) treeToGeometry: (NSDictionary *) tree{
@@ -78,10 +127,6 @@
     }
     
     return geometry;
-}
-
-+(SFGPoint *) treeToPoint: (NSDictionary *) tree{
-    return [[SFGPoint alloc] initWithTree:tree];
 }
 
 +(SFGGeometry *) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry{
@@ -116,6 +161,10 @@
         }
     }
     return geometry;
+}
+
++(SFGPoint *) treeToPoint: (NSDictionary *) tree{
+    return [[SFGPoint alloc] initWithTree:tree];
 }
 
 @end

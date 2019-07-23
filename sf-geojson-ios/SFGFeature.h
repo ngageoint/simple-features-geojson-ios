@@ -57,6 +57,15 @@ extern NSString * const SFG_PROPERTIES;
 -(instancetype) initWithGeometry: (SFGGeometry *) geometry;
 
 /**
+ *  Initialize
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new feature
+ */
+-(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
  * Get the geometry
  *
  * @return geometry

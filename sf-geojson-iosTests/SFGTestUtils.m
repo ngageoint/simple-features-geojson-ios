@@ -9,6 +9,7 @@
 #import "SFGTestUtils.h"
 #import "SFGFeatureConverter.h"
 #import "SFGGeometryTestUtils.h"
+#import "SFLinearRing.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
@@ -30,6 +31,29 @@
     [self assertEqualWithValue:[geometry coordinates] andValue2:[geometryFromTree coordinates]];
     [self assertEqualWithValue:[[geometry type] uppercaseString] andValue2:[SFGeometryTypes name:[geometry geometry].geometryType]];
     [SFGGeometryTestUtils compareGeometriesWithExpected:[geometry geometry] andActual:[geometryFromTree geometry]];
+}
+
++(SFMultiPolygon *) multiPolygonWithRings{
+
+    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];
+    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
+    [points addObject:[[SFPoint alloc] initWithXValue:1 andYValue:50]];
+    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [rings addObject:ring];
+    points = [[NSMutableArray alloc] init];
+    [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
+    [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
+    [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
+    ring = [[SFLinearRing alloc] initWithPoints:points];
+    [rings addObject:ring];
+    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    [polygons addObject:polygon];
+    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    
+    return multiPolygon;
 }
 
 +(void)assertNil:(id) value{
