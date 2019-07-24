@@ -10,6 +10,8 @@
 #import "SFGeometry.h"
 #import "SFGGeometry.h"
 #import "SFMultiPolygon.h"
+#import "SFGPosition.h"
+#import "SFGPoint.h"
 
 @interface SFGTestUtils : NSObject
 
@@ -17,7 +19,21 @@
 
 +(void) compareGeometry: (SFGGeometry *) geometry withInput: (NSString *) json;
 
++(void) assertPointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andPoint: (SFGPoint *) point;
+
++(void) assertPointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPoint: (SFGPoint *) point;
+
++(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPosition: (SFGPosition *) position;
+
++(void) assertSimplePointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andSimplePoint: (SFPoint *) point;
+
 +(SFMultiPolygon *) multiPolygonWithRings;
+
++(void) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry;
+
++(void) simpleGeometryToTree: (SFGeometry *) simpleGeometry;
+
++(void) simpleGeometryToJSON: (SFGeometry *) simpleGeometry;
 
 +(void)assertNil:(id) value;
 

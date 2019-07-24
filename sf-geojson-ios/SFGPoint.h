@@ -21,6 +21,11 @@ extern NSString * const SFG_TYPE_POINT;
 @interface SFGPoint : SFGGeometry
 
 /**
+ *  Position
+ */
+@property (nonatomic, strong) SFGPosition *position;
+
+/**
  *  Initialize
  *
  *  @return new point
@@ -55,11 +60,10 @@ extern NSString * const SFG_TYPE_POINT;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Sets the new position (supporting deserialization)
+ * Get the simple point
  *
- * @param position
- *            point position
+ * @return simple point
  */
--(void) setCoordinates: (SFGPosition *) position;
+-(SFPoint *) point;
 
 @end

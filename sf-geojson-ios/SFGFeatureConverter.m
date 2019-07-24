@@ -115,6 +115,10 @@
     return [self simpleGeometryToMutableTree:simpleGeometry];
 }
 
++(SFGGeometry *) jsonToGeometry: (NSString *) json{
+    return [self treeToGeometry:[self jsonToTree:json]];
+}
+
 +(SFGGeometry *) treeToGeometry: (NSDictionary *) tree{
     SFGGeometry *geometry = nil;
     

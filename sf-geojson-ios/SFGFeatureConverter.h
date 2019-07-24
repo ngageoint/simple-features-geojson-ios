@@ -145,6 +145,15 @@
 +(NSDictionary *) simpleGeometryToTree: (SFGeometry *) simpleGeometry;
 
 /**
+ * Convert the JSON string to a geometry
+ *
+ * @param json
+ *            JSON string
+ * @return geometry
+ */
++(SFGGeometry *) jsonToGeometry: (NSString *) json;
+
+/**
  * Convert the JSON tree to a geometry
  *
  * @param tree

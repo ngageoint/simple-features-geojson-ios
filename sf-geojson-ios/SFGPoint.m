@@ -17,11 +17,6 @@ NSString * const SFG_TYPE_POINT = @"Point";
  */
 @property (nonatomic, strong) SFPoint *point;
 
-/**
- *  Position
- */
-@property (nonatomic, strong) SFGPosition *position;
-
 @end
 
 @implementation SFGPoint
@@ -33,7 +28,7 @@ NSString * const SFG_TYPE_POINT = @"Point";
 -(instancetype) initWithPosition: (SFGPosition *) position{
     self = [super init];
     if(self != nil){
-        [self setCoordinates:position];
+        [self setPosition:position];
     }
     return self;
 }
@@ -41,8 +36,8 @@ NSString * const SFG_TYPE_POINT = @"Point";
 -(instancetype) initWithPoint: (SFPoint *) point{
     self = [super init];
     if(self != nil){
-        self.point = point;
-        self.position = [[SFGPosition alloc] initWithPoint:point];
+        _point = point;
+        _position = [[SFGPosition alloc] initWithPoint:point];
     }
     return self;
 }
@@ -55,17 +50,21 @@ NSString * const SFG_TYPE_POINT = @"Point";
     return self;
 }
 
--(NSObject *) coordinates{
-    return [self.position coordinates];
+-(SFPoint *) point{
+    return _point;
 }
 
--(void) setCoordinates: (SFGPosition *) position{
-    self.point = [[SFPoint alloc] initWithX:[position x] andY:[position y] andZ:[position z] andM:[position m]];
-    self.position = position;
+-(NSObject *) coordinates{
+    return [_position coordinates];
+}
+
+-(void) setPosition: (SFGPosition *) position{
+    _point = [[SFPoint alloc] initWithX:[position x] andY:[position y] andZ:[position z] andM:[position m]];
+    _position = position;
 }
 
 -(SFGeometry *) geometry{
-    return self.point;
+    return _point;
 }
 
 -(NSString *) type{
@@ -76,7 +75,7 @@ NSString * const SFG_TYPE_POINT = @"Point";
     [super fromTree:tree];
     NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
     SFGPosition *position = [[SFGPosition alloc] initWithCoordinates:coordinates];
-    [self setCoordinates:position];
+    [self setPosition:position];
 }
 
 @end

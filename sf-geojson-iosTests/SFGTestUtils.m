@@ -15,6 +15,8 @@
 
 @implementation SFGTestUtils
 
+static double EPSILON = 0.00001;
+
 +(void) compareSFGeometry: (SFGeometry *) simpleGeometry withInput: (NSString *) json{
     SFGGeometry *geometry = [SFGFeatureConverter simpleGeometryToGeometry:simpleGeometry];
     [self compareGeometry:geometry withInput:json];
@@ -31,6 +33,46 @@
     [self assertEqualWithValue:[geometry coordinates] andValue2:[geometryFromTree coordinates]];
     [self assertEqualWithValue:[[geometry type] uppercaseString] andValue2:[SFGeometryTypes name:[geometry geometry].geometryType]];
     [SFGGeometryTestUtils compareGeometriesWithExpected:[geometry geometry] andActual:[geometryFromTree geometry]];
+}
+
++(void) assertPointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andPoint: (SFGPoint *) point{
+    [self assertPointWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:nil andPoint:point];
+}
+
++(void) assertPointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPoint: (SFGPoint *) point{
+    [self assertPositionWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElements andPosition:point.position];
+}
+
++(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPosition: (SFGPosition *) position{
+    [self assertEqualDoubleWithValue:longitude andValue2:[[position x] doubleValue] andDelta:EPSILON];
+    [self assertEqualDoubleWithValue:latitude andValue2:[[position y] doubleValue] andDelta:EPSILON];
+    if(altitude == nil){
+        [self assertNil:[position z]];
+    }else{
+        [self assertEqualDoubleWithValue:[altitude doubleValue] andValue2:[[position z] doubleValue] andDelta:EPSILON];
+        if(additionalElements == nil || additionalElements.count == 0){
+            NSArray<NSDecimalNumber *> *ae = [position additionalElements];
+            [self assertTrue:ae == nil || ae.count == 0];
+        }else{
+            [self assertEqualDoubleWithValue:[[additionalElements objectAtIndex:0] doubleValue] andValue2:[[position m] doubleValue] andDelta:EPSILON];
+        }
+    }
+}
+
++(void) assertSimplePointWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andSimplePoint: (SFPoint *) point{
+    [self assertEqualDoubleWithValue:longitude andValue2:[point.x doubleValue] andDelta:EPSILON];
+    [self assertEqualDoubleWithValue:latitude andValue2:[point.y doubleValue] andDelta:EPSILON];
+    if(altitude == nil){
+        [self assertNil:point.z];
+    }else{
+        [self assertEqualDoubleWithValue:[altitude doubleValue] andValue2:[point.z doubleValue] andDelta:EPSILON];
+        if(additionalElements == nil || additionalElements.count == 0){
+            [self assertNil:point.m];
+        }else{
+            [self assertEqualIntWithValue:1 andValue2:(int)additionalElements.count];
+            [self assertEqualDoubleWithValue:[[additionalElements objectAtIndex:0] doubleValue] andValue2:[point.m doubleValue] andDelta:EPSILON];
+        }
+    }
 }
 
 +(SFMultiPolygon *) multiPolygonWithRings{
@@ -54,6 +96,65 @@
     SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
     
     return multiPolygon;
+}
+
++(void) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry{
+    
+    SFGGeometry *geometry = [SFGFeatureConverter simpleGeometryToGeometry:simpleGeometry];
+    [SFGTestUtils assertNotNil:geometry];
+    
+    [SFGTestUtils assertTrue:[simpleGeometry isEqual:[geometry geometry]]];
+    
+}
+
++(void) simpleGeometryToTree: (SFGeometry *) simpleGeometry{
+    
+    SFGGeometry *geometry = [SFGFeatureConverter simpleGeometryToGeometry:simpleGeometry];
+    [SFGTestUtils assertNotNil:geometry];
+    
+    NSDictionary *tree = [SFGFeatureConverter simpleGeometryToTree:simpleGeometry];
+    [SFGTestUtils assertNotNil:tree];
+    [SFGTestUtils assertFalse:tree.count == 0];
+    
+    SFGGeometry *geometryFromTree = [SFGFeatureConverter treeToGeometry:tree];
+    [SFGTestUtils assertNotNil:geometryFromTree];
+    
+    [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromTree geometry]]];
+   
+    SFGGeoJSONObject *objectFromTree = [SFGFeatureConverter treeToObject:tree];
+    [SFGTestUtils assertNotNil:objectFromTree];
+    [SFGTestUtils assertTrue:[objectFromTree isKindOfClass:[SFGGeometry class]]];
+    
+    SFGGeometry *geometryFromTree2 = (SFGGeometry *) objectFromTree;
+    [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromTree2 geometry]]];
+}
+
++(void) simpleGeometryToJSON: (SFGeometry *) simpleGeometry{
+    
+    SFGGeometry *geometry = [SFGFeatureConverter simpleGeometryToGeometry:simpleGeometry];
+    [SFGTestUtils assertNotNil:geometry];
+    
+    NSString *json = [SFGFeatureConverter simpleGeometryToJSON:simpleGeometry];
+    [SFGTestUtils assertNotNil:json];
+    [SFGTestUtils assertFalse:json.length == 0];
+    NSString *type = [NSString stringWithFormat:@"\"type\":\"%@\"", [geometry type]];
+    int index = (int)[json rangeOfString:type].location;
+    [SFGTestUtils assertTrue:index >= 0];
+    NSString *restOfString = [json substringFromIndex:index + type.length];
+    int secondIndex = (int)[restOfString rangeOfString:type].location;
+    [SFGTestUtils assertEqualIntWithValue:-1 andValue2:secondIndex];
+    
+    SFGGeometry *geometryFromJSON = [SFGFeatureConverter jsonToGeometry:json];
+    [SFGTestUtils assertNotNil:geometryFromJSON];
+    
+    [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromJSON geometry]]];
+
+    SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
+    [SFGTestUtils assertNotNil:objectFromJSON];
+    [SFGTestUtils assertTrue:[objectFromJSON isKindOfClass:[SFGGeometry class]]];
+    
+    SFGGeometry *geometryFromJSON2 = (SFGGeometry *) objectFromJSON;
+    [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromJSON2 geometry]]];
 }
 
 +(void)assertNil:(id) value{
