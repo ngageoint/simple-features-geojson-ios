@@ -7,7 +7,6 @@
 //
 
 #import "SFGFeatureConverter.h"
-#import "SFPoint.h"
 
 @implementation SFGFeatureConverter
 
@@ -126,6 +125,10 @@
     
     if([type isEqualToString:SFG_TYPE_POINT]){
         geometry = [self treeToPoint:tree];
+    }else if([type isEqualToString:SFG_TYPE_POLYGON]){
+        geometry = [self treeToPolygon:tree];
+    }else if([type isEqualToString:SFG_TYPE_MULTI_POLYGON]){
+        geometry = [self treeToMultiPolygon:tree];
     }else{
         // TODO
     }
@@ -145,7 +148,7 @@
                 // TODO
                 break;
             case SF_POLYGON:
-                // TODO
+                geometry = [[SFGPolygon alloc] initWithPolygon:(SFPolygon *)simpleGeometry];
                 break;
             case SF_MULTIPOINT:
                 // TODO
@@ -154,7 +157,7 @@
                 // TODO
                 break;
             case SF_MULTIPOLYGON:
-                // TODO
+                geometry = [[SFGMultiPolygon alloc] initWithMultiPolygon:(SFMultiPolygon *)simpleGeometry];
                 break;
             case SF_GEOMETRYCOLLECTION:
                 // TODO
@@ -169,6 +172,14 @@
 
 +(SFGPoint *) treeToPoint: (NSDictionary *) tree{
     return [[SFGPoint alloc] initWithTree:tree];
+}
+
++(SFGPolygon *) treeToPolygon: (NSDictionary *) tree{
+    return [[SFGPolygon alloc] initWithTree:tree];
+}
+
++(SFGMultiPolygon *) treeToMultiPolygon: (NSDictionary *) tree{
+    return [[SFGMultiPolygon alloc] initWithTree:tree];
 }
 
 @end

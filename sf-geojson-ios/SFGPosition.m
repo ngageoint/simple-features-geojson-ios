@@ -27,7 +27,7 @@
     return [self initWithLongitude:longitude andLatitude:latitude andAltitude:nil];
 }
 
--(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude andAltitude: (NSNumber *) altitude{
+-(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude{
     return [self initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:nil];
 }
 
@@ -38,6 +38,7 @@
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{
     self = [super init];
     if(self != nil){
+        
         if (longitude == nil || latitude == nil) {
             self.coordinates = [[NSArray alloc] init];
         } else if (altitude == nil) {
@@ -55,6 +56,7 @@
                 self.coordinates = tempCoordinates;
             }
         }
+        
     }
     return self;
 }
@@ -62,7 +64,7 @@
 -(instancetype) initWithCoordinates: (NSArray *) coordinates{
     self = [super init];
     if(self != nil){
-        NSMutableArray *coords = [[NSMutableArray alloc] init];
+        NSMutableArray<NSDecimalNumber *> *coords = [[NSMutableArray alloc] init];
         for(NSNumber *number in coordinates){
             [coords addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
         }

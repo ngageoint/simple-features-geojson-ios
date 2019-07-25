@@ -44,7 +44,7 @@
 }
 
 -(void) testSerializePointWithAdditionalAttributes{
-    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[NSNumber numberWithDouble:100.2] andLatitude:[NSNumber numberWithDouble:0] andAltitude:[NSNumber numberWithDouble:256] andAdditionals:[[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:345.3], [NSNumber numberWithDouble:678.6], nil]];
+    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345.3], [[NSDecimalNumber alloc] initWithDouble:678.6], nil]];
     SFGPoint *point = [[SFGPoint alloc] initWithPosition:position];
     [SFGTestUtils compareGeometry:point withInput:@"{\"type\":\"Point\",\"coordinates\":[100.2,0,256,345.3,678.6]}"];
 }

@@ -31,7 +31,7 @@
     
     [[feature properties] setObject:@"bar" forKey:@"foo"];
     
-    NSString *json = @"{\"type\":\"Feature\",\"properties\":{\"foo\":\"bar\"},\"geometry\":{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100.0,-50.0],[100.0,-50.0],[1.0,50.0],[-100.0,-50.0]],[[-50.0,-25.0],[50.0,-25.0],[-1.0,25.0],[-50.0,-25.0]]]]}}";
+    NSString *json = @"{\"type\":\"Feature\",\"geometry\":{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100.1,-50.3],[100,-50],[1.5,50.6],[-100.1,-50.3]],[[-50,-25],[50.7,-25.9],[-1,25],[-50,-25]]]]},\"properties\":{\"foo\":\"bar\"}}";
     
     [self compareFeature:feature withJSON:json];
 }

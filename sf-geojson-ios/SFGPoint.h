@@ -66,4 +66,11 @@ extern NSString * const SFG_TYPE_POINT;
  */
 -(SFPoint *) point;
 
+/**
+ * Set the coordinates
+ *
+ * @param coordinates position
+ */
+-(void) setCoordinates: (SFGPosition *) coordinates;
+
 @end

@@ -31,7 +31,7 @@
  *
  *  @return new position
  */
--(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude;
+-(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude;
 
 /**
  *  Initialize
@@ -42,7 +42,7 @@
  *
  *  @return new position
  */
--(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude andAltitude: (NSNumber *) altitude;
+-(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude;
 
 /**
  *  Initialize
@@ -54,7 +54,7 @@
  *
  *  @return new position
  */
--(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSNumber *) additionalElement;
+-(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditional: (NSDecimalNumber *) additionalElement;
 
 /**
  *  Initialize
@@ -66,7 +66,7 @@
  *
  *  @return new position
  */
--(instancetype) initWithLongitude: (NSNumber *) longitude andLatitude: (NSNumber *) latitude andAltitude: (NSNumber *) altitude andAdditionals: (NSArray<NSNumber *>*) additionalElements;
+-(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements;
 
 /**
  *  Initialize
@@ -75,7 +75,7 @@
  *
  *  @return new position
  */
--(instancetype) initWithCoordinates: (NSArray<NSDecimalNumber *> *) coordinates;
+-(instancetype) initWithCoordinates: (NSArray *) coordinates;
 
 /**
  * Get the coordinaes
@@ -146,5 +146,5 @@
 * @return simple point
 */
 -(SFPoint *) toSimplePoint;
-  
+
 @end
