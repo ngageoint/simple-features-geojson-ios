@@ -8,7 +8,6 @@
 
 #import "SFGGeometry.h"
 #import "SFMultiPolygon.h"
-#import "SFGPosition.h"
 
 /**
  * Multi Polygon type
@@ -60,13 +59,6 @@ extern NSString * const SFG_TYPE_MULTI_POLYGON;
  * @return simple multi polygon
  */
 -(SFMultiPolygon *) multiPolygon;
-
-/**
- * Set the coordinates
- *
- * @param coordinates coordinate positions
- */
--(void) setCoordinates: (NSArray *) coordinates;
 
 /**
  *  Get coordinates from a multi polygon

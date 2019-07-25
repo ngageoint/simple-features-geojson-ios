@@ -55,7 +55,7 @@ NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
     return _multiPolygon;
 }
 
--(NSObject *) coordinates{
+-(NSArray *) coordinates{
     return [SFGMultiPolygon coordinatesFromMultiPolygon:self.multiPolygon];
 }
 

@@ -62,13 +62,6 @@ extern NSString * const SFG_TYPE_POLYGON;
 -(SFPolygon *) polygon;
 
 /**
- * Set the coordinates
- *
- * @param coordinates coordinate positions
- */
--(void) setCoordinates: (NSArray *) coordinates;
-
-/**
  *  Get coordinates from a polygon
  *
  *  @param polygon simple polygon

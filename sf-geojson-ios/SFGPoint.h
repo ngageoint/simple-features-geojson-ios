@@ -67,10 +67,64 @@ extern NSString * const SFG_TYPE_POINT;
 -(SFPoint *) point;
 
 /**
- * Set the coordinates
+ * Set the position
  *
- * @param coordinates position
+ * @param position point position
  */
--(void) setCoordinates: (SFGPosition *) coordinates;
+-(void) setPosition: (SFGPosition *) position;
+
+/**
+ *  Get coordinates from a point
+ *
+ *  @param point simple point
+ *
+ *  @return coordinates
+ */
++(NSArray *) coordinatesFromPoint: (SFPoint *) point;
+
+/**
+ *  Get coordinates from a position
+ *
+ *  @param position position
+ *
+ *  @return coordinates
+ */
++(NSArray *) coordinatesFromPosition: (SFGPosition *) position;
+
+/**
+ *  Get a point from coordiantes
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return point
+ */
++(SFPoint *) pointFromCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Get a point from a position
+ *
+ *  @param position position
+ *
+ *  @return point
+ */
++(SFPoint *) pointFromPosition: (SFGPosition *) position;
+
+/**
+ *  Get a position from coordiantes
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return position
+ */
++(SFGPosition *) positionFromCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Get a position from a point
+ *
+ *  @param point simple point
+ *
+ *  @return position
+ */
++(SFGPosition *) positionFromPoint: (SFPoint *) point;
 
 @end

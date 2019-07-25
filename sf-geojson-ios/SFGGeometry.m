@@ -17,9 +17,13 @@ NSString * const SFG_COORDINATES = @"coordinates";
     return nil;
 }
 
--(NSObject *) coordinates{
+-(NSArray *) coordinates{
     [self doesNotRecognizeSelector:_cmd];
     return nil;
+}
+
+-(void) setCoordinates: (NSArray *) coordinates{
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 -(NSMutableDictionary *) toTree{

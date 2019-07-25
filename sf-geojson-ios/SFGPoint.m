@@ -28,7 +28,7 @@ NSString * const SFG_TYPE_POINT = @"Point";
 -(instancetype) initWithPosition: (SFGPosition *) position{
     self = [super init];
     if(self != nil){
-        [self setCoordinates:position];
+        [self setPosition:position];
     }
     return self;
 }
@@ -37,7 +37,7 @@ NSString * const SFG_TYPE_POINT = @"Point";
     self = [super init];
     if(self != nil){
         _point = point;
-        _position = [[SFGPosition alloc] initWithPoint:point];
+        _position = [SFGPoint positionFromPoint:point];
     }
     return self;
 }
@@ -54,13 +54,17 @@ NSString * const SFG_TYPE_POINT = @"Point";
     return _point;
 }
 
--(NSObject *) coordinates{
-    return [_position coordinates];
+-(NSArray *) coordinates{
+    return [SFGPoint coordinatesFromPosition:_position];
 }
 
--(void) setCoordinates: (SFGPosition *) coordinates{
-    _point = [[SFPoint alloc] initWithX:[coordinates x] andY:[coordinates y] andZ:[coordinates z] andM:[coordinates m]];
-    _position = coordinates;
+-(void) setCoordinates: (NSArray *) coordinates{
+    [self setPosition:[SFGPoint positionFromCoordinates:coordinates]];
+}
+
+-(void) setPosition: (SFGPosition *) position{
+    _point = [SFGPoint pointFromPosition:position];
+    _position = position;
 }
 
 -(SFGeometry *) geometry{
@@ -75,7 +79,33 @@ NSString * const SFG_TYPE_POINT = @"Point";
     [super fromTree:tree];
     NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
     SFGPosition *position = [[SFGPosition alloc] initWithCoordinates:coordinates];
-    [self setCoordinates:position];
+    [self setPosition:position];
+}
+
++(NSArray *) coordinatesFromPoint: (SFPoint *) point{
+    SFGPosition *position = [self positionFromPoint:point];
+    return [self coordinatesFromPosition:position];
+}
+
++(NSArray *) coordinatesFromPosition: (SFGPosition *) position{
+    return [position coordinates];
+}
+
++(SFPoint *) pointFromCoordinates: (NSArray *) coordinates{
+    SFGPosition *position = [self positionFromCoordinates:coordinates];
+    return [self pointFromPosition:position];
+}
+
++(SFPoint *) pointFromPosition: (SFGPosition *) position{
+    return [position toSimplePoint];
+}
+
++(SFGPosition *) positionFromCoordinates: (NSArray *) coordinates{
+    return [[SFGPosition alloc] initWithCoordinates:coordinates];
+}
+
++(SFGPosition *) positionFromPoint: (SFPoint *) point{
+    return [[SFGPosition alloc] initWithPoint:point];
 }
 
 @end

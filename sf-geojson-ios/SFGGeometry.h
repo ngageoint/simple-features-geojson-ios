@@ -31,7 +31,14 @@ extern NSString * const SFG_COORDINATES;
  *
  * @return coordinates
  */
--(NSObject *) coordinates;
+-(NSArray *) coordinates;
+
+/**
+ * Set the coordinates
+ *
+ * @param coordinates coordinate positions
+ */
+-(void) setCoordinates: (NSArray *) coordinates;
 
 /**
  * Get the JSON object coordinates from the JSON tree
