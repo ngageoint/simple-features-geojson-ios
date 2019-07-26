@@ -14,6 +14,19 @@ NSString * const SFG_BBOX = @"bbox";
 
 @implementation SFGGeoJSONObject
 
+-(instancetype) init{
+    self = [super init];
+    return self;
+}
+
+-(instancetype) initWithTree: (NSDictionary *) tree{
+    self = [super init];
+    if(self != nil){
+        [self fromTree:tree];
+    }
+    return self;
+}
+
 -(NSString *) type{
     [self doesNotRecognizeSelector:_cmd];
     return nil;

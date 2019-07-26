@@ -26,10 +26,7 @@ NSString * const SFG_COORDINATES = @"coordinates";
 }
 
 -(instancetype) initWithTree: (NSDictionary *) tree{
-    self = [super init];
-    if(self != nil){
-        [self fromTree:tree];
-    }
+    self = [super initWithTree:tree];
     return self;
 }
 

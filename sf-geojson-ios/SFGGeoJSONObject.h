@@ -29,6 +29,22 @@ extern NSString * const SFG_BBOX;
 @property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *bbox;
 
 /**
+ *  Initialize
+ *
+ *  @return new object
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new object
+ */
+-(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
  * Get the GeoJSON object type
  *
  * @return GeoJSON object type
