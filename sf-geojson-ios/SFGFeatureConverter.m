@@ -129,9 +129,11 @@
         geometry = [self treeToLineString:tree];
     }else if([type isEqualToString:SFG_TYPE_POLYGON]){
         geometry = [self treeToPolygon:tree];
-    }else if([type isEqualToString:SFG_TYPE_MULTI_POINT]){
+    }else if([type isEqualToString:SFG_TYPE_MULTIPOINT]){
         geometry = [self treeToMultiPoint:tree];
-    }else if([type isEqualToString:SFG_TYPE_MULTI_POLYGON]){
+    }else if([type isEqualToString:SFG_TYPE_MULTILINESTRING]){
+        geometry = [self treeToMultiLineString:tree];
+    }else if([type isEqualToString:SFG_TYPE_MULTIPOLYGON]){
         geometry = [self treeToMultiPolygon:tree];
     }else{
         // TODO
@@ -158,7 +160,7 @@
                 geometry = [[SFGMultiPoint alloc] initWithMultiPoint:(SFMultiPoint *)simpleGeometry];
                 break;
             case SF_MULTILINESTRING:
-                // TODO
+                geometry = [[SFGMultiLineString alloc] initWithMultiLineString:(SFMultiLineString *)simpleGeometry];
                 break;
             case SF_MULTIPOLYGON:
                 geometry = [[SFGMultiPolygon alloc] initWithMultiPolygon:(SFMultiPolygon *)simpleGeometry];
@@ -188,6 +190,10 @@
 
 +(SFGMultiPoint *) treeToMultiPoint: (NSDictionary *) tree{
     return [[SFGMultiPoint alloc] initWithTree:tree];
+}
+
++(SFGMultiLineString *) treeToMultiLineString: (NSDictionary *) tree{
+    return [[SFGMultiLineString alloc] initWithTree:tree];
 }
 
 +(SFGMultiPolygon *) treeToMultiPolygon: (NSDictionary *) tree{

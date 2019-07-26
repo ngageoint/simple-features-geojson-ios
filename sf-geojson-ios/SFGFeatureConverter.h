@@ -213,6 +213,15 @@
 +(SFGMultiPoint *) treeToMultiPoint: (NSDictionary *) tree;
 
 /**
+ * Convert the JSON tree to a multi line string
+ *
+ * @param tree
+ *            JSON tree
+ * @return multi line string
+ */
++(SFGMultiLineString *) treeToMultiLineString: (NSDictionary *) tree;
+
+/**
  * Convert the JSON tree to a multi polygon
  *
  * @param tree
