@@ -14,6 +14,7 @@
 #import "SFGMultiPolygon.h"
 #import "SFGFeature.h"
 #import "SFGFeatureCollection.h"
+#import "SFGMultiPoint.h"
 
 /**
  * Feature Converter
@@ -190,6 +191,15 @@
  * @return polygon
  */
 +(SFGPolygon *) treeToPolygon: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON tree to a multi point
+ *
+ * @param tree
+ *            JSON tree
+ * @return multi point
+ */
++(SFGMultiPoint *) treeToMultiPoint: (NSDictionary *) tree;
 
 /**
  * Convert the JSON tree to a multi polygon
