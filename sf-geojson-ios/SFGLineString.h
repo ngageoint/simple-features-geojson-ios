@@ -7,11 +7,75 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFLineString.h"
 
-NS_ASSUME_NONNULL_BEGIN
+/**
+ * Line String type
+ */
+extern NSString * const SFG_TYPE_LINESTRING;
 
+/**
+ * Line String
+ */
 @interface SFGLineString : SFGGeometry
 
-@end
+/**
+ *  Initialize
+ *
+ *  @return new line string
+ */
+-(instancetype) init;
 
-NS_ASSUME_NONNULL_END
+/**
+ *  Initialize
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new line string
+ */
+-(instancetype) initWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Initialize
+ *
+ *  @param lineString simple line string
+ *
+ *  @return new line string
+ */
+-(instancetype) initWithLineString: (SFLineString *) lineString;
+
+/**
+ *  Initialize
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new line string
+ */
+-(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
+ * Get the simple line string
+ *
+ * @return simple line string
+ */
+-(SFLineString *) lineString;
+
+/**
+ *  Get coordinates from a line string
+ *
+ *  @param lineString simple line string
+ *
+ *  @return coordinates
+ */
++(NSMutableArray *) coordinatesFromLineString: (SFLineString *) lineString;
+
+/**
+ *  Get a line string from coordinates
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return line string
+ */
++(SFLineString *) lineStringFromCoordinates: (NSArray *) coordinates;
+
+@end

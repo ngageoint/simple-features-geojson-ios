@@ -10,11 +10,13 @@
 #import "SFGGeometry.h"
 #import "SFGeometry.h"
 #import "SFGPoint.h"
+#import "SFGLineString.h"
 #import "SFGPolygon.h"
+#import "SFGMultiPoint.h"
+#import "SFGMultiLineString.h"
 #import "SFGMultiPolygon.h"
 #import "SFGFeature.h"
 #import "SFGFeatureCollection.h"
-#import "SFGMultiPoint.h"
 
 /**
  * Feature Converter
@@ -182,6 +184,15 @@
  * @return point
  */
 +(SFGPoint *) treeToPoint: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON tree to a line string
+ *
+ * @param tree
+ *            JSON tree
+ * @return line string
+ */
++(SFGLineString *) treeToLineString: (NSDictionary *) tree;
 
 /**
  * Convert the JSON tree to a polygon

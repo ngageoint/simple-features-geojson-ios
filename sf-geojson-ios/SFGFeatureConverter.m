@@ -125,6 +125,8 @@
     
     if([type isEqualToString:SFG_TYPE_POINT]){
         geometry = [self treeToPoint:tree];
+    }else if([type isEqualToString:SFG_TYPE_LINESTRING]){
+        geometry = [self treeToLineString:tree];
     }else if([type isEqualToString:SFG_TYPE_POLYGON]){
         geometry = [self treeToPolygon:tree];
     }else if([type isEqualToString:SFG_TYPE_MULTI_POINT]){
@@ -147,7 +149,7 @@
                 geometry = [[SFGPoint alloc] initWithPoint:(SFPoint *)simpleGeometry];
                 break;
             case SF_LINESTRING:
-                // TODO
+                geometry = [[SFGLineString alloc] initWithLineString:(SFLineString *)simpleGeometry];
                 break;
             case SF_POLYGON:
                 geometry = [[SFGPolygon alloc] initWithPolygon:(SFPolygon *)simpleGeometry];
@@ -174,6 +176,10 @@
 
 +(SFGPoint *) treeToPoint: (NSDictionary *) tree{
     return [[SFGPoint alloc] initWithTree:tree];
+}
+
++(SFGLineString *) treeToLineString: (NSDictionary *) tree{
+    return [[SFGLineString alloc] initWithTree:tree];
 }
 
 +(SFGPolygon *) treeToPolygon: (NSDictionary *) tree{
