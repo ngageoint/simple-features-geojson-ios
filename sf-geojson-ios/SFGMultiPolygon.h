@@ -12,7 +12,7 @@
 /**
  * Multi Polygon type
  */
-extern NSString * const SFG_TYPE_MULTI_POLYGON;
+extern NSString * const SFG_TYPE_MULTIPOLYGON;
 
 /**
  * Multi Polygon

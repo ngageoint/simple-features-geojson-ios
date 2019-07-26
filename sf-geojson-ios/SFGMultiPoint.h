@@ -12,7 +12,7 @@
 /**
  * Multi Point type
  */
-extern NSString * const SFG_TYPE_MULTI_POINT;
+extern NSString * const SFG_TYPE_MULTIPOINT;
 
 /**
  * Multi Point

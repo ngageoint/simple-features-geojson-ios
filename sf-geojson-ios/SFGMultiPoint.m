@@ -9,7 +9,7 @@
 #import "SFGMultiPoint.h"
 #import "SFGPoint.h"
 
-NSString * const SFG_TYPE_MULTI_POINT = @"MultiPoint";
+NSString * const SFG_TYPE_MULTIPOINT = @"MultiPoint";
 
 @interface SFGMultiPoint()
 
@@ -62,7 +62,7 @@ NSString * const SFG_TYPE_MULTI_POINT = @"MultiPoint";
 }
 
 -(NSString *) type{
-    return SFG_TYPE_MULTI_POINT;
+    return SFG_TYPE_MULTIPOINT;
 }
 
 +(NSMutableArray *) coordinatesFromMultiPoint: (SFMultiPoint *) multiPoint{

@@ -9,7 +9,7 @@
 #import "SFGMultiPolygon.h"
 #import "SFGPolygon.h"
 
-NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
+NSString * const SFG_TYPE_MULTIPOLYGON = @"MultiPolygon";
 
 @interface SFGMultiPolygon()
 
@@ -62,7 +62,7 @@ NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
 }
 
 -(NSString *) type{
-    return SFG_TYPE_MULTI_POLYGON;
+    return SFG_TYPE_MULTIPOLYGON;
 }
 
 +(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon{
