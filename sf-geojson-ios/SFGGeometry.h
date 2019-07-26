@@ -20,6 +20,31 @@ extern NSString * const SFG_COORDINATES;
 @interface SFGGeometry : SFGGeoJSONObject
 
 /**
+ *  Initialize
+ *
+ *  @return new geometry
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new geometry
+ */
+-(instancetype) initWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Initialize
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new geometry
+ */
+-(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
  * Get the simple geometry
  *
  * @return simple geometry

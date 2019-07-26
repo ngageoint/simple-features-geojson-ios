@@ -70,7 +70,7 @@ extern NSString * const SFG_TYPE_MULTI_POINT;
 +(NSMutableArray *) coordinatesFromMultiPoint: (SFMultiPoint *) multiPoint;
 
 /**
- *  Get a multi point from coordiantes
+ *  Get a multi point from coordinates
  *
  *  @param coordinates coordinate positions
  *

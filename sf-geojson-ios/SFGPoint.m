@@ -25,6 +25,11 @@ NSString * const SFG_TYPE_POINT = @"Point";
     return [self initWithPoint:[[SFPoint alloc] init]];
 }
 
+-(instancetype) initWithCoordinates: (NSArray *) coordinates{
+    self = [super initWithCoordinates:coordinates];
+    return self;
+}
+
 -(instancetype) initWithPosition: (SFGPosition *) position{
     self = [super init];
     if(self != nil){
@@ -43,10 +48,7 @@ NSString * const SFG_TYPE_POINT = @"Point";
 }
 
 -(instancetype) initWithTree: (NSDictionary *) tree{
-    self = [super init];
-    if(self != nil){
-        [self fromTree:tree];
-    }
+    self = [super initWithTree:tree];
     return self;
 }
 

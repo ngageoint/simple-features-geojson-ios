@@ -28,10 +28,7 @@ NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
 }
 
 -(instancetype) initWithCoordinates: (NSArray *) coordinates{
-    self = [super init];
-    if(self != nil){
-        [self setCoordinates:coordinates];
-    }
+    self = [super initWithCoordinates:coordinates];
     return self;
 }
 
@@ -44,10 +41,7 @@ NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
 }
 
 -(instancetype) initWithTree: (NSDictionary *) tree{
-    self = [super init];
-    if(self != nil){
-        [self fromTree:tree];
-    }
+    self = [super initWithTree:tree];
     return self;
 }
 

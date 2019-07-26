@@ -70,7 +70,7 @@ extern NSString * const SFG_TYPE_MULTI_POLYGON;
 +(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon;
 
 /**
- *  Get a multi polygon from coordiantes
+ *  Get a multi polygon from coordinates
  *
  *  @param coordinates coordinate positions
  *

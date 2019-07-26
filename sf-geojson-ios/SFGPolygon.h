@@ -8,7 +8,6 @@
 
 #import "SFGGeometry.h"
 #import "SFPolygon.h"
-#import "SFGPosition.h"
 
 /**
  * Polygon type
@@ -71,7 +70,7 @@ extern NSString * const SFG_TYPE_POLYGON;
 +(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon;
 
 /**
- *  Get a polygon from coordiantes
+ *  Get a polygon from coordinates
  *
  *  @param coordinates coordinate positions
  *

@@ -12,6 +12,27 @@ NSString * const SFG_COORDINATES = @"coordinates";
 
 @implementation SFGGeometry
 
+-(instancetype) init{
+    self = [super init];
+    return self;
+}
+
+-(instancetype) initWithCoordinates: (NSArray *) coordinates{
+    self = [super init];
+    if(self != nil){
+        [self setCoordinates:coordinates];
+    }
+    return self;
+}
+
+-(instancetype) initWithTree: (NSDictionary *) tree{
+    self = [super init];
+    if(self != nil){
+        [self fromTree:tree];
+    }
+    return self;
+}
+
 -(SFGeometry *) geometry{
     [self doesNotRecognizeSelector:_cmd];
     return nil;

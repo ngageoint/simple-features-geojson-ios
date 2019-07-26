@@ -35,6 +35,15 @@ extern NSString * const SFG_TYPE_POINT;
 /**
  *  Initialize
  *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new point
+ */
+-(instancetype) initWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Initialize
+ *
  *  @param position position
  *
  *  @return new point
@@ -92,7 +101,7 @@ extern NSString * const SFG_TYPE_POINT;
 +(NSArray *) coordinatesFromPosition: (SFGPosition *) position;
 
 /**
- *  Get a point from coordiantes
+ *  Get a point from coordinates
  *
  *  @param coordinates coordinate positions
  *
@@ -110,7 +119,7 @@ extern NSString * const SFG_TYPE_POINT;
 +(SFPoint *) pointFromPosition: (SFGPosition *) position;
 
 /**
- *  Get a position from coordiantes
+ *  Get a position from coordinates
  *
  *  @param coordinates coordinate positions
  *
