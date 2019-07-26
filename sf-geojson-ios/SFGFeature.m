@@ -37,20 +37,15 @@ NSString * const SFG_PROPERTIES = @"properties";
 }
 
 -(instancetype) initWithGeometry: (SFGGeometry *) geometry{
-    self = [super init];
+    self = [self init];
     if(self != nil){
-        self.feature = [[SFGSimpleFeature alloc] init];
         [self setGeometry:geometry];
     }
     return self;
 }
 
 -(instancetype) initWithTree: (NSDictionary *) tree{
-    self = [super init];
-    if(self != nil){
-        self.feature = [[SFGSimpleFeature alloc] init];
-        [self fromTree:tree];
-    }
+    self = [super initWithTree:tree];
     return self;
 }
 
@@ -119,6 +114,7 @@ NSString * const SFG_PROPERTIES = @"properties";
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
+    self.feature = [[SFGSimpleFeature alloc] init];
     self.id = [tree objectForKey:SFG_ID];
     NSDictionary *geometryTree = [tree objectForKey:SFG_GEOMETRY];
     SFGGeometry *geometry = nil;

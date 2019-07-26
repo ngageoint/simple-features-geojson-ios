@@ -18,6 +18,10 @@
     return [[SFGFeature alloc] initWithTree:tree];
 }
 
++(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree{
+    return [[SFGFeatureCollection alloc] initWithTree:tree];
+}
+
 +(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
     SFGFeature *feature = [[SFGFeature alloc] initWithGeometry:geometry];
@@ -36,7 +40,7 @@
     if([type isEqualToString:SFG_TYPE_FEATURE]){
         object = [self treeToFeature:tree];
     }else if([type isEqualToString:SFG_TYPE_FEATURE_COLLECTION]){
-        //TODO object = [self treeToFeatureCollection:tree];
+        object = [self treeToFeatureCollection:tree];
     }else{
         object = [self treeToGeometry:tree];
     }

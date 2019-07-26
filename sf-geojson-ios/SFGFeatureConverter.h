@@ -43,6 +43,15 @@
 +(SFGFeature *) treeToFeature: (NSDictionary *) tree;
 
 /**
+ * Convert the JSON tree to a feature collection
+ *
+ * @param tree
+ *            tree node
+ * @return feature collection
+ */
++(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree;
+
+/**
  * Convert a simple geometry to a feature
  *
  * @param simpleGeometry
