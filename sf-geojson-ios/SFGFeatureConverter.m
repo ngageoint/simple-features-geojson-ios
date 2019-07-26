@@ -135,8 +135,10 @@
         geometry = [self treeToMultiLineString:tree];
     }else if([type isEqualToString:SFG_TYPE_MULTIPOLYGON]){
         geometry = [self treeToMultiPolygon:tree];
+    }else if([type isEqualToString:SFG_TYPE_GEOMETRYCOLLECTION]){
+        geometry = [self treeToGeometryCollection:tree];
     }else{
-        // TODO
+        [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", type];
     }
     
     return geometry;
@@ -166,7 +168,7 @@
                 geometry = [[SFGMultiPolygon alloc] initWithMultiPolygon:(SFMultiPolygon *)simpleGeometry];
                 break;
             case SF_GEOMETRYCOLLECTION:
-                // TODO
+                geometry = [[SFGGeometryCollection alloc] initWithGeometryCollection:(SFGeometryCollection *)simpleGeometry];
                 break;
             default:
                 [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", [SFGeometryTypes name:geometryType]];
@@ -198,6 +200,10 @@
 
 +(SFGMultiPolygon *) treeToMultiPolygon: (NSDictionary *) tree{
     return [[SFGMultiPolygon alloc] initWithTree:tree];
+}
+
++(SFGGeometryCollection *) treeToGeometryCollection: (NSDictionary *) tree{
+    return [[SFGGeometryCollection alloc] initWithTree:tree];
 }
 
 @end

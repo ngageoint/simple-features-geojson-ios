@@ -15,6 +15,7 @@
 #import "SFGMultiPoint.h"
 #import "SFGMultiLineString.h"
 #import "SFGMultiPolygon.h"
+#import "SFGGeometryCollection.h"
 #import "SFGFeature.h"
 #import "SFGFeatureCollection.h"
 
@@ -229,5 +230,14 @@
  * @return multi polygon
  */
 +(SFGMultiPolygon *) treeToMultiPolygon: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON tree to a geometry collection
+ *
+ * @param tree
+ *            JSON tree
+ * @return geometry collection
+ */
++(SFGGeometryCollection *) treeToGeometryCollection: (NSDictionary *) tree;
 
 @end
