@@ -45,6 +45,6 @@ extern NSString * const SFG_COORDINATES;
  *
  * @return coordinates
  */
-+(NSObject *) treeCoordinates: (NSDictionary *) tree;
++(NSArray *) treeCoordinates: (NSDictionary *) tree;
 
 @end

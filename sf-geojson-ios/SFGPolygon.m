@@ -66,17 +66,11 @@ NSString * const SFG_TYPE_POLYGON = @"Polygon";
 }
 
 -(SFGeometry *) geometry{
-    return _polygon;
+    return [self polygon];
 }
 
 -(NSString *) type{
     return SFG_TYPE_POLYGON;
-}
-
--(void) fromTree: (NSDictionary *) tree{
-    [super fromTree:tree];
-    NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
-    [self setCoordinates:coordinates];
 }
 
 +(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon{

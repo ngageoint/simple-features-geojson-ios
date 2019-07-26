@@ -68,18 +68,11 @@ NSString * const SFG_TYPE_POINT = @"Point";
 }
 
 -(SFGeometry *) geometry{
-    return _point;
+    return [self point];
 }
 
 -(NSString *) type{
     return SFG_TYPE_POINT;
-}
-
--(void) fromTree: (NSDictionary *) tree{
-    [super fromTree:tree];
-    NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
-    SFGPosition *position = [[SFGPosition alloc] initWithCoordinates:coordinates];
-    [self setPosition:position];
 }
 
 +(NSArray *) coordinatesFromPoint: (SFPoint *) point{

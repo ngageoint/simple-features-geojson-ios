@@ -34,9 +34,10 @@ NSString * const SFG_COORDINATES = @"coordinates";
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
+    [self setCoordinates:[SFGGeometry treeCoordinates:tree]];
 }
 
-+(NSObject *) treeCoordinates: (NSDictionary *) tree{
++(NSArray *) treeCoordinates: (NSDictionary *) tree{
     return [tree objectForKey:SFG_COORDINATES];
 }
 

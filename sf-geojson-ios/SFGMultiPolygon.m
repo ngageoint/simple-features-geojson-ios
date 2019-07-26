@@ -64,17 +64,11 @@ NSString * const SFG_TYPE_MULTI_POLYGON = @"MultiPolygon";
 }
 
 -(SFGeometry *) geometry{
-    return _multiPolygon;
+    return [self multiPolygon];
 }
 
 -(NSString *) type{
     return SFG_TYPE_MULTI_POLYGON;
-}
-
--(void) fromTree: (NSDictionary *) tree{
-    [super fromTree:tree];
-    NSArray *coordinates = (NSArray *)[SFGGeometry treeCoordinates:tree];
-    [self setCoordinates:coordinates];
 }
 
 +(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon{
