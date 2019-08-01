@@ -43,6 +43,10 @@ static double EPSILON = 0.00001;
     [self assertPositionWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElements andPosition:point.position];
 }
 
++(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andCoordinates: (NSArray *) coordinates{
+    [self assertPositionWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElements andPosition:[[SFGPosition alloc] initWithCoordinates:coordinates]];
+}
+
 +(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPosition: (SFGPosition *) position{
     [self assertEqualDoubleWithValue:longitude andValue2:[[position x] doubleValue] andDelta:EPSILON];
     [self assertEqualDoubleWithValue:latitude andValue2:[[position y] doubleValue] andDelta:EPSILON];
