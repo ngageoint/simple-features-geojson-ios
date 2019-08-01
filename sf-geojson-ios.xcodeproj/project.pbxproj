@@ -45,6 +45,7 @@
 		04E8E46E22E76B75001696A2 /* SFGFeatureTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E46D22E76B75001696A2 /* SFGFeatureTestCase.m */; };
 		04E8E47122F31F25001696A2 /* SFGPolygonTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47022F31F25001696A2 /* SFGPolygonTestCase.m */; };
 		04E8E47422F336AD001696A2 /* SFGLineStringTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47322F336AD001696A2 /* SFGLineStringTestCase.m */; };
+		04E8E47722F355D9001696A2 /* SFGMultiPointTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47622F355D9001696A2 /* SFGMultiPointTestCase.m */; };
 		B4B9C5C590F6D09B45DC2BDB /* libPods-sf-geojson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-sf-geojson-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-sf-geojson-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,8 @@
 		04E8E47022F31F25001696A2 /* SFGPolygonTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGPolygonTestCase.m; sourceTree = "<group>"; };
 		04E8E47222F336AD001696A2 /* SFGLineStringTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGLineStringTestCase.h; sourceTree = "<group>"; };
 		04E8E47322F336AD001696A2 /* SFGLineStringTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGLineStringTestCase.m; sourceTree = "<group>"; };
+		04E8E47522F355D9001696A2 /* SFGMultiPointTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGMultiPointTestCase.h; sourceTree = "<group>"; };
+		04E8E47622F355D9001696A2 /* SFGMultiPointTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGMultiPointTestCase.m; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-sf-geojson-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.release.xcconfig"; sourceTree = "<group>"; };
 		457018C9103A514A78925D9E /* Pods-sf-geojson-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-geojson-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +215,8 @@
 				04C393E422E26E230049F6C0 /* SFGGeometryTestUtils.m */,
 				04E8E47222F336AD001696A2 /* SFGLineStringTestCase.h */,
 				04E8E47322F336AD001696A2 /* SFGLineStringTestCase.m */,
+				04E8E47522F355D9001696A2 /* SFGMultiPointTestCase.h */,
+				04E8E47622F355D9001696A2 /* SFGMultiPointTestCase.m */,
 				04C393D522DF70100049F6C0 /* SFGPointTestCase.h */,
 				04C393D622DF70100049F6C0 /* SFGPointTestCase.m */,
 				04E8E46F22F31F25001696A2 /* SFGPolygonTestCase.h */,
@@ -441,6 +446,7 @@
 				04E8E47422F336AD001696A2 /* SFGLineStringTestCase.m in Sources */,
 				04C393E522E26E230049F6C0 /* SFGGeometryTestUtils.m in Sources */,
 				04C393DA22DF78B50049F6C0 /* SFGTestUtils.m in Sources */,
+				04E8E47722F355D9001696A2 /* SFGMultiPointTestCase.m in Sources */,
 				04C393D722DF70100049F6C0 /* SFGPointTestCase.m in Sources */,
 				04E8E46E22E76B75001696A2 /* SFGFeatureTestCase.m in Sources */,
 			);
