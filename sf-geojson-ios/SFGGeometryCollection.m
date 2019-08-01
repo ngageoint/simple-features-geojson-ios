@@ -11,6 +11,8 @@
 
 NSString * const SFG_TYPE_GEOMETRYCOLLECTION = @"GeometryCollection";
 
+NSString * const SFG_GEOMETRIES = @"geometries";
+
 @interface SFGGeometryCollection()
 
 /**
@@ -50,11 +52,25 @@ NSString * const SFG_TYPE_GEOMETRYCOLLECTION = @"GeometryCollection";
 }
 
 -(NSArray *) coordinates{
-    return [SFGGeometryCollection coordinatesFromGeometryCollection:self.geometryCollection];
+    return nil;
 }
 
 -(void) setCoordinates: (NSArray *) coordinates{
-    self.geometryCollection = [SFGGeometryCollection geometryCollectionFromCoordinates:coordinates];
+
+}
+
+-(NSMutableDictionary *) toTree{
+    NSMutableDictionary *tree = [super toTree];
+    NSMutableArray *geometries = [SFGGeometryCollection geometriesFromGeometryCollection:self.geometryCollection];
+    [tree setObject:geometries forKey:SFG_GEOMETRIES];
+    return tree;
+}
+
+-(void) fromTree: (NSDictionary *) tree{
+    [super fromTree:tree];
+    NSArray *geometries = [SFGGeometryCollection treeGeometries:tree];
+    SFGeometryCollection *geometryCollection = [SFGGeometryCollection geometryCollectionFromGeometries:geometries];
+    [self setGeometryCollection:geometryCollection];
 }
 
 -(SFGeometry *) geometry{
@@ -65,7 +81,7 @@ NSString * const SFG_TYPE_GEOMETRYCOLLECTION = @"GeometryCollection";
     return SFG_TYPE_GEOMETRYCOLLECTION;
 }
 
-+(NSMutableArray *) coordinatesFromGeometryCollection: (SFGeometryCollection *) geometryCollection{
++(NSMutableArray *) geometriesFromGeometryCollection: (SFGeometryCollection *) geometryCollection{
     NSMutableArray *geometries = [[NSMutableArray alloc] init];
     for(SFGeometry *geometry in geometryCollection.geometries){
         [geometries addObject:[SFGFeatureConverter simpleGeometryToMutableTree:geometry]];
@@ -73,13 +89,17 @@ NSString * const SFG_TYPE_GEOMETRYCOLLECTION = @"GeometryCollection";
     return geometries;
 }
 
-+(SFGeometryCollection *) geometryCollectionFromCoordinates: (NSArray *) coordinates{
-    NSMutableArray<SFGeometry *> *geometries = [[NSMutableArray alloc] init];
-    for(NSDictionary *geometryCoordinates in coordinates){
++(SFGeometryCollection *) geometryCollectionFromGeometries: (NSArray *) geometries{
+    NSMutableArray<SFGeometry *> *geometryCollection = [[NSMutableArray alloc] init];
+    for(NSDictionary *geometryCoordinates in geometries){
         SFGGeometry *geometry = [SFGFeatureConverter treeToGeometry:geometryCoordinates];
-        [geometries addObject:[geometry geometry]];
+        [geometryCollection addObject:[geometry geometry]];
     }
-    return [[SFGeometryCollection alloc] initWithGeometries:geometries];
+    return [[SFGeometryCollection alloc] initWithGeometries:geometryCollection];
+}
+
++(NSArray *) treeGeometries: (NSDictionary *) tree{
+    return [tree objectForKey:SFG_GEOMETRIES];
 }
 
 @end

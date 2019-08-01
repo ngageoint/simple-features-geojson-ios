@@ -46,7 +46,10 @@ NSString * const SFG_COORDINATES = @"coordinates";
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
-    [tree setObject:[self coordinates] forKey:SFG_COORDINATES];
+    NSArray *coordinates = [self coordinates];
+    if(coordinates != nil){
+        [tree setObject:coordinates forKey:SFG_COORDINATES];
+    }
     return tree;
 }
 

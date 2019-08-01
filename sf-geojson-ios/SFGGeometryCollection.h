@@ -15,6 +15,11 @@
 extern NSString * const SFG_TYPE_GEOMETRYCOLLECTION;
 
 /**
+ * Geometries key
+ */
+extern NSString * const SFG_GEOMETRIES;
+
+/**
  * Geometry Collection
  */
 @interface SFGGeometryCollection : SFGGeometry
@@ -61,21 +66,28 @@ extern NSString * const SFG_TYPE_GEOMETRYCOLLECTION;
 -(SFGeometryCollection *) geometryCollection;
 
 /**
- *  Get coordinates from a geometry collection
+ *  Get geometries from a geometry collection
  *
  *  @param geometryCollection simple geometry collection
  *
- *  @return coordinates
+ *  @return geometries
  */
-+(NSMutableArray *) coordinatesFromGeometryCollection: (SFGeometryCollection *) geometryCollection;
++(NSMutableArray *) geometriesFromGeometryCollection: (SFGeometryCollection *) geometryCollection;
 
 /**
- *  Get a geometry collection from coordinates
+ *  Get a geometry collection from geometries
  *
- *  @param coordinates coordinate positions
+ *  @param geometries geometries
  *
  *  @return geometry collection
  */
-+(SFGeometryCollection *) geometryCollectionFromCoordinates: (NSArray *) coordinates;
++(SFGeometryCollection *) geometryCollectionFromGeometries: (NSArray *) geometries;
+
+/**
+ * Get the JSON object geometries from the JSON tree
+ *
+ * @return geometries
+ */
++(NSArray *) treeGeometries: (NSDictionary *) tree;
 
 @end
