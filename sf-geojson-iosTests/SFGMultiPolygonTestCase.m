@@ -19,7 +19,7 @@ static NSString *MULTIPOLYGON_WITH_ALT = @"{\"type\":\"MultiPolygon\",\"coordina
 static NSString *MULTIPOLYGON_WITH_RINGS = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100.1,-50.3],[100,-50],[1.5,50.6],[-100.1,-50.3]],[[-50,-25],[50.7,-25.9],[-1,25],[-50,-25]]]]}";
 static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100,-50],[100,-50],[1,50],[-100,-50]]],[[[-50,-25],[50,-25],[-1,25],[-50,-25]]]]}";
 
--(void) testSerializeSFMultiPolygon{
+-(void) testSerializeMultiPolygon{
     NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
     NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
@@ -34,7 +34,7 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     [SFGTestUtils compareSFGeometry:multiPolygon withInput:MULTIPOLYGON];
 }
 
--(void) testSerializeSFMultiPolygonWithAltitude{
+-(void) testSerializeMultiPolygonWithAltitude{
     NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
     NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
@@ -49,11 +49,11 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     [SFGTestUtils compareSFGeometry:multiPolygon withInput:MULTIPOLYGON_WITH_ALT];
 }
 
--(void) testSerializeSFMultiPolygonWithRings{
+-(void) testSerializeMultiPolygonWithRings{
     [SFGTestUtils compareSFGeometry:[SFGTestUtils multiPolygonWithRings] withInput:MULTIPOLYGON_WITH_RINGS];
 }
 
--(void) testSerializeSFMultiPolygonWithMulti{
+-(void) testSerializeMultiPolygonWithMulti{
     NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
     
     NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];

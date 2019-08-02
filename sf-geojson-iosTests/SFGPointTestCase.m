@@ -13,12 +13,12 @@
 
 @implementation SFGPointTestCase
 
--(void) testSerializeSFPoint{
+-(void) testSerializePoint{
     SFPoint *simplePoint = [[SFPoint alloc] initWithXValue:100 andYValue:10];
     [SFGTestUtils compareSFGeometry:simplePoint withInput:@"{\"type\":\"Point\",\"coordinates\":[100,10]}"];
 }
 
--(void) testSerializePoint{
+-(void) testDeserializePoint{
     SFGGeoJSONObject *object = [SFGFeatureConverter jsonToObject:@"{\"type\":\"Point\",\"coordinates\":[100.0,5.0]}"];
     [SFGTestUtils assertNotNil:object];
     [SFGTestUtils assertTrue:[object class] == [SFGPoint class]];

@@ -13,7 +13,7 @@
 
 @implementation SFGLineStringTestCase
 
--(void) testSerializeSFLineString{
+-(void) testSerializeLineString{
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1]];
@@ -21,7 +21,7 @@
     [SFGTestUtils compareSFGeometry:lineString withInput:@"{\"type\":\"LineString\",\"coordinates\":[[100,10],[101,1]]}"];
 }
 
--(void) testSerializeSFLineStringWithAltitude{
+-(void) testSerializeLineStringWithAltitude{
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:15]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1 andZValue:11]];

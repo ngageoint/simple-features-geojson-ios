@@ -16,7 +16,7 @@
 static NSString *MULTIPOINT = @"{\"type\":\"MultiPoint\",\"coordinates\":[[100,10],[101,1]]}";
 static NSString *MULTIPOINT_WITH_ALT = @"{\"type\":\"MultiPoint\",\"coordinates\":[[100,10,-20],[101,1,-10]]}";
 
--(void) testSerializeSFMultiPoint{
+-(void) testSerializeMultiPoint{
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1]];
@@ -24,7 +24,7 @@ static NSString *MULTIPOINT_WITH_ALT = @"{\"type\":\"MultiPoint\",\"coordinates\
     [SFGTestUtils compareSFGeometry:multiPoint withInput:MULTIPOINT];
 }
 
--(void) testSerializeSFMultiPointWithAltitude{
+-(void) testSerializeMultiPointWithAltitude{
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:-20]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1 andZValue:-10]];

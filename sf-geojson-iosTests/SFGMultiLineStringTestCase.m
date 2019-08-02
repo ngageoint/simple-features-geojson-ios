@@ -17,7 +17,7 @@ static NSString *MULTILINESTRING_WITH_MULTIPLE = @"{\"type\":\"MultiLineString\"
 
 @implementation SFGMultiLineStringTestCase
 
--(void) testSerializeSFMultiLineString{
+-(void) testSerializeMultiLineString{
     NSMutableArray<SFLineString *> *lineStrings = [[NSMutableArray alloc] init];
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
@@ -29,7 +29,7 @@ static NSString *MULTILINESTRING_WITH_MULTIPLE = @"{\"type\":\"MultiLineString\"
     [SFGTestUtils compareSFGeometry:mls withInput:MULTILINESTRING];
 }
 
--(void) testSerializeSFMultiLineStringWithAltitude{
+-(void) testSerializeMultiLineStringWithAltitude{
     NSMutableArray<SFLineString *> *lineStrings = [[NSMutableArray alloc] init];
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:5]];
@@ -41,7 +41,7 @@ static NSString *MULTILINESTRING_WITH_MULTIPLE = @"{\"type\":\"MultiLineString\"
     [SFGTestUtils compareSFGeometry:mls withInput:MULTILINESTRING_WITH_ALT];
 }
 
--(void) testSerializeSFMultiLineStringWithMultiple{
+-(void) testSerializeMultiLineStringWithMultiple{
     NSMutableArray<SFLineString *> *lineStrings = [[NSMutableArray alloc] init];
     NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
     [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];

@@ -19,12 +19,12 @@
 static NSString *GEOMETRYCOLLECTION = @"{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[61.5,48.8]},{\"type\":\"LineString\",\"coordinates\":[[100,10],[101,1]]}]}";
 static NSString *GEOMETRYCOLLECTION_WITH_ALT = @"{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[61.34765625,48.63290858589535,12.784]},{\"type\":\"LineString\",\"coordinates\":[[100,10,5],[101,1,10]]}]}";
 
--(void) testSerializeSFGeometryCollection{
+-(void) testSerializeGeometryCollection{
     SFGeometry *geometryCollection = [self createTestGeometry];
     [SFGTestUtils compareSFGeometry:geometryCollection withInput:GEOMETRYCOLLECTION];
 }
 
--(void) testSerializeSFGeometryCollectionWithAltitude{
+-(void) testSerializeGeometryCollectionWithAltitude{
     SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] initWithHasZ:YES andHasM:NO];
     SFPoint *point = [[SFPoint alloc] initWithXValue:61.34765625 andYValue:48.63290858589535 andZValue:12.784];
     [geometryCollection addGeometry:point];
