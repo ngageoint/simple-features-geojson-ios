@@ -50,6 +50,10 @@
 		04E8E47D22F36E4D001696A2 /* SFGMultiPolygonTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47C22F36E4D001696A2 /* SFGMultiPolygonTestCase.m */; };
 		04E8E48022F3829D001696A2 /* SFGGeometryCollectionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47F22F3829D001696A2 /* SFGGeometryCollectionTestCase.m */; };
 		04E8E48322F47873001696A2 /* SFGFeatureCollectionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E48222F47873001696A2 /* SFGFeatureCollectionTestCase.m */; };
+		04E8E48822F4A82E001696A2 /* gc.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48422F4A82E001696A2 /* gc.geojson */; };
+		04E8E48922F4A82E001696A2 /* fc-points.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48522F4A82E001696A2 /* fc-points.geojson */; };
+		04E8E48A22F4A82E001696A2 /* gc-multiple.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48622F4A82E001696A2 /* gc-multiple.geojson */; };
+		04E8E48B22F4A82E001696A2 /* fc-points-altitude.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48722F4A82E001696A2 /* fc-points-altitude.geojson */; };
 		B4B9C5C590F6D09B45DC2BDB /* libPods-sf-geojson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-sf-geojson-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-sf-geojson-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -122,6 +126,10 @@
 		04E8E47F22F3829D001696A2 /* SFGGeometryCollectionTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGGeometryCollectionTestCase.m; sourceTree = "<group>"; };
 		04E8E48122F47873001696A2 /* SFGFeatureCollectionTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGFeatureCollectionTestCase.h; sourceTree = "<group>"; };
 		04E8E48222F47873001696A2 /* SFGFeatureCollectionTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGFeatureCollectionTestCase.m; sourceTree = "<group>"; };
+		04E8E48422F4A82E001696A2 /* gc.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gc.geojson; sourceTree = "<group>"; };
+		04E8E48522F4A82E001696A2 /* fc-points.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fc-points.geojson"; sourceTree = "<group>"; };
+		04E8E48622F4A82E001696A2 /* gc-multiple.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gc-multiple.geojson"; sourceTree = "<group>"; };
+		04E8E48722F4A82E001696A2 /* fc-points-altitude.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fc-points-altitude.geojson"; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-sf-geojson-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.release.xcconfig"; sourceTree = "<group>"; };
 		457018C9103A514A78925D9E /* Pods-sf-geojson-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-geojson-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +259,10 @@
 		042FC65B1B963FE500549A4B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04E8E48722F4A82E001696A2 /* fc-points-altitude.geojson */,
+				04E8E48522F4A82E001696A2 /* fc-points.geojson */,
+				04E8E48622F4A82E001696A2 /* gc-multiple.geojson */,
+				04E8E48422F4A82E001696A2 /* gc.geojson */,
 				042FC65C1B963FE500549A4B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -392,6 +404,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E8E48822F4A82E001696A2 /* gc.geojson in Resources */,
+				04E8E48B22F4A82E001696A2 /* fc-points-altitude.geojson in Resources */,
+				04E8E48A22F4A82E001696A2 /* gc-multiple.geojson in Resources */,
+				04E8E48922F4A82E001696A2 /* fc-points.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

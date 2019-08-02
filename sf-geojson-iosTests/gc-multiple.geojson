@@ -1,0 +1,188 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+                 {
+                 "type": "Feature",
+                 "properties": {},
+                 "geometry": {
+                 "type": "GeometryCollection",
+                 "geometries": [{
+                                "type": "Point",
+                                "coordinates": [
+                                                61.34765625,
+                                                48.63290858589535
+                                                ]
+                                }, {
+                                "type": "Polygon",
+                                "coordinates": [
+                                                [
+                                                 [
+                                                  59.94140624999999,
+                                                  50.65294336725709
+                                                  ],
+                                                 [
+                                                  54.931640625,
+                                                  50.90303283111257
+                                                  ],
+                                                 [
+                                                  51.943359375,
+                                                  51.04139389812637
+                                                  ],
+                                                 [
+                                                  50.9765625,
+                                                  48.19538740833338
+                                                  ],
+                                                 [
+                                                  52.55859375,
+                                                  46.46813299215554
+                                                  ],
+                                                 [
+                                                  52.998046875,
+                                                  43.8028187190472
+                                                  ],
+                                                 [
+                                                  54.4921875,
+                                                  42.391008609205045
+                                                  ],
+                                                 [
+                                                  57.041015625,
+                                                  43.29320031385282
+                                                  ],
+                                                 [
+                                                  59.8974609375,
+                                                  45.398449976304086
+                                                  ],
+                                                 [
+                                                  62.5341796875,
+                                                  44.08758502824516
+                                                  ],
+                                                 [
+                                                  65.6982421875,
+                                                  45.73685954736049
+                                                  ],
+                                                 [
+                                                  68.37890625,
+                                                  48.3416461723746
+                                                  ],
+                                                 [
+                                                  65.8740234375,
+                                                  49.18170338770663
+                                                  ],
+                                                 [
+                                                  63.720703125,
+                                                  49.97948776108648
+                                                  ],
+                                                 [
+                                                  63.80859374999999,
+                                                  52.348763181988076
+                                                  ],
+                                                 [
+                                                  61.4794921875,
+                                                  52.32191088594773
+                                                  ],
+                                                 [
+                                                  59.9853515625,
+                                                  51.86292391360244
+                                                  ],
+                                                 [
+                                                  61.9189453125,
+                                                  51.09662294502995
+                                                  ],
+                                                 [
+                                                  60.5126953125,
+                                                  50.51342652633956
+                                                  ],
+                                                 [
+                                                  59.94140624999999,
+                                                  50.65294336725709
+                                                  ]
+                                                 ]
+                                                ]
+                                }]
+                 }
+                 },	    {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.87088507656375,
+                                 35.21515162500578
+                                 ]
+                 },
+                 "properties": {
+                 "name": "ABBOTT NEIGHBORHOOD PARK",
+                 "address": "1300  SPRUCE ST"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.83775386582222,
+                                 35.24980190252168
+                                 ]
+                 },
+                 "properties": {
+                 "name": "DOUBLE OAKS CENTER",
+                 "address": "1326 WOODWARD AV"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.83827000459532,
+                                 35.25674709224663
+                                 ]
+                 },
+                 "properties": {
+                 "name": "DOUBLE OAKS NEIGHBORHOOD PARK",
+                 "address": "2605  DOUBLE OAKS RD"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.83697759172735,
+                                 35.25751734669229
+                                 ]
+                 },
+                 "properties": {
+                 "name": "DOUBLE OAKS POOL",
+                 "address": "1200 NEWLAND RD"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.81647652154736,
+                                 35.40148708491418
+                                 ]
+                 },
+                 "properties": {
+                 "name": "DAVID B. WAYMER FLYING REGIONAL PARK",
+                 "address": "15401 HOLBROOKS RD"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [
+                                 -80.83556459443902,
+                                 35.39917224760999
+                                 ]
+                 },
+                 "properties": {
+                 "name": "DAVID B. WAYMER COMMUNITY PARK",
+                 "address": "302 HOLBROOKS RD"
+                 }
+                 }
+                 ]
+}

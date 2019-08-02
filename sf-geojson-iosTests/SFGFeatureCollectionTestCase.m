@@ -31,6 +31,32 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     [self compareFeatureCollection:featureCollection withJSON:json];
 }
 
+-(void) testDeserializeFeatureCollection2{
+    
+    NSString *filePath  = [[[NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]] resourcePath] stringByAppendingPathComponent:@"fc-points.geojson"];
+    NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
+    [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeatureCollection class]];
+    [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE_COLLECTION andValue2:[objectFromJSON type]];
+    SFGFeatureCollection *featureCollectionFromJSON = (SFGFeatureCollection *) objectFromJSON;
+    [SFGTestUtils assertEqualIntWithValue:6 andValue2:(int)featureCollectionFromJSON.features.count];
+    for(SFGFeature *feature in featureCollectionFromJSON.features){
+        [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
+        SFGGeometry *geometryObject = [feature geometry];
+        [SFGTestUtils assertEqualWithValue:SFG_TYPE_POINT andValue2:[geometryObject type]];
+        [SFGTestUtils assertEqualIntWithValue:2 andValue2:(int)[geometryObject coordinates].count];
+        [SFGTestUtils assertTrue:[geometryObject class] == [SFGPoint class]];
+        SFGPoint *pointObject = (SFGPoint *) geometryObject;
+        SFPoint *point = [pointObject point];
+        SFGeometry *geometry = [feature simpleGeometry];
+        [SFGTestUtils assertTrue:[geometry class] == [SFPoint class]];
+        SFPoint *point2 = (SFPoint *) geometry;
+        [SFGTestUtils assertEqualWithValue:point andValue2:point2];
+        [SFGTestUtils assertEqualIntWithValue:2 andValue2:(int)[feature properties].count];
+    }
+    
+}
+
 -(void) compareFeatureCollection: (SFGFeatureCollection *) featureCollection withJSON: (NSString *) json{
     
     NSMutableDictionary *treeFromObject = [featureCollection toTree];
