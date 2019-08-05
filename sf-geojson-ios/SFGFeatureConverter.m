@@ -18,14 +18,34 @@
     return [[SFGFeature alloc] initWithTree:tree];
 }
 
-+(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree{
-    return [[SFGFeatureCollection alloc] initWithTree:tree];
-}
-
 +(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
     SFGFeature *feature = [[SFGFeature alloc] initWithGeometry:geometry];
     return feature;
+}
+
++(SFGFeatureCollection *) jsonToFeatureCollection: (NSString *) json{
+    return [self treeToFeatureCollection:[self jsonToTree:json]];
+}
+
++(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree{
+    return [[SFGFeatureCollection alloc] initWithTree:tree];
+}
+
++(SFGFeatureCollection *) simpleGeometryToFeatureCollection: (SFGeometry *) simpleGeometry{
+    SFGFeature *feature = [self simpleGeometryToFeature:simpleGeometry];
+    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeature:feature];
+    return featureCollection;
+}
+
++(SFGFeatureCollection *) simpleGeometriesToFeatureCollection: (NSArray<SFGeometry *> *) simpleGeometries{
+    NSMutableArray<SFGFeature *> *features = [[NSMutableArray alloc] init];
+    for(SFGeometry *simpleGeometry in simpleGeometries){
+        SFGFeature *feature = [self simpleGeometryToFeature:simpleGeometry];
+        [features addObject:feature];
+    }
+    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeatures:features];
+    return featureCollection;
 }
 
 +(SFGGeoJSONObject *) jsonToObject: (NSString *) json{

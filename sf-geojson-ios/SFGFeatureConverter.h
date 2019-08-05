@@ -25,10 +25,10 @@
 @interface SFGFeatureConverter : NSObject
 
 /**
- * Convert the string content to a feature
+ * Convert the JSON string to a feature
  *
- * @param content
- *            string content
+ * @param json
+ *            JSON string
  * @return feature
  */
 +(SFGFeature *) jsonToFeature: (NSString *) json;
@@ -43,6 +43,24 @@
 +(SFGFeature *) treeToFeature: (NSDictionary *) tree;
 
 /**
+ * Convert a simple geometry to a feature
+ *
+ * @param simpleGeometry
+ *            simple geometry
+ * @return feature
+ */
++(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry;
+
+/**
+ * Convert the JSON string to a feature collection
+ *
+ * @param json
+ *            JSON string
+ * @return feature collection
+ */
++(SFGFeatureCollection *) jsonToFeatureCollection: (NSString *) json;
+
+/**
  * Convert the JSON tree to a feature collection
  *
  * @param tree
@@ -52,13 +70,22 @@
 +(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree;
 
 /**
- * Convert a simple geometry to a feature
+ * Convert a simple geometry to a feature collection
  *
  * @param simpleGeometry
  *            simple geometry
- * @return feature
+ * @return feature collection
  */
-+(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry;
++(SFGFeatureCollection *) simpleGeometryToFeatureCollection: (SFGeometry *) simpleGeometry;
+
+/**
+ * Convert simple geometries to a feature collection
+ *
+ * @param simpleGeometries
+ *            simple geometries
+ * @return feature collection
+ */
++(SFGFeatureCollection *) simpleGeometriesToFeatureCollection: (NSArray<SFGeometry *> *) simpleGeometries;
 
 /**
  * Convert the string content to a GeoJSON object
