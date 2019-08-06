@@ -21,7 +21,15 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-geojson-io
 
 ```objectivec
 
-// TODO
+//NSString *json = ...
+
+SFGGeometry *geometry = [SFGFeatureConverter jsonToGeometry:json];
+SFGeometry *simpleGeometry = [geometry geometry];
+
+/* Read as a generic GeoJSON object, Feature, or Feature Collection */
+//SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:json];
+//SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];
+//SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:json];
 
 ```
 
@@ -29,7 +37,17 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-geojson-io
 
 ```objectivec
 
-// TODO
+//SFGeometry *geometry = ...
+
+NSString *json = [SFGFeatureConverter simpleGeometryToJSON:geometry];
+
+SFGFeature *feature = [SFGFeatureConverter simpleGeometryToFeature:geometry];
+NSString *featureJSON = [SFGFeatureConverter objectToJSON:feature];
+
+SFGFeatureCollection *featureCollection = [SFGFeatureConverter simpleGeometryToFeatureCollection:geometry];
+NSString *featureCollectionJSON = [SFGFeatureConverter objectToJSON:featureCollection];
+
+NSDictionary *tree = [SFGFeatureConverter simpleGeometryToTree:geometry];
 
 ```
 
@@ -70,22 +88,6 @@ Include as local project:
 To use from Swift, import the sf-geojson-ios bridging header from the Swift project's bridging header
 
     #import "sf-geojson-ios-Bridging-Header.h"
-
-#### Read ####
-
-```swift
-
-// TODO
-
-```
-
-#### Write ####
-
-```swift
-
-// TODO
-
-```
 
 ### Remote Dependencies ###
 
