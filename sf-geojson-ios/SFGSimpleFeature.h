@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "SFGeometry.h"
 
+/**
+ * The simple feature
+ */
 @interface SFGSimpleFeature : NSObject
 
 /**

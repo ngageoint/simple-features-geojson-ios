@@ -328,13 +328,6 @@
       "symbol": "SFGeometryTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGSimpleFeature.h",
-      "line": 12,
-      "symbol": "SFGSimpleFeature",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/osbornb/git/simple-features-geojson-ios"
