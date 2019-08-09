@@ -90,6 +90,7 @@
     }
     
     NSString *content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    content = [content stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
     
     return content;
 }
