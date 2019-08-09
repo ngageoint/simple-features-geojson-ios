@@ -7,13 +7,14 @@
 //
 
 #import "SFGSimpleFeature.h"
+#import "SFGOrderedDictionary.h"
 
 @implementation SFGSimpleFeature
 
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.properties = [[NSMutableDictionary alloc] init];
+        self.properties = [[SFGOrderedDictionary alloc] init];
     }
     return self;
 }

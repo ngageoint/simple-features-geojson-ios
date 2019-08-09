@@ -8,6 +8,7 @@
 
 #import "SFGFeature.h"
 #import "SFGFeatureConverter.h"
+#import "SFGOrderedDictionary.h"
 
 NSString * const SFG_TYPE_FEATURE = @"Feature";
 
@@ -106,7 +107,7 @@ NSString * const SFG_PROPERTIES = @"properties";
     [tree setObject:geometryTree != nil ? geometryTree : [NSNull null] forKey:SFG_GEOMETRY];
     NSMutableDictionary<NSString *, NSObject *> *properties = [self properties];
     if(properties == nil){
-        properties = [[NSMutableDictionary alloc] init];
+        properties = [[SFGOrderedDictionary alloc] init];
     }
     [tree setObject:properties forKey:SFG_PROPERTIES];
     return tree;
@@ -123,7 +124,7 @@ NSString * const SFG_PROPERTIES = @"properties";
     }
     [self setGeometry:geometry];
     NSDictionary *propertiesTree = [tree objectForKey:SFG_PROPERTIES];
-    NSMutableDictionary<NSString *, NSObject *> *properties = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary<NSString *, NSObject *> *properties = [[SFGOrderedDictionary alloc] init];
     if(![propertiesTree isEqual:[NSNull null]] && propertiesTree != nil){
         for(NSString *propertyKey in [propertiesTree allKeys]){
             [properties setObject:[propertiesTree objectForKey:propertyKey] forKey:propertyKey];

@@ -21,6 +21,7 @@
 #import "SFGMultiLineString.h"
 #import "SFGMultiPoint.h"
 #import "SFGMultiPolygon.h"
+#import "SFGOrderedDictionary.h"
 #import "SFGPoint.h"
 #import "SFGPolygon.h"
 #import "SFGPosition.h"

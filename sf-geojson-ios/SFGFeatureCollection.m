@@ -8,6 +8,7 @@
 
 #import "SFGFeatureCollection.h"
 #import "SFGFeatureConverter.h"
+#import "SFGOrderedDictionary.h"
 
 NSString * const SFG_TYPE_FEATURE_COLLECTION = @"FeatureCollection";
 
@@ -77,7 +78,7 @@ NSString * const SFG_FEATURES = @"features";
 }
 
 -(NSDictionary<NSString *, NSObject *> *) properties{
-    NSMutableDictionary<NSString *, NSObject *> *result = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary<NSString *, NSObject *> *result = [[SFGOrderedDictionary alloc] init];
     for(SFGFeature *feature in self.features){
         NSMutableDictionary<NSString *, NSObject *> *properties = [feature properties];
         for(NSString *property in [properties allKeys]){

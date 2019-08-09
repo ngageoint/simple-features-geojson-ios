@@ -54,6 +54,8 @@
 		04E8E48922F4A82E001696A2 /* fc-points.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48522F4A82E001696A2 /* fc-points.geojson */; };
 		04E8E48A22F4A82E001696A2 /* gc-multiple.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48622F4A82E001696A2 /* gc-multiple.geojson */; };
 		04E8E48B22F4A82E001696A2 /* fc-points-altitude.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 04E8E48722F4A82E001696A2 /* fc-points-altitude.geojson */; };
+		04E8E4BC22FDE120001696A2 /* SFGOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E8E4BA22FDE11F001696A2 /* SFGOrderedDictionary.h */; };
+		04E8E4BD22FDE120001696A2 /* SFGOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E4BB22FDE120001696A2 /* SFGOrderedDictionary.m */; };
 		B4B9C5C590F6D09B45DC2BDB /* libPods-sf-geojson-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-sf-geojson-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-sf-geojson-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,8 @@
 		04E8E48522F4A82E001696A2 /* fc-points.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fc-points.geojson"; sourceTree = "<group>"; };
 		04E8E48622F4A82E001696A2 /* gc-multiple.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "gc-multiple.geojson"; sourceTree = "<group>"; };
 		04E8E48722F4A82E001696A2 /* fc-points-altitude.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fc-points-altitude.geojson"; sourceTree = "<group>"; };
+		04E8E4BA22FDE11F001696A2 /* SFGOrderedDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGOrderedDictionary.h; sourceTree = "<group>"; };
+		04E8E4BB22FDE120001696A2 /* SFGOrderedDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGOrderedDictionary.m; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-sf-geojson-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.release.xcconfig"; sourceTree = "<group>"; };
 		457018C9103A514A78925D9E /* Pods-sf-geojson-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sf-geojson-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sf-geojson-ios/Pods-sf-geojson-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-sf-geojson-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sf-geojson-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +216,8 @@
 				04C393E022DFC32F0049F6C0 /* SFGPosition.m */,
 				04C3940622E61A9E0049F6C0 /* SFGSimpleFeature.h */,
 				04C3940722E61A9E0049F6C0 /* SFGSimpleFeature.m */,
+				04E8E4BA22FDE11F001696A2 /* SFGOrderedDictionary.h */,
+				04E8E4BB22FDE120001696A2 /* SFGOrderedDictionary.m */,
 				042FC64E1B963FE500549A4B /* Supporting Files */,
 				0472B51A1C03590500496B87 /* sf-geojson-ios-Bridging-Header.h */,
 			);
@@ -302,6 +308,7 @@
 				04C393E822E616B40049F6C0 /* SFGFeature.h in Headers */,
 				04C3940822E61A9E0049F6C0 /* SFGSimpleFeature.h in Headers */,
 				04C3940022E619F90049F6C0 /* SFGMultiPolygon.h in Headers */,
+				04E8E4BC22FDE120001696A2 /* SFGOrderedDictionary.h in Headers */,
 				04C393CF22DF6EF90049F6C0 /* SFGGeometry.h in Headers */,
 				04C393CB22DF6ED00049F6C0 /* SFGGeoJSONObject.h in Headers */,
 				04C393F822E618560049F6C0 /* SFGMultiLineString.h in Headers */,
@@ -465,6 +472,7 @@
 				04C393FD22E619D60049F6C0 /* SFGMultiPoint.m in Sources */,
 				04C393F522E617300049F6C0 /* SFGLineString.m in Sources */,
 				04C393E222DFC32F0049F6C0 /* SFGPosition.m in Sources */,
+				04E8E4BD22FDE120001696A2 /* SFGOrderedDictionary.m in Sources */,
 				04C393F922E618560049F6C0 /* SFGMultiLineString.m in Sources */,
 				04C393D422DF6F1B0049F6C0 /* SFGPoint.m in Sources */,
 				04C3940522E61A500049F6C0 /* SFGPolygon.m in Sources */,

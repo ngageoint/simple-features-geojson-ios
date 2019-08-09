@@ -7,6 +7,7 @@
 //
 
 #import "SFGGeoJSONObject.h"
+#import "SFGOrderedDictionary.h"
 
 NSString * const SFG_TYPE = @"type";
 
@@ -33,7 +34,7 @@ NSString * const SFG_BBOX = @"bbox";
 }
 
 -(NSMutableDictionary *) toTree{
-    NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *tree = [[SFGOrderedDictionary alloc] init];
     [tree setObject:[self type] forKey:SFG_TYPE];
     if(self.bbox != nil){
         [tree setObject:self.bbox forKey:SFG_BBOX];
