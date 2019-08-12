@@ -90,8 +90,8 @@
 /**
  * Convert the string content to a GeoJSON object
  *
- * @param content
- *            string content
+ * @param json
+ *            JSON string
  * @return GeoJSON object
  */
 +(SFGGeoJSONObject *) jsonToObject: (NSString *) json;
