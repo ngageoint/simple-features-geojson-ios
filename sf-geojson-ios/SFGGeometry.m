@@ -10,7 +10,15 @@
 
 NSString * const SFG_COORDINATES = @"coordinates";
 
+static NSOrderedSet *keys = nil;
+
 @implementation SFGGeometry
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_COORDINATES, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -56,6 +64,10 @@ NSString * const SFG_COORDINATES = @"coordinates";
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
     [self setCoordinates:[SFGGeometry treeCoordinates:tree]];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 +(NSArray *) treeCoordinates: (NSDictionary *) tree{

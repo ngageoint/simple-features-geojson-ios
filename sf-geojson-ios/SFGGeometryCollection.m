@@ -13,6 +13,8 @@ NSString * const SFG_TYPE_GEOMETRYCOLLECTION = @"GeometryCollection";
 
 NSString * const SFG_GEOMETRIES = @"geometries";
 
+static NSOrderedSet *keys = nil;
+
 @interface SFGGeometryCollection()
 
 /**
@@ -23,6 +25,12 @@ NSString * const SFG_GEOMETRIES = @"geometries";
 @end
 
 @implementation SFGGeometryCollection
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_COORDINATES, SFG_GEOMETRIES, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -71,6 +79,10 @@ NSString * const SFG_GEOMETRIES = @"geometries";
     NSArray *geometries = [SFGGeometryCollection treeGeometries:tree];
     SFGeometryCollection *geometryCollection = [SFGGeometryCollection geometryCollectionFromGeometries:geometries];
     [self setGeometryCollection:geometryCollection];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 -(SFGeometry *) geometry{

@@ -29,6 +29,11 @@ extern NSString * const SFG_BBOX;
 @property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *bbox;
 
 /**
+ *  Foreign members
+ */
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSObject *> *foreignMembers;
+
+/**
  *  Initialize
  *
  *  @return new object
@@ -64,6 +69,13 @@ extern NSString * const SFG_BBOX;
  * @param tree JSON tree
  */
 -(void) fromTree: (NSDictionary *) tree;
+
+/**
+ * Get the JSON keys
+ *
+ * @return JSON keys
+ */
+-(NSOrderedSet<NSString *> *) keys;
 
 /**
  * Get the type of the JSON tree

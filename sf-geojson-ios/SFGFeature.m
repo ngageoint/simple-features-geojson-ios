@@ -18,6 +18,8 @@ NSString * const SFG_GEOMETRY = @"geometry";
 
 NSString * const SFG_PROPERTIES = @"properties";
 
+static NSOrderedSet *keys = nil;
+
 @interface SFGFeature()
 
 /**
@@ -28,6 +30,12 @@ NSString * const SFG_PROPERTIES = @"properties";
 @end
 
 @implementation SFGFeature
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_ID, SFG_GEOMETRY, SFG_PROPERTIES, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -131,6 +139,10 @@ NSString * const SFG_PROPERTIES = @"properties";
         }
     }
     [self setProperties:properties];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

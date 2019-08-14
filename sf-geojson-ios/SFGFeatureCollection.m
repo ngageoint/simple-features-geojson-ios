@@ -14,7 +14,15 @@ NSString * const SFG_TYPE_FEATURE_COLLECTION = @"FeatureCollection";
 
 NSString * const SFG_FEATURES = @"features";
 
+static NSOrderedSet *keys = nil;
+
 @implementation SFGFeatureCollection
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_FEATURES, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -113,6 +121,10 @@ NSString * const SFG_FEATURES = @"features";
             [self.features addObject:[SFGFeatureConverter treeToFeature:featureTree]];
         }
     }
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

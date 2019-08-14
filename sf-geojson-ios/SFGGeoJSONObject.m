@@ -17,6 +17,9 @@ NSString * const SFG_BBOX = @"bbox";
 
 -(instancetype) init{
     self = [super init];
+    if(self != nil){
+        self.foreignMembers = [[NSMutableDictionary alloc] init];
+    }
     return self;
 }
 
@@ -39,6 +42,9 @@ NSString * const SFG_BBOX = @"bbox";
     if(self.bbox != nil){
         [tree setObject:self.bbox forKey:SFG_BBOX];
     }
+    if(self.foreignMembers != nil && self.foreignMembers.count > 0){
+        [tree addEntriesFromDictionary:self.foreignMembers];
+    }
     return tree;
 }
 
@@ -50,6 +56,20 @@ NSString * const SFG_BBOX = @"bbox";
             [self.bbox addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
         }
     }
+    self.foreignMembers = [[NSMutableDictionary alloc] init];
+    NSOrderedSet<NSString *> *keys = [self keys];
+    if(keys != nil && keys.count > 0){
+        for(NSString *key in [tree allKeys]){
+            if(![keys containsObject:key]){
+                [self.foreignMembers setObject:[tree objectForKey:key] forKey:key];
+            }
+        }
+    }
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 +(NSString *) treeType: (NSDictionary *) tree{
