@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-geojson-ios Docs</a> (91% documented)</p>
+        <p><a href="index.html">sf-geojson-ios Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-geojson-ios"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -99,6 +99,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGMultiPolygon.html">SFGMultiPolygon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SFGOrderedDictionary.html">SFGOrderedDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SFGPoint.html">SFGPoint</a>
@@ -1900,7 +1903,7 @@ coordinate digit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/1.0.0/sf-geojson-ios/SFGGeoJSONObject.h#L24-L75">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/1.0.0/sf-geojson-ios/SFGGeoJSONObject.h#L24-L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2152,6 +2155,74 @@ coordinate digit.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)SFGOrderedDictionary"></a>
+                    <a name="//apple_ref/objc/Class/SFGOrderedDictionary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGOrderedDictionary">SFGOrderedDictionary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/SFGOrderedDictionary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFGOrderedDictionary</span> <span class="p">:</span> <span class="nc">NSMutableDictionary</span>
+<span class="p">{</span>
+    <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">dictionary</span><span class="p">;</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">insertObject</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">anObject</span> <span class="n">forKey</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span><span class="p">)</span><span class="n">aKey</span> <span class="n">atIndex</span><span class="o">:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="n">anIndex</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">keyAtIndex</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">anIndex</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSEnumerator</span> <span class="o">*</span><span class="p">)</span><span class="n">reverseKeyEnumerator</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectAtIndexedSubscript</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">idx</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectForKeyedSubscript</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">obj</span> <span class="nf">forKeyedSubscript</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfKey</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">anObject</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfKey</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">inRange</span><span class="p">:(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfKeyIdenticalTo</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">anObject</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfKeyIdenticalTo</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">inRange</span><span class="p">:(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">lastKey</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sortUsingFunction</span><span class="p">:(</span><span class="n">NSInteger</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">id</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">))</span><span class="nv">compare</span> <span class="nf">context</span><span class="p">:(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sortUsingSelector</span><span class="p">:(</span><span class="n">SEL</span><span class="p">)</span><span class="nv">comparator</span><span class="p">;</span>
+<span class="cp">#if NS_BLOCKS_AVAILABLE
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sortUsingComparator</span><span class="p">:(</span><span class="n">NSComparator</span><span class="p">)</span><span class="nv">cmptr</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sortWithOptions</span><span class="p">:(</span><span class="n">NSSortOptions</span><span class="p">)</span><span class="nv">opts</span> <span class="nf">usingComparator</span><span class="p">:(</span><span class="n">NSComparator</span><span class="p">)</span><span class="nv">cmptr</span><span class="p">;</span>
+<span class="cp">#endif
+</span>
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFGOrderedDictionary</span> <span class="p">:</span> <span class="kt">NSMutableDictionary</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/1.0.0/sf-geojson-ios/SFGOrderedDictionary.h#L28-L56">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)SFGPoint"></a>
                     <a name="//apple_ref/objc/Class/SFGPoint" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)SFGPoint">SFGPoint</a>
@@ -2310,7 +2381,7 @@ coordinate digit.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-08-06)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-08-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

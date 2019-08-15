@@ -328,6 +328,132 @@
       "symbol": "SFGeometryTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 28,
+      "symbol": "SFGOrderedDictionary",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 30,
+      "symbol": "SFGOrderedDictionary.dictionary",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 31,
+      "symbol": "SFGOrderedDictionary.array",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 34,
+      "symbol": "SFGOrderedDictionary.-insertObject:forKey:atIndex:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 35,
+      "symbol": "SFGOrderedDictionary.-keyAtIndex:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 36,
+      "symbol": "SFGOrderedDictionary.-reverseKeyEnumerator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 38,
+      "symbol": "SFGOrderedDictionary.-objectAtIndexedSubscript:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 40,
+      "symbol": "SFGOrderedDictionary.-objectForKeyedSubscript:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 41,
+      "symbol": "SFGOrderedDictionary.-setObject:forKeyedSubscript:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 43,
+      "symbol": "SFGOrderedDictionary.-indexOfKey:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 44,
+      "symbol": "SFGOrderedDictionary.-indexOfKey:inRange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 45,
+      "symbol": "SFGOrderedDictionary.-indexOfKeyIdenticalTo:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 46,
+      "symbol": "SFGOrderedDictionary.-indexOfKeyIdenticalTo:inRange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 47,
+      "symbol": "SFGOrderedDictionary.-lastKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 49,
+      "symbol": "SFGOrderedDictionary.-sortUsingFunction:context:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 50,
+      "symbol": "SFGOrderedDictionary.-sortUsingSelector:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 52,
+      "symbol": "SFGOrderedDictionary.-sortUsingComparator:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/simple-features-geojson-ios/sf-geojson-ios/SFGOrderedDictionary.h",
+      "line": 53,
+      "symbol": "SFGOrderedDictionary.-sortWithOptions:usingComparator:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/osbornb/git/simple-features-geojson-ios"
