@@ -16,7 +16,7 @@
 
 static NSString *MULTIPOLYGON = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[100,10],[101,1],[101,10],[100,10]]]]}";
 static NSString *MULTIPOLYGON_WITH_ALT = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[100,10,5],[101,1,10],[101,10,15],[100,10,5]]]]}";
-static NSString *MULTIPOLYGON_WITH_RINGS = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100.1,-50.3],[100,-50],[1.5,50.6],[-100.1,-50.3]],[[-50,-25],[50.7,-25.9],[-1,25],[-50,-25]]]]}";
+static NSString *MULTIPOLYGON_WITH_RINGS = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100,-50],[100,-50],[1.5,50],[-100,-50]],[[-50,-25],[50,-25],[-1,25],[-50,-25]]]]}";
 static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100,-50],[100,-50],[1,50],[-100,-50]]],[[[-50,-25],[50,-25],[-1,25],[-50,-25]]]]}";
 
 -(void) testSerializeMultiPolygon{
@@ -137,14 +137,14 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     [SFGTestUtils assertTrue:rings.count == 2];
     SFLineString *ring = [rings objectAtIndex:0];
     NSArray<SFPoint *> *points = ring.points;
-    [SFGTestUtils assertSimplePointWithLongitude:-100.1 andLatitude:-50.3 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:0]];
+    [SFGTestUtils assertSimplePointWithLongitude:-100 andLatitude:-50 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:0]];
     [SFGTestUtils assertSimplePointWithLongitude:100 andLatitude:-50 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:1]];
-    [SFGTestUtils assertSimplePointWithLongitude:1.5 andLatitude:50.6 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:2]];
-    [SFGTestUtils assertSimplePointWithLongitude:-100.1 andLatitude:-50.3 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:3]];
+    [SFGTestUtils assertSimplePointWithLongitude:1.5 andLatitude:50 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:2]];
+    [SFGTestUtils assertSimplePointWithLongitude:-100 andLatitude:-50 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:3]];
     ring = [rings objectAtIndex:1];
     points = ring.points;
     [SFGTestUtils assertSimplePointWithLongitude:-50 andLatitude:-25 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:0]];
-    [SFGTestUtils assertSimplePointWithLongitude:50.7 andLatitude:-25.9 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:1]];
+    [SFGTestUtils assertSimplePointWithLongitude:50 andLatitude:-25 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:1]];
     [SFGTestUtils assertSimplePointWithLongitude:-1 andLatitude:25 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:2]];
     [SFGTestUtils assertSimplePointWithLongitude:-50 andLatitude:-25 andAltitude:nil andAdditional:nil andSimplePoint:[points objectAtIndex:3]];
 }

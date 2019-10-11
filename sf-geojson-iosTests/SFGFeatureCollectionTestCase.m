@@ -13,7 +13,7 @@
 
 @implementation SFGFeatureCollectionTestCase
 
-static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[61.34765,48.632908]},{\"type\":\"LineString\",\"coordinates\":[[100.1,10.2],[101.3,1.4]]}]},\"properties\":{}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[50.1,60.9]},\"properties\":{}}]}";
+static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[61.3476,48.632908]},{\"type\":\"LineString\",\"coordinates\":[[100,10],[101.3,1]]}]},\"properties\":{}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[50,60]},\"properties\":{}}]}";
 
 -(void) testProperties{
     [SFGTestUtils assertNotNil:[[SFGFeatureCollection alloc] init].features];
@@ -191,7 +191,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 }
 
 -(void) testDeserializeFeatureCollection6{
-    NSString *json = @"{\"type\":\"FeatureCollection\",\"bbox\":[-10.1,-10.2,10.3,10.4],\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[100.5,5.6]},\"properties\":{}}]}";
+    NSString *json = @"{\"type\":\"FeatureCollection\",\"bbox\":[-10.1,-10.1,10.4,10.4],\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[100.5,5.5]},\"properties\":{}}]}";
     SFGGeoJSONObject *object = [SFGFeatureConverter jsonToObject:json];
     [SFGTestUtils assertNotNil:object];
     [SFGTestUtils assertTrue:[object class] == [SFGFeatureCollection class]];
@@ -313,15 +313,15 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     NSMutableArray<SFGeometry *> *simpleGeometries = [[NSMutableArray alloc] init];
     
     SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] init];
-    [geometryCollection addGeometry:[[SFPoint alloc] initWithXValue:61.34765 andYValue:48.632908]];
+    [geometryCollection addGeometry:[[SFPoint alloc] initWithXValue:61.3476 andYValue:48.632908]];
     SFLineString *lineString = [[SFLineString alloc] init];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:100.1 andYValue:10.2]];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:101.3 andYValue:1.4]];
+    [lineString addPoint:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
+    [lineString addPoint:[[SFPoint alloc] initWithXValue:101.3 andYValue:1]];
     [geometryCollection addGeometry:lineString];
     
     [simpleGeometries addObject:geometryCollection];
     
-    SFPoint *point = [[SFPoint alloc] initWithXValue:50.1 andYValue:60.9];
+    SFPoint *point = [[SFPoint alloc] initWithXValue:50 andYValue:60];
     [simpleGeometries addObject:point];
     
     return simpleGeometries;

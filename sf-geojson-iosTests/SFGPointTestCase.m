@@ -33,8 +33,8 @@
 }
 
 -(void) testSerializePointWithAltitude{
-    SFPoint *simplePoint = [[SFPoint alloc] initWithXValue:100.1 andYValue:10.2 andZValue:256.3];
-    [SFGTestUtils compareSFGeometry:simplePoint withInput:@"{\"type\":\"Point\",\"coordinates\":[100.1,10.2,256.3]}"];
+    SFPoint *simplePoint = [[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:256];
+    [SFGTestUtils compareSFGeometry:simplePoint withInput:@"{\"type\":\"Point\",\"coordinates\":[100,10,256]}"];
 }
 
 -(void) testDeserializePointWithAdditionalAttributes{
@@ -44,9 +44,9 @@
 }
 
 -(void) testSerializePointWithAdditionalAttributes{
-    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345.3], [[NSDecimalNumber alloc] initWithDouble:678.6], nil]];
+    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], nil]];
     SFGPoint *point = [[SFGPoint alloc] initWithPosition:position];
-    [SFGTestUtils compareGeometry:point withInput:@"{\"type\":\"Point\",\"coordinates\":[100.2,0,256,345.3,678.6]}"];
+    [SFGTestUtils compareGeometry:point withInput:@"{\"type\":\"Point\",\"coordinates\":[100.2,0,256,345,678]}"];
 }
 
 -(void) testGeometry{
