@@ -48,9 +48,9 @@ static NSString *TEST_CONTENT;
     SFGeometry *simpleGeometry = [geometry geometry];
 
     /* Read as a generic GeoJSON object, Feature, or Feature Collection */
-    // SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:json];
-    // SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];
-    // SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:json];
+    // SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:content];
+    // SFGFeature *feature = [SFGFeatureConverter jsonToFeature:content];
+    // SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:content];
     
     return geometry;
 }

@@ -21,9 +21,9 @@ class SFGSwiftReadmeTest: XCTestCase{
      */
     func testRead(){
         
-        let geometry: SFGeometry = readTester(SFGSwiftReadmeTest.TEST_CONTENT)
+        let geometry: SFGGeometry = readTester(SFGSwiftReadmeTest.TEST_CONTENT)
         
-        SFGTestUtils.assertEqual(withValue: SFGSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry)
+        SFGTestUtils.assertEqual(withValue: SFGSwiftReadmeTest.TEST_GEOMETRY, andValue2: geometry.geometry())
         
     }
     
@@ -34,8 +34,19 @@ class SFGSwiftReadmeTest: XCTestCase{
      *            content
      * @return geometry
      */
-    func readTester(_ content: String) -> SFGeometry{
-        return SFGSwiftReadmeTest.TEST_GEOMETRY // TODO
+    func readTester(_ content: String) -> SFGGeometry{
+        
+        // var content: String = ...
+
+        let geometry: SFGGeometry = SFGFeatureConverter.json(toGeometry: content)
+        let simpleGeometry: SFGeometry = geometry.geometry()
+
+        /* Read as a generic GeoJSON object, Feature, or Feature Collection */
+        // let geoJSONObject : SFGGeoJSONObject = SFGFeatureConverter.json(toObject: content)
+        // let feature: SFGFeature = SFGFeatureConverter.json(toFeature: content)
+        // let featureCollection : SFGFeatureCollection = SFGFeatureConverter.json(toFeatureCollection: content)
+        
+        return geometry;
     }
     
     /**
@@ -57,7 +68,20 @@ class SFGSwiftReadmeTest: XCTestCase{
      * @return content
      */
     func writeTester(_ geometry: SFGeometry) -> String{
-        return SFGSwiftReadmeTest.TEST_CONTENT //TODO
+        
+        // let geometry : SFGeometry = ...
+        
+        let content : String = SFGFeatureConverter.simpleGeometry(toJSON: geometry)
+        
+        let feature : SFGFeature = SFGFeatureConverter.simpleGeometry(toFeature: geometry)
+        let featureContent : String = SFGFeatureConverter.object(toJSON: feature)
+        
+        let featureCollection : SFGFeatureCollection = SFGFeatureConverter.simpleGeometry(toFeatureCollection: geometry)
+        let featureCollectionContent : String = SFGFeatureConverter.object(toJSON: featureCollection)
+        
+        let contentTree : Dictionary = SFGFeatureConverter.simpleGeometry(toTree: geometry)
+        
+        return content;
     }
     
 }

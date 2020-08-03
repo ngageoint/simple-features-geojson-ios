@@ -21,15 +21,15 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-geojson-io
 
 ```objectivec
 
-//NSString *json = ...
+// NSString *content = ...
 
-SFGGeometry *geometry = [SFGFeatureConverter jsonToGeometry:json];
+SFGGeometry *geometry = [SFGFeatureConverter jsonToGeometry:content];
 SFGeometry *simpleGeometry = [geometry geometry];
 
 /* Read as a generic GeoJSON object, Feature, or Feature Collection */
-//SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:json];
-//SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];
-//SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:json];
+// SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:content];
+// SFGFeature *feature = [SFGFeatureConverter jsonToFeature:content];
+// SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:content];
 
 ```
 
@@ -37,17 +37,17 @@ SFGeometry *simpleGeometry = [geometry geometry];
 
 ```objectivec
 
-//SFGeometry *geometry = ...
+// SFGeometry *geometry = ...
 
-NSString *json = [SFGFeatureConverter simpleGeometryToJSON:geometry];
+NSString *content = [SFGFeatureConverter simpleGeometryToJSON:geometry];
 
 SFGFeature *feature = [SFGFeatureConverter simpleGeometryToFeature:geometry];
-NSString *featureJSON = [SFGFeatureConverter objectToJSON:feature];
+NSString *featureContent = [SFGFeatureConverter objectToJSON:feature];
 
 SFGFeatureCollection *featureCollection = [SFGFeatureConverter simpleGeometryToFeatureCollection:geometry];
-NSString *featureCollectionJSON = [SFGFeatureConverter objectToJSON:featureCollection];
+NSString *featureCollectionContent = [SFGFeatureConverter objectToJSON:featureCollection];
 
-NSDictionary *tree = [SFGFeatureConverter simpleGeometryToTree:geometry];
+NSDictionary *contentTree = [SFGFeatureConverter simpleGeometryToTree:geometry];
 
 ```
 
@@ -90,6 +90,40 @@ Include as local project:
 To use from Swift, import the sf-geojson-ios bridging header from the Swift project's bridging header
 
     #import "sf-geojson-ios-Bridging-Header.h"
+
+#### Read ####
+
+```swift
+
+// var content: String = ...
+
+let geometry: SFGGeometry = SFGFeatureConverter.json(toGeometry: content)
+let simpleGeometry: SFGeometry = geometry.geometry()
+
+/* Read as a generic GeoJSON object, Feature, or Feature Collection */
+// let geoJSONObject : SFGGeoJSONObject = SFGFeatureConverter.json(toObject: content)
+// let feature: SFGFeature = SFGFeatureConverter.json(toFeature: content)
+// let featureCollection : SFGFeatureCollection = SFGFeatureConverter.json(toFeatureCollection: content)
+
+```
+
+#### Write ####
+
+```swift
+
+// let geometry : SFGeometry = ...
+
+let content : String = SFGFeatureConverter.simpleGeometry(toJSON: geometry)
+
+let feature : SFGFeature = SFGFeatureConverter.simpleGeometry(toFeature: geometry)
+let featureContent : String = SFGFeatureConverter.object(toJSON: feature)
+
+let featureCollection : SFGFeatureCollection = SFGFeatureConverter.simpleGeometry(toFeatureCollection: geometry)
+let featureCollectionContent : String = SFGFeatureConverter.object(toJSON: featureCollection)
+
+let contentTree : Dictionary = SFGFeatureConverter.simpleGeometry(toTree: geometry)
+
+```
 
 ### Remote Dependencies ###
 
