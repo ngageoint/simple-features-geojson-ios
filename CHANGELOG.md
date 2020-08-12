@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.1 (TBD)
+## 2.0.0 (TBD)
 
-* TBD
+* sf-ios 3.0.0
 
 ## [1.0.0](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/1.0.0) (10-14-2019)
 
