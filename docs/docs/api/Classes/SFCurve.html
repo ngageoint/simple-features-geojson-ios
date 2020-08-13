@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFCurve" class="dashAnchor"></a>
     <a title="SFCurve Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">sf-geojson-ios Docs</a> (88% documented)</p>
+        <p><a href="../index.html">sf-geojson-ios 2.0.0 Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-geojson-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -321,7 +329,13 @@
             <h1>SFCurve</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFCurve</span> <span class="p">:</span> <span class="nc"><a href="../Classes/SFGeometry.html">SFGeometry</a></span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFCurve</span> <span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometry.html">SFGeometry</a></span></code></pre>
 
                 </div>
               </div>
@@ -331,6 +345,9 @@ it does not intersect itself (except at the start and end point). A curve is
 considered closed its start and end point are coincident. A simple, closed
 curve is called a ring.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L19-L60">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -340,7 +357,7 @@ curve is called a ring.</p>
                     <code>
                     <a name="/c:objc(cs)SFCurve(im)initWithType:andHasZ:andHasM:"></a>
                     <a name="//apple_ref/objc/Method/-initWithType:andHasZ:andHasM:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFCurve(im)initWithType:andHasZ:andHasM:">-initWithType:andHasZ:andHasM:</a>
+                    <a class="token" href="#/c:objc(cs)SFCurve(im)initWithType:andHasZ:andHasM:">-initWithType:<wbr>andHasZ:<wbr>andHasM:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -413,6 +430,9 @@ curve is called a ring.</p>
                         <h4>Return Value</h4>
                         <p>new curve</p>
                       </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L30">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -448,6 +468,9 @@ curve is called a ring.</p>
                       <div>
                         <h4>Return Value</h4>
                         <p>start point</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L37">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -485,6 +508,9 @@ curve is called a ring.</p>
                         <h4>Return Value</h4>
                         <p>end point</p>
                       </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L44">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -520,6 +546,9 @@ curve is called a ring.</p>
                       <div>
                         <h4>Return Value</h4>
                         <p>true if closed</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L51">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -557,6 +586,9 @@ curve is called a ring.</p>
                         <h4>Return Value</h4>
                         <p>true if a ring</p>
                       </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFCurve.h#L58">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -565,8 +597,8 @@ curve is called a ring.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

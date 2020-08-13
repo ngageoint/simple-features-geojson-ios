@@ -8,13 +8,21 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a title="sf-geojson-ios  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">sf-geojson-ios Docs</a> (88% documented)</p>
+        <p><a href="index.html">sf-geojson-ios 2.0.0 Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/simple-features-geojson-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -321,12 +329,12 @@
             <h1 id='simple-features-geojson-ios' class='heading'>Simple Features GeoJSON iOS</h1>
 <h4 id='simple-features-geojson-lib' class='heading'>Simple Features GeoJSON Lib</h4>
 
-<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has <q>unlimited rights</q> and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+<p>The Simple Features Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has &ldquo;unlimited rights&rdquo; and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
 <h3 id='pull-requests' class='heading'>Pull Requests</h3>
 
 <p>If you&rsquo;d like to contribute to this project, please make a pull request. We&rsquo;ll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.</p>
 
-<p>Software source code previously released under an open source license and then modified by NGA staff is considered a <q>joint work</q> (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
+<p>Software source code previously released under an open source license and then modified by NGA staff is considered a &ldquo;joint work&rdquo; (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
 <h3 id='about' class='heading'>About</h3>
 
 <p><a href="http://ngageoint.github.io/simple-features-geojson-ios/">Simple Features GeoJSON</a> is an iOS Objective-C library for writing and reading <a href="https://github.com/ngageoint/simple-features-ios">Simple Feature</a> Geometries to and from GeoJSON.</p>
@@ -335,33 +343,35 @@
 <p>View the latest <a href="http://ngageoint.github.io/simple-features-geojson-ios/docs/api/">Appledoc</a></p>
 <h4 id='read' class='heading'>Read</h4>
 <pre class="highlight objective_c"><code>
-<span class="c1">//NSString *json = ...</span>
+<span class="c1">// NSString *content = ...</span>
 
-<span class="n">SFGGeometry</span> <span class="o">*</span><span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">jsonToGeometry</span><span class="p">:</span><span class="n">json</span><span class="p">];</span>
+<span class="n">SFGGeometry</span> <span class="o">*</span><span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">jsonToGeometry</span><span class="p">:</span><span class="n">content</span><span class="p">];</span>
 <span class="n">SFGeometry</span> <span class="o">*</span><span class="n">simpleGeometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">geometry</span> <span class="nf">geometry</span><span class="p">];</span>
 
 <span class="cm">/* Read as a generic GeoJSON object, Feature, or Feature Collection */</span>
-<span class="c1">//SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:json];</span>
-<span class="c1">//SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];</span>
-<span class="c1">//SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:json];</span>
+<span class="c1">// SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:content];</span>
+<span class="c1">// SFGFeature *feature = [SFGFeatureConverter jsonToFeature:content];</span>
+<span class="c1">// SFGFeatureCollection *featureCollection = [SFGFeatureConverter jsonToFeatureCollection:content];</span>
 
 </code></pre>
 <h4 id='write' class='heading'>Write</h4>
 <pre class="highlight objective_c"><code>
-<span class="c1">//SFGeometry *geometry = ...</span>
+<span class="c1">// SFGeometry *geometry = ...</span>
 
-<span class="n">NSString</span> <span class="o">*</span><span class="n">json</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToJSON</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">content</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToJSON</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
 
 <span class="n">SFGFeature</span> <span class="o">*</span><span class="n">feature</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToFeature</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">featureJSON</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">feature</span><span class="p">];</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">featureContent</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">feature</span><span class="p">];</span>
 
 <span class="n">SFGFeatureCollection</span> <span class="o">*</span><span class="n">featureCollection</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToFeatureCollection</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">featureCollectionJSON</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">featureCollection</span><span class="p">];</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">featureCollectionContent</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">featureCollection</span><span class="p">];</span>
 
-<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToTree</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
+<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">contentTree</span> <span class="o">=</span> <span class="p">[</span><span class="n">SFGFeatureConverter</span> <span class="nf">simpleGeometryToTree</span><span class="p">:</span><span class="n">geometry</span><span class="p">];</span>
 
 </code></pre>
 <h3 id='build' class='heading'>Build</h3>
+
+<p><a href="https://github.com/ngageoint/simple-features-geojson-ios/actions?query=workflow%3A%22Build+%26+Test%22"><img src="https://github.com/ngageoint/simple-features-geojson-ios/workflows/Build%20&%20Test/badge.svg" alt="Build &amp; Test"></a></p>
 
 <p>Build this repository using Xcode and/or CocoaPods:</p>
 <pre class="highlight plaintext"><code>pod repo update
@@ -380,12 +390,12 @@ pod install
 <p>Include this repository by specifying it in a Podfile using a supported option.</p>
 
 <p>Pull from <a href="https://cocoapods.org/pods/sf-geojson-ios">CocoaPods</a>:</p>
-<pre class="highlight plaintext"><code>pod 'sf-geojson-ios', '~&gt; 1.0.0'
+<pre class="highlight plaintext"><code>pod 'sf-geojson-ios', '~&gt; 2.0.0'
 </code></pre>
 
 <p>Pull from GitHub:</p>
 <pre class="highlight plaintext"><code>pod 'sf-geojson-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-geojson-ios.git', :branch =&gt; 'master'
-pod 'sf-geojson-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag =&gt; '1.0.0'
+pod 'sf-geojson-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag =&gt; '2.0.0'
 </code></pre>
 
 <p>Include as local project:</p>
@@ -396,6 +406,34 @@ pod 'sf-geojson-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-g
 <p>To use from Swift, import the sf-geojson-ios bridging header from the Swift project&rsquo;s bridging header</p>
 <pre class="highlight plaintext"><code>#import "sf-geojson-ios-Bridging-Header.h"
 </code></pre>
+<h4 id='read' class='heading'>Read</h4>
+<pre class="highlight swift"><code>
+<span class="c1">// var content: String = ...</span>
+
+<span class="k">let</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt">SFGGeometry</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">json</span><span class="p">(</span><span class="nv">toGeometry</span><span class="p">:</span> <span class="n">content</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">simpleGeometry</span><span class="p">:</span> <span class="kt">SFGeometry</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="nf">geometry</span><span class="p">()</span>
+
+<span class="cm">/* Read as a generic GeoJSON object, Feature, or Feature Collection */</span>
+<span class="c1">// let geoJSONObject : SFGGeoJSONObject = SFGFeatureConverter.json(toObject: content)</span>
+<span class="c1">// let feature: SFGFeature = SFGFeatureConverter.json(toFeature: content)</span>
+<span class="c1">// let featureCollection : SFGFeatureCollection = SFGFeatureConverter.json(toFeatureCollection: content)</span>
+
+</code></pre>
+<h4 id='write' class='heading'>Write</h4>
+<pre class="highlight swift"><code>
+<span class="c1">// let geometry : SFGeometry = ...</span>
+
+<span class="k">let</span> <span class="nv">content</span> <span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">simpleGeometry</span><span class="p">(</span><span class="nv">toJSON</span><span class="p">:</span> <span class="n">geometry</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">feature</span> <span class="p">:</span> <span class="kt">SFGFeature</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">simpleGeometry</span><span class="p">(</span><span class="nv">toFeature</span><span class="p">:</span> <span class="n">geometry</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">featureContent</span> <span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">toJSON</span><span class="p">:</span> <span class="n">feature</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">featureCollection</span> <span class="p">:</span> <span class="kt">SFGFeatureCollection</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">simpleGeometry</span><span class="p">(</span><span class="nv">toFeatureCollection</span><span class="p">:</span> <span class="n">geometry</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">featureCollectionContent</span> <span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">object</span><span class="p">(</span><span class="nv">toJSON</span><span class="p">:</span> <span class="n">featureCollection</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">contentTree</span> <span class="p">:</span> <span class="kt">Dictionary</span> <span class="o">=</span> <span class="kt">SFGFeatureConverter</span><span class="o">.</span><span class="nf">simpleGeometry</span><span class="p">(</span><span class="nv">toTree</span><span class="p">:</span> <span class="n">geometry</span><span class="p">)</span>
+
+</code></pre>
 <h3 id='remote-dependencies' class='heading'>Remote Dependencies</h3>
 
 <ul>
@@ -405,8 +443,8 @@ pod 'sf-geojson-ios', :git =&gt; 'https://github.com/ngageoint/simple-features-g
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
