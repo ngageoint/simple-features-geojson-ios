@@ -11,8 +11,6 @@
 #import "SFLinearRing.h"
 #import "SFGPoint.h"
 
-NSString * const SFG_TYPE_POLYGON = @"Polygon";
-
 @interface SFGPolygon()
 
 /**
@@ -61,10 +59,6 @@ NSString * const SFG_TYPE_POLYGON = @"Polygon";
 
 -(SFGeometry *) geometry{
     return [self polygon];
-}
-
--(NSString *) type{
-    return SFG_TYPE_POLYGON;
 }
 
 +(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon{

@@ -10,14 +10,9 @@
 #import "SFGeometryCollection.h"
 
 /**
- * Geometry Collection type
- */
-extern NSString * const SFG_TYPE_GEOMETRYCOLLECTION;
-
-/**
  * Geometries key
  */
-extern NSString * const SFG_GEOMETRIES;
+extern NSString * const SFG_MEMBER_GEOMETRIES;
 
 /**
  * Geometry Collection
@@ -25,11 +20,25 @@ extern NSString * const SFG_GEOMETRIES;
 @interface SFGGeometryCollection : SFGGeometry
 
 /**
+ *  Array of geometries
+ */
+@property (nonatomic, strong) NSMutableArray<SFGGeometry *> *geometries;
+
+/**
  *  Initialize
  *
  *  @return new geometry collection
  */
 -(instancetype) init;
+
+/**
+ *  Initialize
+ *
+ *  @param geometries list of geometries
+ *
+ *  @return new geometry collection
+ */
+-(instancetype) initWithGeometries: (NSArray<SFGGeometry *> *) geometries;
 
 /**
  *  Initialize
@@ -59,11 +68,18 @@ extern NSString * const SFG_GEOMETRIES;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple geometry collection
+ * Get the simple features geometry collection
  *
- * @return simple geometry collection
+ * @return geometry collection
  */
 -(SFGeometryCollection *) geometryCollection;
+
+/**
+ * Set the simple features geometry collection
+ *
+ * @param geometryCollection geometry collection
+ */
+-(void) setGeometryCollection: (SFGeometryCollection *) geometryCollection;
 
 /**
  *  Get geometries from a geometry collection

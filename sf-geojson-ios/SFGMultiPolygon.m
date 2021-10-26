@@ -9,17 +9,6 @@
 #import "SFGMultiPolygon.h"
 #import "SFGPolygon.h"
 
-NSString * const SFG_TYPE_MULTIPOLYGON = @"MultiPolygon";
-
-@interface SFGMultiPolygon()
-
-/**
- *  Simple multi polygon
- */
-@property (nonatomic, strong) SFMultiPolygon *multiPolygon;
-
-@end
-
 @implementation SFGMultiPolygon
 
 -(instancetype) init{
@@ -32,10 +21,18 @@ NSString * const SFG_TYPE_MULTIPOLYGON = @"MultiPolygon";
     return self;
 }
 
+-(instancetype) initWithPolygons: (NSArray<SFGPolygon *> *) polygons{
+    self = [super init];
+    if(self != nil){
+        _polygons = [NSMutableArray arrayWithArray:polygons];
+    }
+    return self;
+}
+
 -(instancetype) initWithMultiPolygon: (SFMultiPolygon *) multiPolygon{
     self = [super init];
     if(self != nil){
-        _multiPolygon = multiPolygon;
+        [self setMultiPolygon:multiPolygon];
     }
     return self;
 }
@@ -45,8 +42,27 @@ NSString * const SFG_TYPE_MULTIPOLYGON = @"MultiPolygon";
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    return SFG_MULTIPOLYGON;
+}
+
+-(SFGeometry *) geometry{
+    return [self multiPolygon];
+}
+
 -(SFMultiPolygon *) multiPolygon{
-    return _multiPolygon;
+    NSMutableArray<SFPolygon *> *simplePolygons = [NSMutableArray array];
+    for(SFGPolygon *polygon in _polygons){
+        [simplePolygons addObject:[polygon polygon]];
+    }
+    return [[SFMultiPolygon alloc] initWithPolygons:simplePolygons];
+}
+
+-(void) setMultiPolygon: (SFMultiPolygon *) multiPolygon{
+    _polygons = [NSMutableArray array];
+    for(SFPolygon *polygon in [multiPolygon polygons]){
+        [_polygons addObject:[[SFGPolygon alloc] initWithPolygon:polygon]];
+    }
 }
 
 -(NSArray *) coordinates{
@@ -55,14 +71,6 @@ NSString * const SFG_TYPE_MULTIPOLYGON = @"MultiPolygon";
 
 -(void) setCoordinates: (NSArray *) coordinates{
     self.multiPolygon = [SFGMultiPolygon multiPolygonFromCoordinates:coordinates];
-}
-
--(SFGeometry *) geometry{
-    return [self multiPolygon];
-}
-
--(NSString *) type{
-    return SFG_TYPE_MULTIPOLYGON;
 }
 
 +(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon{

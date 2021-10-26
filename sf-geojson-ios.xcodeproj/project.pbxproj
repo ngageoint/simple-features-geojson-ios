@@ -13,6 +13,8 @@
 		042FC6D31B96421E00549A4B /* sf-geojson-ios-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 042FC69E1B96421E00549A4B /* sf-geojson-ios-Prefix.pch */; };
 		042FC6D51B96453E00549A4B /* sf_geojson_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 042FC6D41B96453E00549A4B /* sf_geojson_ios.h */; };
 		0472B51B1C03590500496B87 /* sf-geojson-ios-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 0472B51A1C03590500496B87 /* sf-geojson-ios-Bridging-Header.h */; };
+		04B45FA327283E0500BACC29 /* SFGGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B45FA127283E0500BACC29 /* SFGGeometryTypes.h */; };
+		04B45FA427283E0500BACC29 /* SFGGeometryTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B45FA227283E0500BACC29 /* SFGGeometryTypes.m */; };
 		04C393CB22DF6ED00049F6C0 /* SFGGeoJSONObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393C922DF6ED00049F6C0 /* SFGGeoJSONObject.h */; };
 		04C393CC22DF6ED00049F6C0 /* SFGGeoJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393CA22DF6ED00049F6C0 /* SFGGeoJSONObject.m */; };
 		04C393CF22DF6EF90049F6C0 /* SFGGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C393CD22DF6EF90049F6C0 /* SFGGeometry.h */; };
@@ -42,8 +44,6 @@
 		04C3940122E619F90049F6C0 /* SFGMultiPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C393FF22E619F90049F6C0 /* SFGMultiPolygon.m */; };
 		04C3940422E61A500049F6C0 /* SFGPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C3940222E61A500049F6C0 /* SFGPolygon.h */; };
 		04C3940522E61A500049F6C0 /* SFGPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3940322E61A500049F6C0 /* SFGPolygon.m */; };
-		04C3940822E61A9E0049F6C0 /* SFGSimpleFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C3940622E61A9E0049F6C0 /* SFGSimpleFeature.h */; };
-		04C3940922E61A9E0049F6C0 /* SFGSimpleFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3940722E61A9E0049F6C0 /* SFGSimpleFeature.m */; };
 		04E8E46E22E76B75001696A2 /* SFGFeatureTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E46D22E76B75001696A2 /* SFGFeatureTestCase.m */; };
 		04E8E47122F31F25001696A2 /* SFGPolygonTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47022F31F25001696A2 /* SFGPolygonTestCase.m */; };
 		04E8E47422F336AD001696A2 /* SFGLineStringTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E47322F336AD001696A2 /* SFGLineStringTestCase.m */; };
@@ -84,6 +84,8 @@
 		042FC69E1B96421E00549A4B /* sf-geojson-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-geojson-ios-Prefix.pch"; sourceTree = "<group>"; };
 		042FC6D41B96453E00549A4B /* sf_geojson_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sf_geojson_ios.h; sourceTree = "<group>"; };
 		0472B51A1C03590500496B87 /* sf-geojson-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sf-geojson-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		04B45FA127283E0500BACC29 /* SFGGeometryTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGGeometryTypes.h; sourceTree = "<group>"; };
+		04B45FA227283E0500BACC29 /* SFGGeometryTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGGeometryTypes.m; sourceTree = "<group>"; };
 		04C393C922DF6ED00049F6C0 /* SFGGeoJSONObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGGeoJSONObject.h; sourceTree = "<group>"; };
 		04C393CA22DF6ED00049F6C0 /* SFGGeoJSONObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGGeoJSONObject.m; sourceTree = "<group>"; };
 		04C393CD22DF6EF90049F6C0 /* SFGGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGGeometry.h; sourceTree = "<group>"; };
@@ -116,8 +118,6 @@
 		04C393FF22E619F90049F6C0 /* SFGMultiPolygon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGMultiPolygon.m; sourceTree = "<group>"; };
 		04C3940222E61A500049F6C0 /* SFGPolygon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGPolygon.h; sourceTree = "<group>"; };
 		04C3940322E61A500049F6C0 /* SFGPolygon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGPolygon.m; sourceTree = "<group>"; };
-		04C3940622E61A9E0049F6C0 /* SFGSimpleFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGSimpleFeature.h; sourceTree = "<group>"; };
-		04C3940722E61A9E0049F6C0 /* SFGSimpleFeature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGSimpleFeature.m; sourceTree = "<group>"; };
 		04E8E46C22E76B75001696A2 /* SFGFeatureTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGFeatureTestCase.h; sourceTree = "<group>"; };
 		04E8E46D22E76B75001696A2 /* SFGFeatureTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFGFeatureTestCase.m; sourceTree = "<group>"; };
 		04E8E46F22F31F25001696A2 /* SFGPolygonTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFGPolygonTestCase.h; sourceTree = "<group>"; };
@@ -206,6 +206,8 @@
 				04C393CE22DF6EF90049F6C0 /* SFGGeometry.m */,
 				04C393EE22E6170F0049F6C0 /* SFGGeometryCollection.h */,
 				04C393EF22E6170F0049F6C0 /* SFGGeometryCollection.m */,
+				04B45FA127283E0500BACC29 /* SFGGeometryTypes.h */,
+				04B45FA227283E0500BACC29 /* SFGGeometryTypes.m */,
 				04C393F222E617300049F6C0 /* SFGLineString.h */,
 				04C393F322E617300049F6C0 /* SFGLineString.m */,
 				04C393F622E618560049F6C0 /* SFGMultiLineString.h */,
@@ -220,8 +222,6 @@
 				04C3940322E61A500049F6C0 /* SFGPolygon.m */,
 				04C393DF22DFC32F0049F6C0 /* SFGPosition.h */,
 				04C393E022DFC32F0049F6C0 /* SFGPosition.m */,
-				04C3940622E61A9E0049F6C0 /* SFGSimpleFeature.h */,
-				04C3940722E61A9E0049F6C0 /* SFGSimpleFeature.m */,
 				04E8E4BA22FDE11F001696A2 /* SFGOrderedDictionary.h */,
 				04E8E4BB22FDE120001696A2 /* SFGOrderedDictionary.m */,
 				042FC64E1B963FE500549A4B /* Supporting Files */,
@@ -316,7 +316,6 @@
 				04C393D322DF6F1B0049F6C0 /* SFGPoint.h in Headers */,
 				04C393F022E6170F0049F6C0 /* SFGGeometryCollection.h in Headers */,
 				04C393E822E616B40049F6C0 /* SFGFeature.h in Headers */,
-				04C3940822E61A9E0049F6C0 /* SFGSimpleFeature.h in Headers */,
 				04C3940022E619F90049F6C0 /* SFGMultiPolygon.h in Headers */,
 				04E8E4BC22FDE120001696A2 /* SFGOrderedDictionary.h in Headers */,
 				04C393CF22DF6EF90049F6C0 /* SFGGeometry.h in Headers */,
@@ -327,6 +326,7 @@
 				04C393EC22E616D30049F6C0 /* SFGFeatureCollection.h in Headers */,
 				04C393F422E617300049F6C0 /* SFGLineString.h in Headers */,
 				0472B51B1C03590500496B87 /* sf-geojson-ios-Bridging-Header.h in Headers */,
+				04B45FA327283E0500BACC29 /* SFGGeometryTypes.h in Headers */,
 				042FC6D51B96453E00549A4B /* sf_geojson_ios.h in Headers */,
 				042FC6D31B96421E00549A4B /* sf-geojson-ios-Prefix.pch in Headers */,
 			);
@@ -487,9 +487,9 @@
 				04C393F922E618560049F6C0 /* SFGMultiLineString.m in Sources */,
 				04C393D422DF6F1B0049F6C0 /* SFGPoint.m in Sources */,
 				04C3940522E61A500049F6C0 /* SFGPolygon.m in Sources */,
+				04B45FA427283E0500BACC29 /* SFGGeometryTypes.m in Sources */,
 				04C393CC22DF6ED00049F6C0 /* SFGGeoJSONObject.m in Sources */,
 				04C3940122E619F90049F6C0 /* SFGMultiPolygon.m in Sources */,
-				04C3940922E61A9E0049F6C0 /* SFGSimpleFeature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,17 +9,6 @@
 #import "SFGLineString.h"
 #import "SFGPoint.h"
 
-NSString * const SFG_TYPE_LINESTRING = @"LineString";
-
-@interface SFGLineString()
-
-/**
- *  Simple line string
- */
-@property (nonatomic, strong) SFLineString *lineString;
-
-@end
-
 @implementation SFGLineString
 
 -(instancetype) init{
@@ -32,10 +21,18 @@ NSString * const SFG_TYPE_LINESTRING = @"LineString";
     return self;
 }
 
+-(instancetype) initWithPoints: (NSArray<SFGPoint *> *) points{
+    self = [super init];
+    if(self != nil){
+        _points = [NSMutableArray arrayWithArray:points];
+    }
+    return self;
+}
+
 -(instancetype) initWithLineString: (SFLineString *) lineString{
     self = [super init];
     if(self != nil){
-        _lineString = lineString;
+        [self setLineString:lineString];
     }
     return self;
 }
@@ -45,8 +42,27 @@ NSString * const SFG_TYPE_LINESTRING = @"LineString";
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    return SFG_LINESTRING;
+}
+
+-(SFGeometry *) geometry{
+    return [self lineString];
+}
+
 -(SFLineString *) lineString{
-    return _lineString;
+    NSMutableArray<SFPoint *> *simplePoints = [NSMutableArray array];
+    for(SFGPoint *point in _points){
+        [simplePoints addObject:[point point]];
+    }
+    return [[SFLineString alloc] initWithPoints:simplePoints];
+}
+
+-(void) setLineString: (SFLineString *) lineString{
+    _points = [NSMutableArray array];
+    for(SFPoint *point in lineString.points){
+        [_points addObject:[[SFGPoint alloc] initWithPoint:point]];
+    }
 }
 
 -(NSArray *) coordinates{
@@ -55,14 +71,6 @@ NSString * const SFG_TYPE_LINESTRING = @"LineString";
 
 -(void) setCoordinates: (NSArray *) coordinates{
     self.lineString = [SFGLineString lineStringFromCoordinates:coordinates];
-}
-
--(SFGeometry *) geometry{
-    return [self lineString];
-}
-
--(NSString *) type{
-    return SFG_TYPE_LINESTRING;
 }
 
 +(NSMutableArray *) coordinatesFromLineString: (SFLineString *) lineString{

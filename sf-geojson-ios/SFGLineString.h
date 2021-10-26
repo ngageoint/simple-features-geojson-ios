@@ -7,17 +7,18 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFGPoint.h"
 #import "SFLineString.h"
-
-/**
- * Line String type
- */
-extern NSString * const SFG_TYPE_LINESTRING;
 
 /**
  * Line String
  */
 @interface SFGLineString : SFGGeometry
+
+/**
+ *  Array of points
+ */
+@property (nonatomic, strong) NSMutableArray<SFGPoint *> *points;
 
 /**
  *  Initialize
@@ -38,6 +39,15 @@ extern NSString * const SFG_TYPE_LINESTRING;
 /**
  *  Initialize
  *
+ *  @param points list of points
+ *
+ *  @return new line string
+ */
+-(instancetype) initWithPoints: (NSArray<SFGPoint *> *) points;
+
+/**
+ *  Initialize
+ *
  *  @param lineString simple line string
  *
  *  @return new line string
@@ -54,11 +64,18 @@ extern NSString * const SFG_TYPE_LINESTRING;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple line string
+ * Get the simple features line string
  *
- * @return simple line string
+ * @return line string
  */
 -(SFLineString *) lineString;
+
+/**
+ * Set the simple features line string
+ *
+ * @param lineString line string
+ */
+-(void) setLineString: (SFLineString *) lineString;
 
 /**
  *  Get coordinates from a line string

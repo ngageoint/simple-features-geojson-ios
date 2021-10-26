@@ -17,7 +17,7 @@ extern NSString * const SFG_TYPE_FEATURE_COLLECTION;
 /**
  * Features key
  */
-extern NSString * const SFG_FEATURES;
+extern NSString * const SFG_MEMBER_FEATURES;
 
 /**
  * Feature Collection

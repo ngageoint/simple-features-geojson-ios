@@ -7,17 +7,18 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFGPoint.h"
 #import "SFMultiPoint.h"
-
-/**
- * Multi Point type
- */
-extern NSString * const SFG_TYPE_MULTIPOINT;
 
 /**
  * Multi Point
  */
 @interface SFGMultiPoint : SFGGeometry
+
+/**
+ *  Array of points
+ */
+@property (nonatomic, strong) NSMutableArray<SFGPoint *> *points;
 
 /**
  *  Initialize
@@ -38,6 +39,15 @@ extern NSString * const SFG_TYPE_MULTIPOINT;
 /**
  *  Initialize
  *
+ *  @param points points list
+ *
+ *  @return new multi point
+ */
+-(instancetype) initWithPoints: (NSArray<SFGPoint *> *) points;
+
+/**
+ *  Initialize
+ *
  *  @param multiPoint simple multi point
  *
  *  @return new multi point
@@ -54,11 +64,18 @@ extern NSString * const SFG_TYPE_MULTIPOINT;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple multi point
+ * Get the simple features multi point
  *
- * @return simple multi point
+ * @return multi point
  */
 -(SFMultiPoint *) multiPoint;
+
+/**
+ * Set the simple features multi point
+ *
+ * @param multiPoint multi point
+ */
+-(void) setMultiPoint: (SFMultiPoint *) multiPoint;
 
 /**
  *  Get coordinates from a multi point

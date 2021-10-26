@@ -43,7 +43,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     for(SFGFeature *feature in featureCollectionFromJSON.features){
         [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
         SFGGeometry *geometryObject = [feature geometry];
-        [SFGTestUtils assertEqualWithValue:SFG_TYPE_POINT andValue2:[geometryObject type]];
+        [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_POINT] andValue2:[geometryObject type]];
         [SFGTestUtils assertEqualIntWithValue:2 andValue2:(int)[geometryObject coordinates].count];
         [SFGTestUtils assertTrue:[geometryObject class] == [SFGPoint class]];
         SFGPoint *pointObject = (SFGPoint *) geometryObject;
@@ -70,7 +70,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     SFGFeature *feature = [featureCollectionFromJSON.features objectAtIndex:0];
     [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
     SFGGeometry *geometryObject = [feature geometry];
-    [SFGTestUtils assertEqualWithValue:SFG_TYPE_POINT andValue2:[geometryObject type]];
+    [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_POINT] andValue2:[geometryObject type]];
     [SFGTestUtils assertEqualIntWithValue:3 andValue2:(int)[geometryObject coordinates].count];
     [SFGTestUtils assertTrue:[geometryObject class] == [SFGPoint class]];
     SFGPoint *pointObject = (SFGPoint *) geometryObject;
@@ -84,7 +84,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     feature = [featureCollectionFromJSON.features objectAtIndex:1];
     [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
     geometryObject = [feature geometry];
-    [SFGTestUtils assertEqualWithValue:SFG_TYPE_LINESTRING andValue2:[geometryObject type]];
+    [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_LINESTRING] andValue2:[geometryObject type]];
     [SFGTestUtils assertEqualIntWithValue:3 andValue2:(int)[geometryObject coordinates].count];
     for(NSArray *coordinates in [geometryObject coordinates]){
         [SFGTestUtils assertEqualIntWithValue:4 andValue2:(int)coordinates.count];
@@ -113,7 +113,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     SFGFeature *feature = [featureCollectionFromJSON.features objectAtIndex:0];
     [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
     SFGGeometry *geometryObject = [feature geometry];
-    [SFGTestUtils assertEqualWithValue:SFG_TYPE_GEOMETRYCOLLECTION andValue2:[geometryObject type]];
+    [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_GEOMETRYCOLLECTION] andValue2:[geometryObject type]];
     [SFGTestUtils assertTrue:[geometryObject class] == [SFGGeometryCollection class]];
     SFGGeometryCollection *geometryCollectionObject = (SFGGeometryCollection *) geometryObject;
     SFGeometryCollection *geometryCollection = [geometryCollectionObject geometryCollection];
@@ -150,7 +150,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     SFGFeature *feature = [featureCollectionFromJSON.features objectAtIndex:0];
     [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
     SFGGeometry *geometryObject = [feature geometry];
-    [SFGTestUtils assertEqualWithValue:SFG_TYPE_GEOMETRYCOLLECTION andValue2:[geometryObject type]];
+    [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_GEOMETRYCOLLECTION] andValue2:[geometryObject type]];
     [SFGTestUtils assertTrue:[geometryObject class] == [SFGGeometryCollection class]];
     SFGGeometryCollection *geometryCollectionObject = (SFGGeometryCollection *) geometryObject;
     SFGeometryCollection *geometryCollection = [geometryCollectionObject geometryCollection];
@@ -176,7 +176,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
         SFGFeature *feature = [featureCollectionFromJSON featureAtIndex:i];
         [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE andValue2:[feature type]];
         SFGGeometry *geometryObject = [feature geometry];
-        [SFGTestUtils assertEqualWithValue:SFG_TYPE_POINT andValue2:[geometryObject type]];
+        [SFGTestUtils assertEqualWithValue:[SFGGeometryTypes name:SFG_POINT] andValue2:[geometryObject type]];
         [SFGTestUtils assertEqualIntWithValue:2 andValue2:(int)[geometryObject coordinates].count];
         [SFGTestUtils assertTrue:[geometryObject class] == [SFGPoint class]];
         SFGPoint *pointObject = (SFGPoint *) geometryObject;
@@ -278,6 +278,23 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionObject featureAtIndex:i] simpleGeometry]];
     }
 
+}
+
+-(void) testAdditionalAttributes{
+    
+    // TODO
+    //SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], [[NSDecimalNumber alloc] initWithDouble:50.4], nil]];
+    NSArray<NSDecimalNumber *> *position = [NSArray arrayWithObjects:[[NSDecimalNumber alloc] initWithDouble:100.2], [[NSDecimalNumber alloc] initWithDouble:0.0], [[NSDecimalNumber alloc] initWithDouble:256.0], [[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], [[NSDecimalNumber alloc] initWithDouble:50.4], nil];
+    NSArray *pointArray = [NSArray arrayWithObject:position];
+    SFGLineString *line = [[SFGLineString alloc] initWithCoordinates:pointArray];
+    
+    SFGFeature *lineFeature = [[SFGFeature alloc] initWithGeometry:line];
+    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeature:lineFeature];
+    
+    NSString *value = [SFGFeatureConverter objectToJSON:featureCollection];
+    
+    [SFGTestUtils assertEqualWithValue:@"{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"LineString\",\"coordinates\":[[100.2,0,256,345,678,50.4]]},\"properties\":{}}]}" andValue2:value];
+    
 }
 
 -(void) compareFeatureCollection: (SFGFeatureCollection *) featureCollection withJSON: (NSString *) json{

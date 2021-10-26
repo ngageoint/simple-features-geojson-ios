@@ -8,8 +8,6 @@
 
 #import "SFGPoint.h"
 
-NSString * const SFG_TYPE_POINT = @"Point";
-
 @interface SFGPoint()
 
 /**
@@ -71,10 +69,6 @@ NSString * const SFG_TYPE_POINT = @"Point";
 
 -(SFGeometry *) geometry{
     return [self point];
-}
-
--(NSString *) type{
-    return SFG_TYPE_POINT;
 }
 
 +(NSArray *) coordinatesFromPoint: (SFPoint *) point{

@@ -8,11 +8,12 @@
 
 #import "SFGGeoJSONObject.h"
 #import "SFGeometry.h"
+#import "SFGGeometryTypes.h"
 
 /**
  * Coordinates key
  */
-extern NSString * const SFG_COORDINATES;
+extern NSString * const SFG_MEMBER_COORDINATES;
 
 /**
  * Geometry
@@ -43,6 +44,13 @@ extern NSString * const SFG_COORDINATES;
  *  @return new geometry
  */
 -(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
+ * Get the geometry type
+ *
+ * @return geometry type
+ */
+-(enum SFGGeometryType) geometryType;
 
 /**
  * Get the simple geometry

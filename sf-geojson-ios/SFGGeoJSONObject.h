@@ -11,12 +11,12 @@
 /**
  * Type key
  */
-extern NSString * const SFG_TYPE;
+extern NSString * const SFG_MEMBER_TYPE;
 
 /**
  * Bounding Box key
  */
-extern NSString * const SFG_BBOX;
+extern NSString * const SFG_MEMBER_BBOX;
 
 /**
  * GeoJSON Object

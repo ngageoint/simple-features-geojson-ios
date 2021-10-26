@@ -17,6 +17,7 @@
 #import "SFGGeoJSONObject.h"
 #import "SFGGeometry.h"
 #import "SFGGeometryCollection.h"
+#import "SFGGeometryTypes.h"
 #import "SFGLineString.h"
 #import "SFGMultiLineString.h"
 #import "SFGMultiPoint.h"
@@ -25,6 +26,5 @@
 #import "SFGPoint.h"
 #import "SFGPolygon.h"
 #import "SFGPosition.h"
-#import "SFGSimpleFeature.h"
 
 #endif /* sf_geojson_ios_Bridging_Header_h */

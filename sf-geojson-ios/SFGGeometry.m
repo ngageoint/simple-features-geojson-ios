@@ -8,15 +8,15 @@
 
 #import "SFGGeometry.h"
 
-NSString * const SFG_COORDINATES = @"coordinates";
+NSString * const SFG_MEMBER_COORDINATES = @"coordinates";
 
 static NSOrderedSet *keys = nil;
 
 @implementation SFGGeometry
 
-+ (void)initialize {
++(void) initialize{
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_COORDINATES, nil];
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_COORDINATES, nil];
     }
 }
 
@@ -38,6 +38,11 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    [self doesNotRecognizeSelector:_cmd];
+    return -1;
+}
+
 -(SFGeometry *) geometry{
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -52,11 +57,15 @@ static NSOrderedSet *keys = nil;
     [self doesNotRecognizeSelector:_cmd];
 }
 
+-(NSString *) type{
+    return [SFGGeometryTypes type:[self geometryType]].name;
+}
+
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
     NSArray *coordinates = [self coordinates];
     if(coordinates != nil){
-        [tree setObject:coordinates forKey:SFG_COORDINATES];
+        [tree setObject:coordinates forKey:SFG_MEMBER_COORDINATES];
     }
     return tree;
 }
@@ -71,7 +80,7 @@ static NSOrderedSet *keys = nil;
 }
 
 +(NSArray *) treeCoordinates: (NSDictionary *) tree{
-    return [tree objectForKey:SFG_COORDINATES];
+    return [tree objectForKey:SFG_MEMBER_COORDINATES];
 }
 
 @end

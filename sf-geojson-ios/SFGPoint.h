@@ -11,11 +11,6 @@
 #import "SFGPosition.h"
 
 /**
- * Point type
- */
-extern NSString * const SFG_TYPE_POINT;
-
-/**
  * Point
  */
 @interface SFGPoint : SFGGeometry

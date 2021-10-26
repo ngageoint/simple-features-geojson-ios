@@ -7,17 +7,17 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFGLineString.h"
 #import "SFMultiLineString.h"
-
-/**
- * Multi Line String type
- */
-extern NSString * const SFG_TYPE_MULTILINESTRING;
-
 /**
  * Multi Line String
  */
 @interface SFGMultiLineString : SFGGeometry
+
+/**
+ *  Array of line strings
+ */
+@property (nonatomic, strong) NSMutableArray<SFGLineString *> *lineStrings;
 
 /**
  *  Initialize
@@ -38,6 +38,15 @@ extern NSString * const SFG_TYPE_MULTILINESTRING;
 /**
  *  Initialize
  *
+ *  @param lineStrings line string list
+ *
+ *  @return new multi line string
+ */
+-(instancetype) initWithLineStrings: (NSArray<SFGLineString *> *) lineStrings;
+
+/**
+ *  Initialize
+ *
  *  @param multiLineString simple multi line string
  *
  *  @return new multi line string
@@ -54,11 +63,18 @@ extern NSString * const SFG_TYPE_MULTILINESTRING;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple multi line string
+ * Get the simple features multi line string
  *
- * @return simple multi line string
+ * @return multi line string
  */
 -(SFMultiLineString *) multiLineString;
+
+/**
+ * Set the simple features multi line string
+ *
+ * @param multiLineString multi line string
+ */
+-(void) setMultiLineString: (SFMultiLineString *) multiLineString;
 
 /**
  *  Get coordinates from a multi line string

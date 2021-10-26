@@ -10,11 +10,6 @@
 #import "SFPolygon.h"
 
 /**
- * Polygon type
- */
-extern NSString * const SFG_TYPE_POLYGON;
-
-/**
  * Polygon
  */
 @interface SFGPolygon : SFGGeometry

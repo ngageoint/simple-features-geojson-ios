@@ -7,17 +7,18 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFGPolygon.h"
 #import "SFMultiPolygon.h"
-
-/**
- * Multi Polygon type
- */
-extern NSString * const SFG_TYPE_MULTIPOLYGON;
 
 /**
  * Multi Polygon
  */
 @interface SFGMultiPolygon : SFGGeometry
+
+/**
+ *  Array of polygons
+ */
+@property (nonatomic, strong) NSMutableArray<SFGPolygon *> *polygons;
 
 /**
  *  Initialize
@@ -38,6 +39,15 @@ extern NSString * const SFG_TYPE_MULTIPOLYGON;
 /**
  *  Initialize
  *
+ *  @param polygons polygon list
+ *
+ *  @return new multi polygon
+ */
+-(instancetype) initWithPolygons: (NSArray<SFGPolygon *> *) polygons;
+
+/**
+ *  Initialize
+ *
  *  @param multiPolygon simple multi polygon
  *
  *  @return new multi polygon
@@ -54,11 +64,18 @@ extern NSString * const SFG_TYPE_MULTIPOLYGON;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple multi polygon
+ * Get the simple features multi polygon
  *
  * @return simple multi polygon
  */
 -(SFMultiPolygon *) multiPolygon;
+
+/**
+ * Set the simple features multi polygon
+ *
+ * @param multiPolygon multi polygon
+ */
+-(void) setMultiPolygon: (SFMultiPolygon *) multiPolygon;
 
 /**
  *  Get coordinates from a multi polygon

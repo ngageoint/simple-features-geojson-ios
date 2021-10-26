@@ -9,17 +9,6 @@
 #import "SFGMultiPoint.h"
 #import "SFGPoint.h"
 
-NSString * const SFG_TYPE_MULTIPOINT = @"MultiPoint";
-
-@interface SFGMultiPoint()
-
-/**
- *  Simple multi point
- */
-@property (nonatomic, strong) SFMultiPoint *multiPoint;
-
-@end
-
 @implementation SFGMultiPoint
 
 -(instancetype) init{
@@ -32,10 +21,18 @@ NSString * const SFG_TYPE_MULTIPOINT = @"MultiPoint";
     return self;
 }
 
+-(instancetype) initWithPoints: (NSArray<SFGPoint *> *) points{
+    self = [super init];
+    if(self != nil){
+        _points = [NSMutableArray arrayWithArray:points];
+    }
+    return self;
+}
+
 -(instancetype) initWithMultiPoint: (SFMultiPoint *) multiPoint{
     self = [super init];
     if(self != nil){
-        _multiPoint = multiPoint;
+        [self setMultiPoint:multiPoint];
     }
     return self;
 }
@@ -45,8 +42,27 @@ NSString * const SFG_TYPE_MULTIPOINT = @"MultiPoint";
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    return SFG_MULTIPOINT;
+}
+
+-(SFGeometry *) geometry{
+    return [self multiPoint];
+}
+
 -(SFMultiPoint *) multiPoint{
-    return _multiPoint;
+    NSMutableArray<SFPoint *> *simplePoints = [NSMutableArray array];
+    for(SFGPoint *point in _points){
+        [simplePoints addObject:[point point]];
+    }
+    return [[SFMultiPoint alloc] initWithPoints:simplePoints];
+}
+
+-(void) setMultiPoint: (SFMultiPoint *) multiPoint{
+    _points = [NSMutableArray array];
+    for(SFPoint *point in multiPoint.points){
+        [_points addObject:[[SFGPoint alloc] initWithPoint:point]];
+    }
 }
 
 -(NSArray *) coordinates{
@@ -55,14 +71,6 @@ NSString * const SFG_TYPE_MULTIPOINT = @"MultiPoint";
 
 -(void) setCoordinates: (NSArray *) coordinates{
     self.multiPoint = [SFGMultiPoint multiPointFromCoordinates:coordinates];
-}
-
--(SFGeometry *) geometry{
-    return [self multiPoint];
-}
-
--(NSString *) type{
-    return SFG_TYPE_MULTIPOINT;
 }
 
 +(NSMutableArray *) coordinatesFromMultiPoint: (SFMultiPoint *) multiPoint{

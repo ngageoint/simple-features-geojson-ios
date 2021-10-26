@@ -12,35 +12,26 @@
 
 NSString * const SFG_TYPE_FEATURE = @"Feature";
 
-NSString * const SFG_ID = @"id";
+NSString * const SFG_MEMBER_ID = @"id";
 
-NSString * const SFG_GEOMETRY = @"geometry";
+NSString * const SFG_MEMBER_GEOMETRY = @"geometry";
 
-NSString * const SFG_PROPERTIES = @"properties";
+NSString * const SFG_MEMBER_PROPERTIES = @"properties";
 
 static NSOrderedSet *keys = nil;
 
-@interface SFGFeature()
-
-/**
- *  Simple feature
- */
-@property (nonatomic, strong) SFGSimpleFeature *feature;
-
-@end
-
 @implementation SFGFeature
 
-+ (void)initialize {
++(void) initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_ID, SFG_GEOMETRY, SFG_PROPERTIES, nil];
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_ID, SFG_MEMBER_GEOMETRY, SFG_MEMBER_PROPERTIES, nil];
     }
 }
 
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.feature = [[SFGSimpleFeature alloc] init];
+        _properties = [[SFGOrderedDictionary alloc] init];
     }
     return self;
 }
@@ -48,7 +39,7 @@ static NSOrderedSet *keys = nil;
 -(instancetype) initWithGeometry: (SFGGeometry *) geometry{
     self = [self init];
     if(self != nil){
-        [self setGeometry:geometry];
+        _geometry = geometry;
     }
     return self;
 }
@@ -58,44 +49,12 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
--(SFGGeometry *) geometry{
-    return [SFGFeatureConverter simpleGeometryToGeometry:self.feature.geometry];
-}
-
--(void) setGeometry: (SFGGeometry *) geometry{
-    SFGeometry *simpleGeometry = nil;
-    if(geometry != nil){
-        simpleGeometry = [geometry geometry];
-    }
-    [self.feature setGeometry:simpleGeometry];
-}
-
--(NSMutableDictionary<NSString *, NSObject *> *) properties{
-    return self.feature.properties;
-}
-
--(void) setProperties: (NSMutableDictionary<NSString *, NSObject *> *) properties{
-    [self.feature setProperties:properties];
-}
-
--(SFGSimpleFeature *) feature{
-    return _feature;
-}
-
 -(SFGeometry *) simpleGeometry{
-    return self.feature.geometry;
+    return _geometry != nil ? [_geometry geometry] : nil;
 }
 
--(enum SFGeometryType) geometryType{
-    enum SFGeometryType geometryType = SF_NONE;
-    SFGGeometry *geometry = [self geometry];
-    if(geometry != nil){
-        SFGeometry *simpleGeometry = [geometry geometry];
-        if(simpleGeometry != nil){
-            geometryType = simpleGeometry.geometryType;
-        }
-    }
-    return geometryType;
+-(enum SFGGeometryType) geometryType{
+    return _geometry != nil ? [_geometry geometryType] : -1;
 }
 
 -(NSString *) type{
@@ -105,33 +64,32 @@ static NSOrderedSet *keys = nil;
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
     if(self.id != nil){
-        [tree setObject:self.id forKey:SFG_ID];
+        [tree setObject:self.id forKey:SFG_MEMBER_ID];
     }
     SFGGeometry *geometry = [self geometry];
     NSMutableDictionary *geometryTree = nil;
     if(geometry != nil){
         geometryTree = [geometry toTree];
     }
-    [tree setObject:geometryTree != nil ? geometryTree : [NSNull null] forKey:SFG_GEOMETRY];
+    [tree setObject:geometryTree != nil ? geometryTree : [NSNull null] forKey:SFG_MEMBER_GEOMETRY];
     NSMutableDictionary<NSString *, NSObject *> *properties = [self properties];
     if(properties == nil){
         properties = [[SFGOrderedDictionary alloc] init];
     }
-    [tree setObject:properties forKey:SFG_PROPERTIES];
+    [tree setObject:properties forKey:SFG_MEMBER_PROPERTIES];
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
-    self.feature = [[SFGSimpleFeature alloc] init];
-    self.id = [tree objectForKey:SFG_ID];
-    NSDictionary *geometryTree = [tree objectForKey:SFG_GEOMETRY];
+    self.id = [tree objectForKey:SFG_MEMBER_ID];
+    NSDictionary *geometryTree = [tree objectForKey:SFG_MEMBER_GEOMETRY];
     SFGGeometry *geometry = nil;
     if(![geometryTree isEqual:[NSNull null]] && geometryTree != nil){
         geometry = [SFGFeatureConverter treeToGeometry:geometryTree];
     }
     [self setGeometry:geometry];
-    NSDictionary *propertiesTree = [tree objectForKey:SFG_PROPERTIES];
+    NSDictionary *propertiesTree = [tree objectForKey:SFG_MEMBER_PROPERTIES];
     NSMutableDictionary<NSString *, NSObject *> *properties = [[SFGOrderedDictionary alloc] init];
     if(![propertiesTree isEqual:[NSNull null]] && propertiesTree != nil){
         for(NSString *propertyKey in [propertiesTree allKeys]){

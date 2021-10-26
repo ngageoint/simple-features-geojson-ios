@@ -12,15 +12,15 @@
 
 NSString * const SFG_TYPE_FEATURE_COLLECTION = @"FeatureCollection";
 
-NSString * const SFG_FEATURES = @"features";
+NSString * const SFG_MEMBER_FEATURES = @"features";
 
 static NSOrderedSet *keys = nil;
 
 @implementation SFGFeatureCollection
 
-+ (void)initialize {
++(void) initialize{
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_FEATURES, nil];
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, nil];
     }
 }
 
@@ -108,14 +108,14 @@ static NSOrderedSet *keys = nil;
     for(SFGFeature *feature in self.features){
         [features addObject:[feature toTree]];
     }
-    [tree setObject:features forKey:SFG_FEATURES];
+    [tree setObject:features forKey:SFG_MEMBER_FEATURES];
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
     self.features = [[NSMutableArray alloc] init];
-    NSArray *featuresArray = [tree objectForKey:SFG_FEATURES];
+    NSArray *featuresArray = [tree objectForKey:SFG_MEMBER_FEATURES];
     if(![featuresArray isEqual:[NSNull null]] && featuresArray != nil){
         for(NSDictionary *featureTree in featuresArray){
             [self.features addObject:[SFGFeatureConverter treeToFeature:featureTree]];

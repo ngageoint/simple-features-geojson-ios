@@ -9,9 +9,9 @@
 #import "SFGGeoJSONObject.h"
 #import "SFGOrderedDictionary.h"
 
-NSString * const SFG_TYPE = @"type";
+NSString * const SFG_MEMBER_TYPE = @"type";
 
-NSString * const SFG_BBOX = @"bbox";
+NSString * const SFG_MEMBER_BBOX = @"bbox";
 
 @implementation SFGGeoJSONObject
 
@@ -38,9 +38,9 @@ NSString * const SFG_BBOX = @"bbox";
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[SFGOrderedDictionary alloc] init];
-    [tree setObject:[self type] forKey:SFG_TYPE];
+    [tree setObject:[self type] forKey:SFG_MEMBER_TYPE];
     if(self.bbox != nil){
-        [tree setObject:self.bbox forKey:SFG_BBOX];
+        [tree setObject:self.bbox forKey:SFG_MEMBER_BBOX];
     }
     if(self.foreignMembers != nil && self.foreignMembers.count > 0){
         [tree addEntriesFromDictionary:self.foreignMembers];
@@ -49,7 +49,7 @@ NSString * const SFG_BBOX = @"bbox";
 }
 
 -(void) fromTree: (NSDictionary *) tree{
-    NSArray *boundingBox = (NSArray *)[tree objectForKey:SFG_BBOX];
+    NSArray *boundingBox = (NSArray *)[tree objectForKey:SFG_MEMBER_BBOX];
     if(boundingBox != nil){
         self.bbox = [[NSMutableArray alloc] init];
         for(NSNumber *number in boundingBox){
@@ -73,7 +73,7 @@ NSString * const SFG_BBOX = @"bbox";
 }
 
 +(NSString *) treeType: (NSDictionary *) tree{
-    return [tree objectForKey:SFG_TYPE];
+    return [tree objectForKey:SFG_MEMBER_TYPE];
 }
 
 @end
