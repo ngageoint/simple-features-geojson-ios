@@ -11,15 +11,6 @@
 #import "SFLinearRing.h"
 #import "SFGPoint.h"
 
-@interface SFGPolygon()
-
-/**
- *  Simple polygon
- */
-@property (nonatomic, strong) SFPolygon *polygon;
-
-@end
-
 @implementation SFGPolygon
 
 -(instancetype) init{
@@ -32,10 +23,18 @@
     return self;
 }
 
+-(instancetype) initWithRings: (NSArray<SFGLineString *> *) rings{
+    self = [super init];
+    if(self != nil){
+        _rings = [NSMutableArray arrayWithArray:rings];
+    }
+    return self;
+}
+
 -(instancetype) initWithPolygon: (SFPolygon *) polygon{
     self = [super init];
     if(self != nil){
-        _polygon = polygon;
+        [self setPolygon:polygon];
     }
     return self;
 }
@@ -45,8 +44,27 @@
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    return SFG_POLYGON;
+}
+
+-(SFGeometry *) geometry{
+    return [self polygon];
+}
+
 -(SFPolygon *) polygon{
-    return _polygon;
+    SFPolygon *polygon = [[SFPolygon alloc] init];
+    for(SFGLineString *ring in _rings){
+        [polygon addRing:[[SFLinearRing alloc] initWithPoints:[ring lineString].points]];
+    }
+    return polygon;
+}
+
+-(void) setPolygon: (SFPolygon *) polygon{
+    _rings = [NSMutableArray array];
+    for(SFLineString *ring in polygon.rings){
+        [_rings addObject:[[SFGLineString alloc] initWithLineString:ring]];
+    }
 }
 
 -(NSArray *) coordinates{
@@ -55,10 +73,6 @@
 
 -(void) setCoordinates: (NSArray *) coordinates{
     self.polygon = [SFGPolygon polygonFromCoordinates:coordinates];
-}
-
--(SFGeometry *) geometry{
-    return [self polygon];
 }
 
 +(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon{

@@ -66,7 +66,7 @@
 /**
  * Get the simple features multi polygon
  *
- * @return simple multi polygon
+ * @return multi polygon
  */
 -(SFMultiPolygon *) multiPolygon;
 

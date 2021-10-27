@@ -15,6 +15,11 @@
 @interface SFGPosition : NSObject
 
 /**
+ *  Coordinate values: long, lat, altitude, and additional elements such as m
+ */
+@property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *coordinates;
+
+/**
  *  Initialize
  *
  *  @param point simple point
@@ -76,13 +81,6 @@
  *  @return new position
  */
 -(instancetype) initWithCoordinates: (NSArray *) coordinates;
-
-/**
- * Get the coordinaes
- *
- * @return coordinates
- */
--(NSArray<NSDecimalNumber *> *) coordinates;
 
 /**
  * Check if the position has additional elements

@@ -7,12 +7,18 @@
 //
 
 #import "SFGGeometry.h"
+#import "SFGLineString.h"
 #import "SFPolygon.h"
 
 /**
  * Polygon
  */
 @interface SFGPolygon : SFGGeometry
+
+/**
+ *  Array of line string rings
+ */
+@property (nonatomic, strong) NSMutableArray<SFGLineString *> *rings;
 
 /**
  *  Initialize
@@ -29,6 +35,15 @@
  *  @return new polygon
  */
 -(instancetype) initWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Initialize
+ *
+ *  @param rings ring line string list
+ *
+ *  @return new polygon
+ */
+-(instancetype) initWithRings: (NSArray<SFGLineString *> *) rings;
 
 /**
  *  Initialize
@@ -51,9 +66,16 @@
 /**
  * Get the simple polygon
  *
- * @return simple polygon
+ * @return polygon
  */
 -(SFPolygon *) polygon;
+
+/**
+ * Set the simple polygon
+ *
+ * @param polygon polygon
+ */
+-(void) setPolygon: (SFPolygon *) polygon;
 
 /**
  *  Get coordinates from a polygon

@@ -148,22 +148,36 @@
     
     NSString *type = [SFGGeoJSONObject treeType:tree];
     
-    if([type isEqualToString:SFG_TYPE_POINT]){
-        geometry = [self treeToPoint:tree];
-    }else if([type isEqualToString:SFG_TYPE_LINESTRING]){
-        geometry = [self treeToLineString:tree];
-    }else if([type isEqualToString:SFG_TYPE_POLYGON]){
-        geometry = [self treeToPolygon:tree];
-    }else if([type isEqualToString:SFG_TYPE_MULTIPOINT]){
-        geometry = [self treeToMultiPoint:tree];
-    }else if([type isEqualToString:SFG_TYPE_MULTILINESTRING]){
-        geometry = [self treeToMultiLineString:tree];
-    }else if([type isEqualToString:SFG_TYPE_MULTIPOLYGON]){
-        geometry = [self treeToMultiPolygon:tree];
-    }else if([type isEqualToString:SFG_TYPE_GEOMETRYCOLLECTION]){
-        geometry = [self treeToGeometryCollection:tree];
-    }else{
+    SFGGeometryTypes *geometryType = [SFGGeometryTypes fromName:type];
+    
+    if(geometryType == nil){
         [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", type];
+    }
+    
+    switch([geometryType type]){
+        case SFG_POINT:
+            geometry = [self treeToPoint:tree];
+            break;
+        case SFG_LINESTRING:
+            geometry = [self treeToLineString:tree];
+            break;
+        case SFG_POLYGON:
+            geometry = [self treeToPolygon:tree];
+            break;
+        case SFG_MULTIPOINT:
+            geometry = [self treeToMultiPoint:tree];
+            break;
+        case SFG_MULTILINESTRING:
+            geometry = [self treeToMultiLineString:tree];
+            break;
+        case SFG_MULTIPOLYGON:
+            geometry = [self treeToMultiPolygon:tree];
+            break;
+        case SFG_GEOMETRYCOLLECTION:
+            geometry = [self treeToGeometryCollection:tree];
+            break;
+        default:
+            [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", type];
     }
     
     return geometry;

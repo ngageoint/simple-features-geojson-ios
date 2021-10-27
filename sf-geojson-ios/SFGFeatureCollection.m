@@ -69,15 +69,15 @@ static NSOrderedSet *keys = nil;
     return [self.features objectAtIndex:index];
 }
 
--(enum SFGeometryType) geometryType{
-    enum SFGeometryType result = SF_NONE;
+-(enum SFGGeometryType) geometryType{
+    enum SFGGeometryType result = -1;
     
     for(SFGFeature *feature in self.features){
-        enum SFGeometryType gt = [feature geometryType];
-        if(result == SF_NONE){
+        enum SFGGeometryType gt = [feature geometryType];
+        if(result == -1){
             result = gt;
         }else if(gt != result){
-            result = SF_GEOMETRY;
+            result = SFG_GEOMETRY;
             break;
         }
     }

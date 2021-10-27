@@ -8,15 +8,6 @@
 
 #import "SFGPosition.h"
 
-@interface SFGPosition()
-
-/**
- *  Coordinate values: long, lat, altitude, and additional elements such as m
- */
-@property (nonatomic, strong) NSArray<NSDecimalNumber *> *coordinates;
-
-@end
-
 @implementation SFGPosition
 
 -(instancetype) initWithPoint: (SFPoint *) point{
@@ -40,20 +31,18 @@
     if(self != nil){
         
         if (longitude == nil || latitude == nil) {
-            self.coordinates = [[NSArray alloc] init];
+            _coordinates = [NSMutableArray array];
         } else if (altitude == nil) {
-            self.coordinates = [[NSArray alloc] initWithObjects:longitude, latitude, nil];
+            _coordinates = [NSMutableArray arrayWithObjects:longitude, latitude, nil];
         } else {
-            self.coordinates = [[NSArray alloc] initWithObjects:longitude, latitude, altitude, nil];
+            _coordinates = [NSMutableArray arrayWithObjects:longitude, latitude, altitude, nil];
             if(additionalElements != nil && additionalElements.count > 0){
-                NSMutableArray *tempCoordinates = [[NSMutableArray alloc] initWithArray:self.coordinates];
                 for(NSDecimalNumber *element in additionalElements){
                     if([element isEqualToNumber:[NSDecimalNumber notANumber]]){
                         [NSException raise:@"NAN" format:@"No additional elements may be NaN."];
                     }
-                    [tempCoordinates addObject:element];
+                    [_coordinates addObject:element];
                 }
-                self.coordinates = tempCoordinates;
             }
         }
         
@@ -64,17 +53,12 @@
 -(instancetype) initWithCoordinates: (NSArray *) coordinates{
     self = [super init];
     if(self != nil){
-        NSMutableArray<NSDecimalNumber *> *coords = [[NSMutableArray alloc] init];
+        _coordinates = [NSMutableArray array];
         for(NSNumber *number in coordinates){
-            [coords addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
+            [_coordinates addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
         }
-        self.coordinates = coords;
     }
     return self;
-}
-
--(NSArray<NSDecimalNumber *> *) coordinates{
-    return _coordinates;
 }
 
 -(BOOL) hasAdditionalElements{

@@ -71,13 +71,6 @@
 -(SFPoint *) point;
 
 /**
- * Set the position
- *
- * @param position point position
- */
--(void) setPosition: (SFGPosition *) position;
-
-/**
  *  Get coordinates from a point
  *
  *  @param point simple point

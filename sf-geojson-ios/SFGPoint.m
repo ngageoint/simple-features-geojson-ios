@@ -8,19 +8,11 @@
 
 #import "SFGPoint.h"
 
-@interface SFGPoint()
-
-/**
- *  Simple point
- */
-@property (nonatomic, strong) SFPoint *point;
-
-@end
-
 @implementation SFGPoint
 
 -(instancetype) init{
-    return [self initWithPoint:[[SFPoint alloc] init]];
+    self = [super init];
+    return self;
 }
 
 -(instancetype) initWithCoordinates: (NSArray *) coordinates{
@@ -31,7 +23,7 @@
 -(instancetype) initWithPosition: (SFGPosition *) position{
     self = [super init];
     if(self != nil){
-        [self setPosition:position];
+        _position = position;
     }
     return self;
 }
@@ -39,8 +31,7 @@
 -(instancetype) initWithPoint: (SFPoint *) point{
     self = [super init];
     if(self != nil){
-        _point = point;
-        _position = [SFGPoint positionFromPoint:point];
+        [self setPoint:point];
     }
     return self;
 }
@@ -50,8 +41,20 @@
     return self;
 }
 
+-(enum SFGGeometryType) geometryType{
+    return SFG_POINT;
+}
+
+-(SFGeometry *) geometry{
+    return [self point];
+}
+
 -(SFPoint *) point{
-    return _point;
+    return [SFGPoint pointFromPosition:_position];
+}
+
+-(void) setPoint: (SFPoint *) point{
+    _position = [SFGPoint positionFromPoint:point];
 }
 
 -(NSArray *) coordinates{
@@ -59,16 +62,7 @@
 }
 
 -(void) setCoordinates: (NSArray *) coordinates{
-    [self setPosition:[SFGPoint positionFromCoordinates:coordinates]];
-}
-
--(void) setPosition: (SFGPosition *) position{
-    _point = [SFGPoint pointFromPosition:position];
-    _position = position;
-}
-
--(SFGeometry *) geometry{
-    return [self point];
+    _position = [SFGPoint positionFromCoordinates:coordinates];
 }
 
 +(NSArray *) coordinatesFromPoint: (SFPoint *) point{

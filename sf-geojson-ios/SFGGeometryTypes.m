@@ -44,7 +44,7 @@ static NSMutableDictionary<NSString *, SFGGeometryTypes *> *nameTypes = nil;
 
 +(void) initialize: (SFGGeometryTypes *) type{
     [types setObject:type forKey:[NSNumber numberWithInteger:type.type]];
-    [types setObject:type forKey:[type.name lowercaseString]];
+    [nameTypes setObject:type forKey:[type.name lowercaseString]];
 }
 
 +(SFGGeometryTypes *) createWithType: (enum SFGGeometryType) type andSimpleType: (enum SFGeometryType) simpleType andName: (NSString *) name{
