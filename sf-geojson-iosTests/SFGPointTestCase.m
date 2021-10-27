@@ -40,11 +40,11 @@
 -(void) testDeserializePointWithAdditionalAttributes{
     SFGGeoJSONObject *object = [SFGFeatureConverter jsonToObject:@"{\"type\":\"Point\",\"coordinates\":[100,5,123,456,789.2]}"];
     SFGPoint *point = (SFGPoint *) object;
-    [SFGTestUtils assertPointWithLongitude:100 andLatitude:5 andAltitude:[NSNumber numberWithDouble:123] andAdditional:[[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:456], [NSNumber numberWithDouble:789.2], nil] andPoint:point];
+    [SFGTestUtils assertPointWithLongitude:100 andLatitude:5 andAltitude:[NSNumber numberWithDouble:123] andAdditional:[NSArray arrayWithObjects:[NSNumber numberWithDouble:456], [NSNumber numberWithDouble:789.2], nil] andPoint:point];
 }
 
 -(void) testSerializePointWithAdditionalAttributes{
-    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], nil]];
+    SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[NSArray arrayWithObjects:[[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], nil]];
     SFGPoint *point = [[SFGPoint alloc] initWithPosition:position];
     [SFGTestUtils compareGeometry:point withInput:@"{\"type\":\"Point\",\"coordinates\":[100.2,0,256,345,678]}"];
 }

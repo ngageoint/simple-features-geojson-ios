@@ -66,28 +66,18 @@
 }
 
 -(NSArray *) coordinates{
-    return [SFGMultiPolygon coordinatesFromMultiPolygon:self.multiPolygon];
-}
-
--(void) setCoordinates: (NSArray *) coordinates{
-    self.multiPolygon = [SFGMultiPolygon multiPolygonFromCoordinates:coordinates];
-}
-
-+(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon{
-    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
-    for(SFPolygon *polygon in multiPolygon.geometries){
-        [coordinates addObject:[SFGPolygon coordinatesFromPolygon:polygon]];
+    NSMutableArray *coordinates = [NSMutableArray array];
+    for(SFGPolygon *polygon in _polygons){
+        [coordinates addObject:[polygon coordinates]];
     }
     return coordinates;
 }
 
-+(SFMultiPolygon *) multiPolygonFromCoordinates: (NSArray *) coordinates{
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
+-(void) setCoordinates: (NSArray *) coordinates{
+    _polygons = [NSMutableArray array];
     for(NSArray *polygonCoordinates in coordinates){
-        SFPolygon *polygon = [SFGPolygon polygonFromCoordinates:polygonCoordinates];
-        [polygons addObject:polygon];
+        [_polygons addObject:[[SFGPolygon alloc] initWithCoordinates:polygonCoordinates]];
     }
-    return [[SFMultiPolygon alloc] initWithPolygons:polygons];
 }
 
 @end

@@ -282,8 +282,6 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 
 -(void) testAdditionalAttributes{
     
-    // TODO
-    //SFGPosition *position = [[SFGPosition alloc] initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:100.2] andLatitude:[[NSDecimalNumber alloc] initWithDouble:0.0] andAltitude:[[NSDecimalNumber alloc] initWithDouble:256.0] andAdditionals:[[NSArray alloc] initWithObjects:[[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], [[NSDecimalNumber alloc] initWithDouble:50.4], nil]];
     NSArray<NSDecimalNumber *> *position = [NSArray arrayWithObjects:[[NSDecimalNumber alloc] initWithDouble:100.2], [[NSDecimalNumber alloc] initWithDouble:0.0], [[NSDecimalNumber alloc] initWithDouble:256.0], [[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], [[NSDecimalNumber alloc] initWithDouble:50.4], nil];
     NSArray *pointArray = [NSArray arrayWithObject:position];
     SFGLineString *line = [[SFGLineString alloc] initWithCoordinates:pointArray];
@@ -327,7 +325,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 
 -(NSArray<SFGeometry *> *) createTestSimpleGeometries{
     
-    NSMutableArray<SFGeometry *> *simpleGeometries = [[NSMutableArray alloc] init];
+    NSMutableArray<SFGeometry *> *simpleGeometries = [NSMutableArray array];
     
     SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] init];
     [geometryCollection addGeometry:[[SFPoint alloc] initWithXValue:61.3476 andYValue:48.632908]];

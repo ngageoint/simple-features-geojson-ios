@@ -20,8 +20,8 @@ static NSString *POLYGON_WITH_ALT = @"{\"type\":\"Polygon\",\"coordinates\":[[[1
 static NSString *POLYGON_WITH_RINGS = @"{\"type\":\"Polygon\",\"coordinates\":[[[-100,-50],[100,-50],[1,50],[-100,-50]],[[-50,-25],[50,-25],[-1,25],[-50,-25]]]}";
 
 -(void) testSerializePolygon{
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10.1]];
     [points addObject:[[SFPoint alloc] initWithXValue:101.2 andYValue:1.3]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10.5]];
@@ -32,8 +32,8 @@ static NSString *POLYGON_WITH_RINGS = @"{\"type\":\"Polygon\",\"coordinates\":[[
 }
 
 -(void) testSerializePolygonWithAltitude{
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10.1 andZValue:5]];
     [points addObject:[[SFPoint alloc] initWithXValue:101.3 andYValue:1 andZValue:10.5]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10 andZValue:15]];
@@ -44,14 +44,14 @@ static NSString *POLYGON_WITH_RINGS = @"{\"type\":\"Polygon\",\"coordinates\":[[
 }
 
 -(void) testSerializePolygonWithRings{
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-100.0 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:1 andYValue:50]];
     SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
     [rings addObject:ring];
-    points = [[NSMutableArray alloc] init];
+    points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
@@ -135,14 +135,14 @@ static NSString *POLYGON_WITH_RINGS = @"{\"type\":\"Polygon\",\"coordinates\":[[
 
 -(SFGeometry *) createTestGeometry{
     
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-100.0 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:1 andYValue:50]];
     SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
     [rings addObject:ring];
-    points = [[NSMutableArray alloc] init];
+    points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];

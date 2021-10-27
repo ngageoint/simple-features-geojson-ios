@@ -77,22 +77,4 @@
  */
 -(void) setLineString: (SFLineString *) lineString;
 
-/**
- *  Get coordinates from a line string
- *
- *  @param lineString simple line string
- *
- *  @return coordinates
- */
-+(NSMutableArray *) coordinatesFromLineString: (SFLineString *) lineString;
-
-/**
- *  Get a line string from coordinates
- *
- *  @param coordinates coordinate positions
- *
- *  @return line string
- */
-+(SFLineString *) lineStringFromCoordinates: (NSArray *) coordinates;
-
 @end

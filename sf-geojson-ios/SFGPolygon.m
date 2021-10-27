@@ -68,37 +68,18 @@
 }
 
 -(NSArray *) coordinates{
-    return [SFGPolygon coordinatesFromPolygon:self.polygon];
-}
-
--(void) setCoordinates: (NSArray *) coordinates{
-    self.polygon = [SFGPolygon polygonFromCoordinates:coordinates];
-}
-
-+(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon{
-    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
-    for(SFLineString *ring in polygon.rings){
-        NSMutableArray *ringCoordinates = [[NSMutableArray alloc] init];
-        for(SFPoint *point in ring.points){
-            [ringCoordinates addObject:[SFGPoint coordinatesFromPoint:point]];
-        }
-        [coordinates addObject:ringCoordinates];
+    NSMutableArray *coordinates = [NSMutableArray array];
+    for(SFGLineString *ring in _rings){
+        [coordinates addObject:[ring coordinates]];
     }
     return coordinates;
 }
 
-+(SFPolygon *) polygonFromCoordinates: (NSArray *) coordinates{
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
+-(void) setCoordinates: (NSArray *) coordinates{
+    _rings = [NSMutableArray array];
     for(NSArray *ringCoordinates in coordinates){
-        NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
-        for(NSArray *pointCoordinates in ringCoordinates){
-            [points addObject:[SFGPoint pointFromCoordinates:pointCoordinates]];
-        }
-        SFLinearRing *ring = [[SFLinearRing alloc] initWithHasZ:[SFGeometryUtils hasZ:points] andHasM:[SFGeometryUtils hasM:points]];
-        [ring setPoints:points];
-        [rings addObject:ring];
+        [_rings addObject:[[SFGLineString alloc] initWithCoordinates:ringCoordinates]];
     }
-    return [[SFPolygon alloc] initWithRings:rings];
 }
 
 @end

@@ -23,7 +23,7 @@
 }
 
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditional: (NSDecimalNumber *) additionalElement{
-    return [self initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:[[NSArray alloc] initWithObjects:additionalElement, nil]];
+    return [self initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:[NSArray arrayWithObjects:additionalElement, nil]];
 }
 
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{

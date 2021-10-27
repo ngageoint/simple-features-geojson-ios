@@ -24,7 +24,7 @@ static NSOrderedSet *keys = nil;
 
 +(void) initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_ID, SFG_MEMBER_GEOMETRY, SFG_MEMBER_PROPERTIES, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_ID, SFG_MEMBER_GEOMETRY, SFG_MEMBER_PROPERTIES, nil];
     }
 }
 

@@ -77,22 +77,4 @@
  */
 -(void) setMultiPolygon: (SFMultiPolygon *) multiPolygon;
 
-/**
- *  Get coordinates from a multi polygon
- *
- *  @param multiPolygon simple multi polygon
- *
- *  @return coordinates
- */
-+(NSMutableArray *) coordinatesFromMultiPolygon: (SFMultiPolygon *) multiPolygon;
-
-/**
- *  Get a multi polygon from coordinates
- *
- *  @param coordinates coordinate positions
- *
- *  @return multi polygon
- */
-+(SFMultiPolygon *) multiPolygonFromCoordinates: (NSArray *) coordinates;
-
 @end

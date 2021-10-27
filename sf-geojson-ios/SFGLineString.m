@@ -66,27 +66,18 @@
 }
 
 -(NSArray *) coordinates{
-    return [SFGLineString coordinatesFromLineString:self.lineString];
-}
-
--(void) setCoordinates: (NSArray *) coordinates{
-    self.lineString = [SFGLineString lineStringFromCoordinates:coordinates];
-}
-
-+(NSMutableArray *) coordinatesFromLineString: (SFLineString *) lineString{
-    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
-    for(SFPoint *point in lineString.points){
-        [coordinates addObject:[SFGPoint coordinatesFromPoint:point]];
+    NSMutableArray *coordinates = [NSMutableArray array];
+    for(SFGPoint *point in _points){
+        [coordinates addObject:[point coordinates]];
     }
     return coordinates;
 }
 
-+(SFLineString *) lineStringFromCoordinates: (NSArray *) coordinates{
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+-(void) setCoordinates: (NSArray *) coordinates{
+    _points = [NSMutableArray array];
     for(NSArray *pointCoordinates in coordinates){
-        [points addObject:[SFGPoint pointFromCoordinates:pointCoordinates]];
+        [_points addObject:[[SFGPoint alloc] initWithCoordinates:pointCoordinates]];
     }
-    return [[SFLineString alloc] initWithPoints:points];
 }
 
 @end

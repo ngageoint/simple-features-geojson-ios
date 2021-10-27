@@ -58,8 +58,8 @@ static NSString *DescriptionForObject(id object, id locale, NSUInteger indent)
 
 - (void)commonInitWithCapacity:(NSUInteger)capacity
 {
-    dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
-    array = [[NSMutableArray alloc] initWithCapacity:capacity];
+    dictionary = [NSMutableDictionary dictionaryWithCapacity:capacity];
+    array = [NSMutableArray arrayWithCapacity:capacity];
 }
 
 - (instancetype)copy

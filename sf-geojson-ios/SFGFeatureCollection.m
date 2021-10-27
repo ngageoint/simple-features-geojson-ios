@@ -20,14 +20,14 @@ static NSOrderedSet *keys = nil;
 
 +(void) initialize{
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, nil];
     }
 }
 
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.features = [[NSMutableArray alloc] init];
+        self.features = [NSMutableArray array];
     }
     return self;
 }
@@ -104,7 +104,7 @@ static NSOrderedSet *keys = nil;
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
-    NSMutableArray *features = [[NSMutableArray alloc] init];
+    NSMutableArray *features = [NSMutableArray array];
     for(SFGFeature *feature in self.features){
         [features addObject:[feature toTree]];
     }
@@ -114,7 +114,7 @@ static NSOrderedSet *keys = nil;
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
-    self.features = [[NSMutableArray alloc] init];
+    self.features = [NSMutableArray array];
     NSArray *featuresArray = [tree objectForKey:SFG_MEMBER_FEATURES];
     if(![featuresArray isEqual:[NSNull null]] && featuresArray != nil){
         for(NSDictionary *featureTree in featuresArray){

@@ -39,7 +39,7 @@
 }
 
 +(SFGFeatureCollection *) simpleGeometriesToFeatureCollection: (NSArray<SFGeometry *> *) simpleGeometries{
-    NSMutableArray<SFGFeature *> *features = [[NSMutableArray alloc] init];
+    NSMutableArray<SFGFeature *> *features = [NSMutableArray array];
     for(SFGeometry *simpleGeometry in simpleGeometries){
         SFGFeature *feature = [self simpleGeometryToFeature:simpleGeometry];
         [features addObject:feature];
@@ -122,7 +122,7 @@
     
     if ([jsonObject isKindOfClass:[NSArray class]]) {
         NSArray *array = (NSArray *)jsonObject;
-        tree = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNull null], array, nil];
+        tree = [NSDictionary dictionaryWithObjectsAndKeys:[NSNull null], array, nil];
     } else {
         tree = (NSMutableDictionary *)jsonObject;
     }

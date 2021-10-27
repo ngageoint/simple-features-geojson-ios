@@ -20,9 +20,9 @@ static NSString *MULTIPOLYGON_WITH_RINGS = @"{\"type\":\"MultiPolygon\",\"coordi
 static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-100,-50],[100,-50],[1,50],[-100,-50]]],[[[-50,-25],[50,-25],[-1,25],[-50,-25]]]]}";
 
 -(void) testSerializeMultiPolygon{
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10]];
@@ -35,9 +35,9 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
 }
 
 -(void) testSerializeMultiPolygonWithAltitude{
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:5]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1 andZValue:10]];
     [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10 andZValue:15]];
@@ -54,10 +54,10 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
 }
 
 -(void) testSerializeMultiPolygonWithMulti{
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
     
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:1 andYValue:50]];
@@ -66,8 +66,8 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
     [polygons addObject:polygon];
     
-    rings = [[NSMutableArray alloc] init];
-    points = [[NSMutableArray alloc] init];
+    rings = [NSMutableArray array];
+    points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
@@ -193,9 +193,9 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
 
 -(SFGeometry *) createTestGeometry{
     
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0]];
     [points addObject:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0]];
     [points addObject:[[SFPoint alloc] initWithXValue:101.0 andYValue:10.0]];

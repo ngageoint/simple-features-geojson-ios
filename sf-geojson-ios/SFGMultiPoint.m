@@ -66,28 +66,18 @@
 }
 
 -(NSArray *) coordinates{
-    return [SFGMultiPoint coordinatesFromMultiPoint:self.multiPoint];
-}
-
--(void) setCoordinates: (NSArray *) coordinates{
-    self.multiPoint = [SFGMultiPoint multiPointFromCoordinates:coordinates];
-}
-
-+(NSMutableArray *) coordinatesFromMultiPoint: (SFMultiPoint *) multiPoint{
-    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
-    for(SFPoint *point in multiPoint.geometries){
-        [coordinates addObject:[SFGPoint coordinatesFromPoint:point]];
+    NSMutableArray *coordinates = [NSMutableArray array];
+    for(SFGPoint *point in _points){
+        [coordinates addObject:[point coordinates]];
     }
     return coordinates;
 }
 
-+(SFMultiPoint *) multiPointFromCoordinates: (NSArray *) coordinates{
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+-(void) setCoordinates: (NSArray *) coordinates{
+    _points = [NSMutableArray array];
     for(NSArray *pointCoordinates in coordinates){
-        SFPoint *point = [SFGPoint pointFromCoordinates:pointCoordinates];
-        [points addObject:point];
+        [_points addObject:[[SFGPoint alloc] initWithCoordinates:pointCoordinates]];
     }
-    return [[SFMultiPoint alloc] initWithPoints:points];
 }
 
 @end

@@ -17,7 +17,7 @@ static NSOrderedSet *keys = nil;
 
 +(void) initialize{
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_COORDINATES, SFG_MEMBER_GEOMETRIES, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_COORDINATES, SFG_MEMBER_GEOMETRIES, nil];
     }
 }
 
@@ -102,7 +102,7 @@ static NSOrderedSet *keys = nil;
 }
 
 +(NSMutableArray *) geometriesFromGeometryCollection: (SFGeometryCollection *) geometryCollection{
-    NSMutableArray *geometries = [[NSMutableArray alloc] init];
+    NSMutableArray *geometries = [NSMutableArray array];
     for(SFGeometry *geometry in geometryCollection.geometries){
         [geometries addObject:[SFGFeatureConverter simpleGeometryToMutableTree:geometry]];
     }
@@ -110,7 +110,7 @@ static NSOrderedSet *keys = nil;
 }
 
 +(SFGeometryCollection *) geometryCollectionFromGeometries: (NSArray *) geometries{
-    NSMutableArray<SFGeometry *> *geometryCollection = [[NSMutableArray alloc] init];
+    NSMutableArray<SFGeometry *> *geometryCollection = [NSMutableArray array];
     for(NSDictionary *geometryCoordinates in geometries){
         SFGGeometry *geometry = [SFGFeatureConverter treeToGeometry:geometryCoordinates];
         [geometryCollection addObject:[geometry geometry]];

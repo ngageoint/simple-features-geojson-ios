@@ -77,22 +77,4 @@
  */
 -(void) setMultiPoint: (SFMultiPoint *) multiPoint;
 
-/**
- *  Get coordinates from a multi point
- *
- *  @param multiPoint simple multi point
- *
- *  @return coordinates
- */
-+(NSMutableArray *) coordinatesFromMultiPoint: (SFMultiPoint *) multiPoint;
-
-/**
- *  Get a multi point from coordinates
- *
- *  @param coordinates coordinate positions
- *
- *  @return multi point
- */
-+(SFMultiPoint *) multiPointFromCoordinates: (NSArray *) coordinates;
-
 @end

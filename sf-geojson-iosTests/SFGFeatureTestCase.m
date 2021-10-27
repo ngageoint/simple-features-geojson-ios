@@ -117,7 +117,7 @@
     NSMutableDictionary *treeFromJSON = [SFGFeatureConverter jsonToMutableTree:json];
     NSString *jsonFromTree = [SFGFeatureConverter treeToJSON:treeFromJSON];
     if([treeFromJSON objectForKey:SFG_MEMBER_PROPERTIES] == nil){
-        [treeFromJSON setObject:[[NSMutableDictionary alloc] init] forKey:SFG_MEMBER_PROPERTIES];
+        [treeFromJSON setObject:[NSMutableDictionary dictionary] forKey:SFG_MEMBER_PROPERTIES];
     }
     [SFGTestUtils assertTrue:[treeFromObject isEqualToDictionary:treeFromJSON]];
     [SFGTestUtils assertEqualWithValue:json andValue2:jsonFromTree];

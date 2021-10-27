@@ -77,22 +77,4 @@
  */
 -(void) setPolygon: (SFPolygon *) polygon;
 
-/**
- *  Get coordinates from a polygon
- *
- *  @param polygon simple polygon
- *
- *  @return coordinates
- */
-+(NSMutableArray *) coordinatesFromPolygon: (SFPolygon *) polygon;
-
-/**
- *  Get a polygon from coordinates
- *
- *  @param coordinates coordinate positions
- *
- *  @return polygon
- */
-+(SFPolygon *) polygonFromCoordinates: (NSArray *) coordinates;
-
 @end

@@ -50,45 +50,19 @@
 }
 
 -(SFPoint *) point{
-    return [SFGPoint pointFromPosition:_position];
+    return [_position toSimplePoint];
 }
 
 -(void) setPoint: (SFPoint *) point{
-    _position = [SFGPoint positionFromPoint:point];
+    _position = [[SFGPosition alloc] initWithPoint:point];
 }
 
 -(NSArray *) coordinates{
-    return [SFGPoint coordinatesFromPosition:_position];
+    return _position.coordinates;
 }
 
 -(void) setCoordinates: (NSArray *) coordinates{
-    _position = [SFGPoint positionFromCoordinates:coordinates];
-}
-
-+(NSArray *) coordinatesFromPoint: (SFPoint *) point{
-    SFGPosition *position = [self positionFromPoint:point];
-    return [self coordinatesFromPosition:position];
-}
-
-+(NSArray *) coordinatesFromPosition: (SFGPosition *) position{
-    return [position coordinates];
-}
-
-+(SFPoint *) pointFromCoordinates: (NSArray *) coordinates{
-    SFGPosition *position = [self positionFromCoordinates:coordinates];
-    return [self pointFromPosition:position];
-}
-
-+(SFPoint *) pointFromPosition: (SFGPosition *) position{
-    return [position toSimplePoint];
-}
-
-+(SFGPosition *) positionFromCoordinates: (NSArray *) coordinates{
-    return [[SFGPosition alloc] initWithCoordinates:coordinates];
-}
-
-+(SFGPosition *) positionFromPoint: (SFPoint *) point{
-    return [[SFGPosition alloc] initWithPoint:point];
+    _position = [[SFGPosition alloc] initWithCoordinates:coordinates];
 }
 
 @end

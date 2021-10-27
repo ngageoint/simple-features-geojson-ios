@@ -76,22 +76,4 @@
  */
 -(void) setMultiLineString: (SFMultiLineString *) multiLineString;
 
-/**
- *  Get coordinates from a multi line string
- *
- *  @param multiLineString simple multi line string
- *
- *  @return coordinates
- */
-+(NSMutableArray *) coordinatesFromMultiLineString: (SFMultiLineString *) multiLineString;
-
-/**
- *  Get a multi line string from coordinates
- *
- *  @param coordinates coordinate positions
- *
- *  @return multi line string
- */
-+(SFMultiLineString *) multiLineStringFromCoordinates: (NSArray *) coordinates;
-
 @end

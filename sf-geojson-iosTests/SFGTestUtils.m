@@ -81,15 +81,15 @@ static double EPSILON = 0.00001;
 
 +(SFMultiPolygon *) multiPolygonWithRings{
 
-    NSMutableArray<SFPolygon *> *polygons = [[NSMutableArray alloc] init];
-    NSMutableArray<SFLineString *> *rings = [[NSMutableArray alloc] init];
-    NSMutableArray<SFPoint *> *points = [[NSMutableArray alloc] init];
+    NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
+    NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
+    NSMutableArray<SFPoint *> *points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
     [points addObject:[[SFPoint alloc] initWithXValue:1.5 andYValue:50]];
     SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
     [rings addObject:ring];
-    points = [[NSMutableArray alloc] init];
+    points = [NSMutableArray array];
     [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
     [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
