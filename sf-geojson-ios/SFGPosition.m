@@ -18,12 +18,24 @@
     return [self initWithLongitude:longitude andLatitude:latitude andAltitude:nil];
 }
 
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude{
+    return [self initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:longitude] andLatitude:[[NSDecimalNumber alloc] initWithDouble:latitude]];
+}
+
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude{
     return [self initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:nil];
 }
 
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude{
+    return [self initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:longitude] andLatitude:[[NSDecimalNumber alloc] initWithDouble:latitude] andAltitude:[[NSDecimalNumber alloc] initWithDouble:altitude]];
+}
+
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditional: (NSDecimalNumber *) additionalElement{
     return [self initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:[NSArray arrayWithObjects:additionalElement, nil]];
+}
+
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionalValue: (double) additionalElement{
+    return [self initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:longitude] andLatitude:[[NSDecimalNumber alloc] initWithDouble:latitude] andAltitude:[[NSDecimalNumber alloc] initWithDouble:altitude] andAdditional:[[NSDecimalNumber alloc] initWithDouble:additionalElement]];
 }
 
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{
@@ -48,6 +60,10 @@
         
     }
     return self;
+}
+
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{
+    return [self initWithLongitude:[[NSDecimalNumber alloc] initWithDouble:longitude] andLatitude:[[NSDecimalNumber alloc] initWithDouble:latitude] andAltitude:[[NSDecimalNumber alloc] initWithDouble:altitude] andAdditionals:additionalElements];
 }
 
 -(instancetype) initWithCoordinates: (NSArray *) coordinates{

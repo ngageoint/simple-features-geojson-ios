@@ -41,6 +41,16 @@
 /**
  *  Initialize
  *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *
+ *  @return new position
+ */
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude;
+
+/**
+ *  Initialize
+ *
  *  @param longitude          longitude value
  *  @param latitude           latitude value
  *  @param altitude           altitude value
@@ -48,6 +58,17 @@
  *  @return new position
  */
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude;
+
+/**
+ *  Initialize
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *
+ *  @return new position
+ */
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude;
 
 /**
  *  Initialize
@@ -67,11 +88,35 @@
  *  @param longitude           longitude value
  *  @param latitude            latitude value
  *  @param altitude            altitude value
+ *  @param additionalElement  additional value
+ *
+ *  @return new position
+ */
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionalValue: (double) additionalElement;
+
+/**
+ *  Initialize
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
  *  @param additionalElements  additional values
  *
  *  @return new position
  */
 -(instancetype) initWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements;
+
+/**
+ *  Initialize
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *  @param additionalElements  additional values
+ *
+ *  @return new position
+ */
+-(instancetype) initWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements;
 
 /**
  *  Initialize
@@ -97,52 +142,52 @@
 -(NSArray<NSDecimalNumber *> *) additionalElements;
   
 /**
-* Get the x value
-*
-* @return x
-*/
+ * Get the x value
+ *
+ * @return x
+ */
 -(NSDecimalNumber *) x;
   
 /**
-* Get the y value
-*
-* @return y
-*/
+ * Get the y value
+ *
+ * @return y
+ */
 -(NSDecimalNumber *) y;
   
 /**
-* Get the z value
-*
-* @return z
-*/
+ * Get the z value
+ *
+ * @return z
+ */
 -(NSDecimalNumber *) z;
   
 /**
-* Get the m value
-*
-* @return m
-*/
+ * Get the m value
+ *
+ * @return m
+ */
 -(NSDecimalNumber *) m;
   
 /**
-* Check if position has a z value
-*
-* @return true if has z value
-*/
+ * Check if position has a z value
+ *
+ * @return true if has z value
+ */
 -(BOOL) hasZ;
   
 /**
-* Check if position has a m value
-*
-* @return true if has m value
-*/
+ * Check if position has a m value
+ *
+ * @return true if has m value
+ */
 -(BOOL) hasM;
   
 /**
-* Convert to simple point
-*
-* @return simple point
-*/
+ * Convert to simple point
+ *
+ * @return simple point
+ */
 -(SFPoint *) toSimplePoint;
 
 @end
