@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 4.0.2 (TBD)
+
+* TBD
+
 ## [4.0.1](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.0.1) (11-01-2021)
 
 * Revert iOS platform and deployment target back to 12.0
