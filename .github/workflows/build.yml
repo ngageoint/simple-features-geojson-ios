@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  
+
   build:
 
     runs-on: macOS-latest
@@ -17,4 +17,4 @@ jobs:
     - name: Install
       run: pod install
     - name: Build
-      run: xcodebuild build-for-testing -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13'
+      run: xcodebuild build-for-testing -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 11'
