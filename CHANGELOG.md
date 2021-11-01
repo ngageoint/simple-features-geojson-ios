@@ -4,12 +4,13 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.0.0 (TBD)
+## [4.0.0](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.0.0) (11-01-2021)
 
 * GeoJSON backed Geometries and Features
 * Additional Position element value support when not converting to base simple features
 * GeoJSON Geometry Type
 * Simple Feature Geometry getters and setters
+* iOS platform and deployment target 15.0
 
 ## [3.0.0](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/3.0.0) (03-02-2021)
 

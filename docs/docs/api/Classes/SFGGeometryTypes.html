@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SFTriangle Class Reference</title>
+    <title>SFGGeometryTypes Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/SFTriangle" class="dashAnchor"></a>
-    <a title="SFTriangle Class Reference"></a>
+    <a name="//apple_ref/objc/Class/SFGGeometryTypes" class="dashAnchor"></a>
+    <a title="SFGGeometryTypes Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">sf-geojson-ios 4.0.0 Docs</a> (87% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">sf-geojson-ios Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        SFTriangle Class Reference
+        SFGGeometryTypes Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -334,23 +334,23 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SFTriangle</h1>
+            <h1>SFGGeometryTypes</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFTriangle</span> <span class="p">:</span> <span class="nc"><a href="../Classes/SFPolygon.html">SFPolygon</a></span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFGGeometryTypes</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFTriangle</span> <span class="p">:</span> <span class="kt"><a href="../Classes/SFPolygon.html">SFPolygon</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFGGeometryTypes</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>Triangle</p>
+            <p>Geometry Types</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L14-L53">Show on GitHub</a>
+                <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L29-L79">Show on GitHub</a>
               </div>
           </section>
           <section class="section task-group-section">
@@ -359,9 +359,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFTriangle(im)init"></a>
-                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFTriangle(im)init">-init</a>
+                    <a name="/c:objc(cs)SFGGeometryTypes(im)type"></a>
+                    <a name="//apple_ref/objc/Method/-type" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(im)type">-type</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,28 +369,28 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Get the type</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="k">enum</span> <span class="n"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span><span class="p">)</span><span class="n">type</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">type</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new triangle</p>
+                        <p>type</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L21">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L36">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -398,9 +398,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFTriangle(im)initWithHasZ:andHasM:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithHasZ:andHasM:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFTriangle(im)initWithHasZ:andHasM:">-initWithHasZ:<wbr>andHasM:<wbr></a>
+                    <a name="/c:objc(cs)SFGGeometryTypes(im)simpleType"></a>
+                    <a name="//apple_ref/objc/Method/-simpleType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(im)simpleType">-simpleType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -408,19 +408,97 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Get the simple geometry type</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithHasZ</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">hasZ</span> <span class="nf">andHasM</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">hasM</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="k">enum</span> <span class="n"><a href="../Enums/SFGeometryType.html">SFGeometryType</a></span><span class="p">)</span><span class="n">simpleType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">hasZ</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">andHasM</span> <span class="nv">hasM</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">simpleType</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/SFGeometryType.html">SFGeometryType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>simple geometry type</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFGGeometryTypes(im)name"></a>
+                    <a name="//apple_ref/objc/Method/-name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(im)name">-name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>name</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L50">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)SFGGeometryTypes(cm)type:"></a>
+                    <a name="//apple_ref/objc/Method/+type:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(cm)type:">+type:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the geometry type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">SFGGeometryTypes</span> <span class="o">*</span><span class="p">)</span><span class="nf">type</span><span class="p">:(</span><span class="k">enum</span> <span class="n"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span><span class="p">)</span><span class="nv">geometryType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">type</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometryType</span><span class="p">:</span> <span class="kt"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">SFGGeometryTypes</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -431,24 +509,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>hasZ</em>
+                                <em>geometryType</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>has z values</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>hasM</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>has m values</p>
+                                  <p>geometry type enum</p>
                                 </div>
                               </td>
                             </tr>
@@ -457,10 +523,10 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new triangle</p>
+                        <p>geometry type</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L31">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -468,9 +534,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFTriangle(im)initWithRings:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithRings:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFTriangle(im)initWithRings:">-initWithRings:<wbr></a>
+                    <a name="/c:objc(cs)SFGGeometryTypes(cm)name:"></a>
+                    <a name="//apple_ref/objc/Method/+name:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(cm)name:">+name:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -478,19 +544,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Get the geometry name</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithRings</span><span class="p">:(</span><span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/SFLineString.html">SFLineString</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">rings</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">name</span><span class="p">:(</span><span class="k">enum</span> <span class="n"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span><span class="p">)</span><span class="nv">geometryType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">rings</span><span class="p">:</span> <span class="kt">NSMutableArray</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">name</span><span class="p">(</span><span class="n">_</span> <span class="nv">geometryType</span><span class="p">:</span> <span class="kt"><a href="../Enums/SFGGeometryType.html">SFGGeometryType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -501,12 +567,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>rings</em>
+                                <em>geometryType</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>list of rings</p>
+                                  <p>geometry type enum</p>
                                 </div>
                               </td>
                             </tr>
@@ -515,10 +581,10 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new triangle</p>
+                        <p>geometry name</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L41">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -526,9 +592,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)SFTriangle(im)initWithRing:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithRing:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFTriangle(im)initWithRing:">-initWithRing:<wbr></a>
+                    <a name="/c:objc(cs)SFGGeometryTypes(cm)fromName:"></a>
+                    <a name="//apple_ref/objc/Method/+fromName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)SFGGeometryTypes(cm)fromName:">+fromName:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -536,19 +602,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize</p>
+                        <p>Get the geometry type of the name</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithRing</span><span class="p">:(</span><span class="n"><a href="../Classes/SFLineString.html">SFLineString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">ring</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">SFGGeometryTypes</span> <span class="o">*</span><span class="p">)</span><span class="nf">fromName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">ring</span><span class="p">:</span> <span class="kt"><a href="../Classes/SFLineString.html">SFLineString</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">fromName</span><span class="p">(</span><span class="n">_</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">SFGGeometryTypes</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -559,12 +625,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>ring</em>
+                                <em>name</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ring</p>
+                                  <p>geometry type name</p>
                                 </div>
                               </td>
                             </tr>
@@ -573,10 +639,10 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new triangle</p>
+                        <p>geometry type</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/Pods/sf-ios/sf-ios/SFTriangle.h#L51">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/simple-features-geojson-ios/tree/4.0.0/sf-geojson-ios/SFGGeometryTypes.h#L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
