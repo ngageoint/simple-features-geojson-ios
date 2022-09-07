@@ -23,14 +23,14 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
     NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10]];
-    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:10]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:1]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:10]];
+    SFLinearRing *ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    SFPolygon *polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithPolygons:polygons];
     [SFGTestUtils compareSFGeometry:multiPolygon withInput:MULTIPOLYGON];
 }
 
@@ -38,14 +38,14 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
     NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:5]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1 andZValue:10]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:10 andZValue:15]];
-    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:10 andZValue:5]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:1 andZValue:10]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:10 andZValue:15]];
+    SFLinearRing *ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    SFPolygon *polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithPolygons:polygons];
     [SFGTestUtils compareSFGeometry:multiPolygon withInput:MULTIPOLYGON_WITH_ALT];
 }
 
@@ -58,25 +58,25 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     
     NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
-    [points addObject:[[SFPoint alloc] initWithXValue:1 andYValue:50]];
-    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:-100 andYValue:-50]];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:-50]];
+    [points addObject:[SFPoint pointWithXValue:1 andYValue:50]];
+    SFLinearRing *ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    SFPolygon *polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
     
     rings = [NSMutableArray array];
     points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
-    [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
-    [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
-    ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:-50 andYValue:-25]];
+    [points addObject:[SFPoint pointWithXValue:50 andYValue:-25]];
+    [points addObject:[SFPoint pointWithXValue:-1 andYValue:25]];
+    ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    polygon = [[SFPolygon alloc] initWithRings:rings];
+    polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
     
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithPolygons:polygons];
     [SFGTestUtils compareSFGeometry:multiPolygon withInput:MULTIPOLYGON_WITH_MULTI];
 }
 
@@ -196,14 +196,14 @@ static NSString *MULTIPOLYGON_WITH_MULTI = @"{\"type\":\"MultiPolygon\",\"coordi
     NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
     NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101.0 andYValue:10.0]];
-    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100.0 andYValue:10.0]];
+    [points addObject:[SFPoint pointWithXValue:101.0 andYValue:1.0]];
+    [points addObject:[SFPoint pointWithXValue:101.0 andYValue:10.0]];
+    SFLinearRing *ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    SFPolygon *polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithPolygons:polygons];
     
     return multiPolygon;
 }

@@ -44,7 +44,7 @@ static double EPSILON = 0.00001;
 }
 
 +(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andCoordinates: (NSArray *) coordinates{
-    [self assertPositionWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElements andPosition:[[SFGPosition alloc] initWithCoordinates:coordinates]];
+    [self assertPositionWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElements andPosition:[SFGPosition positionWithCoordinates:coordinates]];
 }
 
 +(void) assertPositionWithLongitude: (double) longitude andLatitude: (double) latitude andAltitude: (NSNumber *) altitude andAdditional: (NSArray<NSNumber *> *) additionalElements andPosition: (SFGPosition *) position{
@@ -84,20 +84,20 @@ static double EPSILON = 0.00001;
     NSMutableArray<SFPolygon *> *polygons = [NSMutableArray array];
     NSMutableArray<SFLineString *> *rings = [NSMutableArray array];
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:-100 andYValue:-50]];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:-50]];
-    [points addObject:[[SFPoint alloc] initWithXValue:1.5 andYValue:50]];
-    SFLinearRing *ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:-100 andYValue:-50]];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:-50]];
+    [points addObject:[SFPoint pointWithXValue:1.5 andYValue:50]];
+    SFLinearRing *ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
     points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:-50 andYValue:-25]];
-    [points addObject:[[SFPoint alloc] initWithXValue:50 andYValue:-25]];
-    [points addObject:[[SFPoint alloc] initWithXValue:-1 andYValue:25]];
-    ring = [[SFLinearRing alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:-50 andYValue:-25]];
+    [points addObject:[SFPoint pointWithXValue:50 andYValue:-25]];
+    [points addObject:[SFPoint pointWithXValue:-1 andYValue:25]];
+    ring = [SFLinearRing linearRingWithPoints:points];
     [rings addObject:ring];
-    SFPolygon *polygon = [[SFPolygon alloc] initWithRings:rings];
+    SFPolygon *polygon = [SFPolygon polygonWithRings:rings];
     [polygons addObject:polygon];
-    SFMultiPolygon *multiPolygon = [[SFMultiPolygon alloc] initWithPolygons:polygons];
+    SFMultiPolygon *multiPolygon = [SFMultiPolygon multiPolygonWithPolygons:polygons];
     
     return multiPolygon;
 }

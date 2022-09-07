@@ -11,6 +11,26 @@
 
 @implementation SFGMultiLineString
 
++(SFGMultiLineString *) multiLineString{
+    return [[SFGMultiLineString alloc] init];
+}
+
++(SFGMultiLineString *) multiLineStringWithCoordinates: (NSArray *) coordinates{
+    return [[SFGMultiLineString alloc] initWithCoordinates:coordinates];
+}
+
++(SFGMultiLineString *) multiLineStringWithLineStrings: (NSArray<SFGLineString *> *) lineStrings{
+    return [[SFGMultiLineString alloc] initWithLineStrings:lineStrings];
+}
+
++(SFGMultiLineString *) multiLineStringWithMultiLineString: (SFMultiLineString *) multiLineString{
+    return [[SFGMultiLineString alloc] initWithMultiLineString:multiLineString];
+}
+
++(SFGMultiLineString *) multiLineStringWithTree: (NSDictionary *) tree{
+    return [[SFGMultiLineString alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -55,13 +75,13 @@
     for(SFGLineString *lineString in _lineStrings){
         [simpleLineStrings addObject:[lineString lineString]];
     }
-    return [[SFMultiLineString alloc] initWithLineStrings:simpleLineStrings];
+    return [SFMultiLineString multiLineStringWithLineStrings:simpleLineStrings];
 }
 
 -(void) setMultiLineString: (SFMultiLineString *) multiLineString{
     _lineStrings = [NSMutableArray array];
     for(SFLineString *lineString in [multiLineString lineStrings]){
-        [_lineStrings addObject:[[SFGLineString alloc] initWithLineString:lineString]];
+        [_lineStrings addObject:[SFGLineString lineStringWithLineString:lineString]];
     }
 }
 
@@ -76,7 +96,7 @@
 -(void) setCoordinates: (NSArray *) coordinates{
     _lineStrings = [NSMutableArray array];
     for(NSArray *lineStringCoordinates in coordinates){
-        [_lineStrings addObject:[[SFGLineString alloc] initWithCoordinates:lineStringCoordinates]];
+        [_lineStrings addObject:[SFGLineString lineStringWithCoordinates:lineStringCoordinates]];
     }
 }
 

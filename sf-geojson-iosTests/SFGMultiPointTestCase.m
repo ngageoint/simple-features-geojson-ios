@@ -18,17 +18,17 @@ static NSString *MULTIPOINT_WITH_ALT = @"{\"type\":\"MultiPoint\",\"coordinates\
 
 -(void) testSerializeMultiPoint{
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1]];
-    SFMultiPoint *multiPoint = [[SFMultiPoint alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:10]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:1]];
+    SFMultiPoint *multiPoint = [SFMultiPoint multiPointWithPoints:points];
     [SFGTestUtils compareSFGeometry:multiPoint withInput:MULTIPOINT];
 }
 
 -(void) testSerializeMultiPointWithAltitude{
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100 andYValue:10 andZValue:-20]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101 andYValue:1 andZValue:-10]];
-    SFMultiPoint *multiPoint = [[SFMultiPoint alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100 andYValue:10 andZValue:-20]];
+    [points addObject:[SFPoint pointWithXValue:101 andYValue:1 andZValue:-10]];
+    SFMultiPoint *multiPoint = [SFMultiPoint multiPointWithPoints:points];
     [SFGTestUtils compareSFGeometry:multiPoint withInput:MULTIPOINT_WITH_ALT];
 }
 
@@ -67,9 +67,9 @@ static NSString *MULTIPOINT_WITH_ALT = @"{\"type\":\"MultiPoint\",\"coordinates\
 -(SFGeometry *) createTestGeometry{
     
     NSMutableArray<SFPoint *> *points = [NSMutableArray array];
-    [points addObject:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0]];
-    [points addObject:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0]];
-    SFMultiPoint *multiPoint = [[SFMultiPoint alloc] initWithPoints:points];
+    [points addObject:[SFPoint pointWithXValue:100.0 andYValue:10.0]];
+    [points addObject:[SFPoint pointWithXValue:101.0 andYValue:1.0]];
+    SFMultiPoint *multiPoint = [SFMultiPoint multiPointWithPoints:points];
     
     return multiPoint;
 }

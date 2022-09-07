@@ -11,6 +11,26 @@
 
 @implementation SFGMultiPolygon
 
++(SFGMultiPolygon *) multiPolygon{
+    return [[SFGMultiPolygon alloc] init];
+}
+
++(SFGMultiPolygon *) multiPolygonWithCoordinates: (NSArray *) coordinates{
+    return [[SFGMultiPolygon alloc] initWithCoordinates:coordinates];
+}
+
++(SFGMultiPolygon *) multiPolygonWithPolygons: (NSArray<SFGPolygon *> *) polygons{
+    return [[SFGMultiPolygon alloc] initWithPolygons:polygons];
+}
+
++(SFGMultiPolygon *) multiPolygonWithMultiPolygon: (SFMultiPolygon *) multiPolygon{
+    return [[SFGMultiPolygon alloc] initWithMultiPolygon:multiPolygon];
+}
+
++(SFGMultiPolygon *) multiPolygonWithTree: (NSDictionary *) tree{
+    return [[SFGMultiPolygon alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -55,13 +75,13 @@
     for(SFGPolygon *polygon in _polygons){
         [simplePolygons addObject:[polygon polygon]];
     }
-    return [[SFMultiPolygon alloc] initWithPolygons:simplePolygons];
+    return [SFMultiPolygon multiPolygonWithPolygons:simplePolygons];
 }
 
 -(void) setMultiPolygon: (SFMultiPolygon *) multiPolygon{
     _polygons = [NSMutableArray array];
     for(SFPolygon *polygon in [multiPolygon polygons]){
-        [_polygons addObject:[[SFGPolygon alloc] initWithPolygon:polygon]];
+        [_polygons addObject:[SFGPolygon polygonWithPolygon:polygon]];
     }
 }
 
@@ -76,7 +96,7 @@
 -(void) setCoordinates: (NSArray *) coordinates{
     _polygons = [NSMutableArray array];
     for(NSArray *polygonCoordinates in coordinates){
-        [_polygons addObject:[[SFGPolygon alloc] initWithCoordinates:polygonCoordinates]];
+        [_polygons addObject:[SFGPolygon polygonWithCoordinates:polygonCoordinates]];
     }
 }
 

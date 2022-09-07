@@ -20,6 +20,114 @@
 @property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *coordinates;
 
 /**
+ *  Create
+ *
+ *  @param point simple point
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithPoint: (SFPoint *) point;
+
+/**
+ *  Create
+ *
+ *  @param longitude longitude value
+ *  @param latitude  latitude value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude;
+
+/**
+ *  Create
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude;
+
+/**
+ *  Create
+ *
+ *  @param longitude          longitude value
+ *  @param latitude           latitude value
+ *  @param altitude           altitude value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude;
+
+/**
+ *  Create
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude;
+
+/**
+ *  Create
+ *
+ *  @param longitude          longitude value
+ *  @param latitude           latitude value
+ *  @param altitude           altitude value
+ *  @param additionalElement  additional value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditional: (NSDecimalNumber *) additionalElement;
+
+/**
+ *  Create
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *  @param additionalElement  additional value
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionalValue: (double) additionalElement;
+
+/**
+ *  Create
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *  @param additionalElements  additional values
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements;
+
+/**
+ *  Create
+ *
+ *  @param longitude           longitude value
+ *  @param latitude            latitude value
+ *  @param altitude            altitude value
+ *  @param additionalElements  additional values
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements;
+
+/**
+ *  Create
+ *
+ *  @param coordinates  coordinates
+ *
+ *  @return new position
+ */
++(SFGPosition *) positionWithCoordinates: (NSArray *) coordinates;
+
+/**
  *  Initialize
  *
  *  @param point simple point

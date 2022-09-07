@@ -25,12 +25,12 @@ static NSString *GEOMETRYCOLLECTION_WITH_ALT = @"{\"type\":\"GeometryCollection\
 }
 
 -(void) testSerializeGeometryCollectionWithAltitude{
-    SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] initWithHasZ:YES andHasM:NO];
-    SFPoint *point = [[SFPoint alloc] initWithXValue:61.34765625 andYValue:48.63290858589535 andZValue:12];
+    SFGeometryCollection *geometryCollection = [SFGeometryCollection geometryCollectionWithHasZ:YES andHasM:NO];
+    SFPoint *point = [SFPoint pointWithXValue:61.34765625 andYValue:48.63290858589535 andZValue:12];
     [geometryCollection addGeometry:point];
-    SFLineString *lineString = [[SFLineString alloc] initWithHasZ:YES andHasM:NO];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0 andZValue:5.0]];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0 andZValue:10.0]];
+    SFLineString *lineString = [SFLineString lineStringWithHasZ:YES andHasM:NO];
+    [lineString addPoint:[SFPoint pointWithXValue:100.0 andYValue:10.0 andZValue:5.0]];
+    [lineString addPoint:[SFPoint pointWithXValue:101.0 andYValue:1.0 andZValue:10.0]];
     [geometryCollection addGeometry:lineString];
     [SFGTestUtils compareSFGeometry:geometryCollection withInput:GEOMETRYCOLLECTION_WITH_ALT];
 }
@@ -48,12 +48,12 @@ static NSString *GEOMETRYCOLLECTION_WITH_ALT = @"{\"type\":\"GeometryCollection\
     SFGeometry *geometry1 = [geometries objectAtIndex:0];
     [SFGTestUtils assertTrue:[geometry1 class] == [SFPoint class]];
     SFPoint *point = (SFPoint *) geometry1;
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:61.5 andYValue:48] andValue2:point];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:61.5 andYValue:48] andValue2:point];
     SFGeometry *geometry2 = [geometries objectAtIndex:1];
     [SFGTestUtils assertTrue:[geometry2 class] == [SFLineString class]];
     SFLineString *lineString = (SFLineString *) geometry2;
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0] andValue2:[lineString pointAtIndex:0]];
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0] andValue2:[lineString pointAtIndex:1]];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:100.0 andYValue:10.0] andValue2:[lineString pointAtIndex:0]];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:101.0 andYValue:1.0] andValue2:[lineString pointAtIndex:1]];
 }
 
 -(void) testDeserializeGeometryCollectionWithAltitude{
@@ -69,12 +69,12 @@ static NSString *GEOMETRYCOLLECTION_WITH_ALT = @"{\"type\":\"GeometryCollection\
     SFGeometry *geometry1 = [geometries objectAtIndex:0];
     [SFGTestUtils assertTrue:[geometry1 class] == [SFPoint class]];
     SFPoint *point = (SFPoint *) geometry1;
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:61.34765625 andYValue:48.63290858589535 andZValue:12] andValue2:point];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:61.34765625 andYValue:48.63290858589535 andZValue:12] andValue2:point];
     SFGeometry *geometry2 = [geometries objectAtIndex:1];
     [SFGTestUtils assertTrue:[geometry2 class] == [SFLineString class]];
     SFLineString *lineString = (SFLineString *) geometry2;
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0 andZValue:5.0] andValue2:[lineString pointAtIndex:0]];
-    [SFGTestUtils assertEqualWithValue:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0 andZValue:10.0] andValue2:[lineString pointAtIndex:1]];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:100.0 andYValue:10.0 andZValue:5.0] andValue2:[lineString pointAtIndex:0]];
+    [SFGTestUtils assertEqualWithValue:[SFPoint pointWithXValue:101.0 andYValue:1.0 andZValue:10.0] andValue2:[lineString pointAtIndex:1]];
 }
 
 -(void) testGeometry{
@@ -91,12 +91,12 @@ static NSString *GEOMETRYCOLLECTION_WITH_ALT = @"{\"type\":\"GeometryCollection\
 
 -(SFGeometry *) createTestGeometry{
     
-    SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] init];
-    SFPoint *point = [[SFPoint alloc] initWithXValue:61.5 andYValue:48];
+    SFGeometryCollection *geometryCollection = [SFGeometryCollection geometryCollection];
+    SFPoint *point = [SFPoint pointWithXValue:61.5 andYValue:48];
     [geometryCollection addGeometry:point];
-    SFLineString *lineString = [[SFLineString alloc] init];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:100.0 andYValue:10.0]];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:101.0 andYValue:1.0]];
+    SFLineString *lineString = [SFLineString lineString];
+    [lineString addPoint:[SFPoint pointWithXValue:100.0 andYValue:10.0]];
+    [lineString addPoint:[SFPoint pointWithXValue:101.0 andYValue:1.0]];
     [geometryCollection addGeometry:lineString];
     
     return geometryCollection;

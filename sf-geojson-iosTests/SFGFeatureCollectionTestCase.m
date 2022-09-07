@@ -16,7 +16,7 @@
 static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"GeometryCollection\",\"geometries\":[{\"type\":\"Point\",\"coordinates\":[61.3476,48.632908]},{\"type\":\"LineString\",\"coordinates\":[[100,10],[101.3,1]]}]},\"properties\":{}},{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[50,60]},\"properties\":{}}]}";
 
 -(void) testProperties{
-    [SFGTestUtils assertNotNil:[[SFGFeatureCollection alloc] init].features];
+    [SFGTestUtils assertNotNil:[SFGFeatureCollection featureCollection].features];
 }
 
 -(void) testDeserializeFeatureCollection{
@@ -284,10 +284,10 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     
     NSArray<NSDecimalNumber *> *position = [NSArray arrayWithObjects:[[NSDecimalNumber alloc] initWithDouble:100.2], [[NSDecimalNumber alloc] initWithDouble:0.0], [[NSDecimalNumber alloc] initWithDouble:256.0], [[NSDecimalNumber alloc] initWithDouble:345], [[NSDecimalNumber alloc] initWithDouble:678], [[NSDecimalNumber alloc] initWithDouble:50.4], nil];
     NSArray *pointArray = [NSArray arrayWithObject:position];
-    SFGLineString *line = [[SFGLineString alloc] initWithCoordinates:pointArray];
+    SFGLineString *line = [SFGLineString lineStringWithCoordinates:pointArray];
     
-    SFGFeature *lineFeature = [[SFGFeature alloc] initWithGeometry:line];
-    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeature:lineFeature];
+    SFGFeature *lineFeature = [SFGFeature featureWithGeometry:line];
+    SFGFeatureCollection *featureCollection = [SFGFeatureCollection featureCollectionWithFeature:lineFeature];
     
     NSString *value = [SFGFeatureConverter objectToJSON:featureCollection];
     
@@ -327,16 +327,16 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     
     NSMutableArray<SFGeometry *> *simpleGeometries = [NSMutableArray array];
     
-    SFGeometryCollection *geometryCollection = [[SFGeometryCollection alloc] init];
-    [geometryCollection addGeometry:[[SFPoint alloc] initWithXValue:61.3476 andYValue:48.632908]];
-    SFLineString *lineString = [[SFLineString alloc] init];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:100 andYValue:10]];
-    [lineString addPoint:[[SFPoint alloc] initWithXValue:101.3 andYValue:1]];
+    SFGeometryCollection *geometryCollection = [SFGeometryCollection geometryCollection];
+    [geometryCollection addGeometry:[SFPoint pointWithXValue:61.3476 andYValue:48.632908]];
+    SFLineString *lineString = [SFLineString lineString];
+    [lineString addPoint:[SFPoint pointWithXValue:100 andYValue:10]];
+    [lineString addPoint:[SFPoint pointWithXValue:101.3 andYValue:1]];
     [geometryCollection addGeometry:lineString];
     
     [simpleGeometries addObject:geometryCollection];
     
-    SFPoint *point = [[SFPoint alloc] initWithXValue:50 andYValue:60];
+    SFPoint *point = [SFPoint pointWithXValue:50 andYValue:60];
     [simpleGeometries addObject:point];
     
     return simpleGeometries;

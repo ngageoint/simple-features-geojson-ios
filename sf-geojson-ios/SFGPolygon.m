@@ -13,6 +13,26 @@
 
 @implementation SFGPolygon
 
++(SFGPolygon *) polygon{
+    return [[SFGPolygon alloc] init];
+}
+
++(SFGPolygon *) polygonWithCoordinates: (NSArray *) coordinates{
+    return [[SFGPolygon alloc] initWithCoordinates:coordinates];
+}
+
++(SFGPolygon *) polygonWithRings: (NSArray<SFGLineString *> *) rings{
+    return [[SFGPolygon alloc] initWithRings:rings];
+}
+
++(SFGPolygon *) polygonWithPolygon: (SFPolygon *) polygon{
+    return [[SFGPolygon alloc] initWithPolygon:polygon];
+}
+
++(SFGPolygon *) polygonWithTree: (NSDictionary *) tree{
+    return [[SFGPolygon alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -53,9 +73,9 @@
 }
 
 -(SFPolygon *) polygon{
-    SFPolygon *polygon = [[SFPolygon alloc] init];
+    SFPolygon *polygon = [SFPolygon polygon];
     for(SFGLineString *ring in _rings){
-        [polygon addRing:[[SFLinearRing alloc] initWithPoints:[ring lineString].points]];
+        [polygon addRing:[SFLinearRing linearRingWithPoints:[ring lineString].points]];
     }
     return polygon;
 }
@@ -63,7 +83,7 @@
 -(void) setPolygon: (SFPolygon *) polygon{
     _rings = [NSMutableArray array];
     for(SFLineString *ring in polygon.rings){
-        [_rings addObject:[[SFGLineString alloc] initWithLineString:ring]];
+        [_rings addObject:[SFGLineString lineStringWithLineString:ring]];
     }
 }
 
@@ -78,7 +98,7 @@
 -(void) setCoordinates: (NSArray *) coordinates{
     _rings = [NSMutableArray array];
     for(NSArray *ringCoordinates in coordinates){
-        [_rings addObject:[[SFGLineString alloc] initWithCoordinates:ringCoordinates]];
+        [_rings addObject:[SFGLineString lineStringWithCoordinates:ringCoordinates]];
     }
 }
 

@@ -10,6 +10,46 @@
 
 @implementation SFGPosition
 
++(SFGPosition *) positionWithPoint: (SFPoint *) point{
+    return [[SFGPosition alloc] initWithPoint:point];
+}
+
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude{
+    return [[SFGPosition alloc] initWithLongitude:longitude andLatitude:latitude];
+}
+
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude{
+    return [[SFGPosition alloc] initWithLongitudeValue:longitude andLatitudeValue:latitude];
+}
+
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude{
+    return [[SFGPosition alloc] initWithLongitude:longitude andLatitude:latitude andAltitude:altitude];
+}
+
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude{
+    return [[SFGPosition alloc] initWithLongitudeValue:longitude andLatitudeValue:latitude andAltitudeValue:altitude];
+}
+
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditional: (NSDecimalNumber *) additionalElement{
+    return [[SFGPosition alloc] initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditional:additionalElement];
+}
+
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionalValue: (double) additionalElement{
+    return [[SFGPosition alloc] initWithLongitudeValue:longitude andLatitudeValue:latitude andAltitudeValue:altitude andAdditionalValue:additionalElement];
+}
+
++(SFGPosition *) positionWithLongitude: (NSDecimalNumber *) longitude andLatitude: (NSDecimalNumber *) latitude andAltitude: (NSDecimalNumber *) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{
+    return [[SFGPosition alloc] initWithLongitude:longitude andLatitude:latitude andAltitude:altitude andAdditionals:additionalElements];
+}
+
++(SFGPosition *) positionWithLongitudeValue: (double) longitude andLatitudeValue: (double) latitude andAltitudeValue: (double) altitude andAdditionals: (NSArray<NSDecimalNumber *>*) additionalElements{
+    return [[SFGPosition alloc] initWithLongitudeValue:longitude andLatitudeValue:latitude andAltitudeValue:altitude andAdditionals:additionalElements];
+}
+
++(SFGPosition *) positionWithCoordinates: (NSArray *) coordinates{
+    return [[SFGPosition alloc] initWithCoordinates:coordinates];
+}
+
 -(instancetype) initWithPoint: (SFPoint *) point{
     return [self initWithLongitude:point.x andLatitude:point.y andAltitude:point.z andAdditional:point.m];
 }
@@ -114,7 +154,7 @@
     NSDecimalNumber *x = [self x];
     NSDecimalNumber *y = [self y];
     if(x != nil && y != nil){
-        point = [[SFPoint alloc] initWithX:x andY:y andZ:[self z] andM:[self m]];
+        point = [SFPoint pointWithX:x andY:y andZ:[self z] andM:[self m]];
     }
     return point;
 }

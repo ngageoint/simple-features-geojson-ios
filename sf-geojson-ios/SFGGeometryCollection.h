@@ -25,6 +25,49 @@ extern NSString * const SFG_MEMBER_GEOMETRIES;
 @property (nonatomic, strong) NSMutableArray<SFGGeometry *> *geometries;
 
 /**
+ *  Create
+ *
+ *  @return new geometry collection
+ */
++(SFGGeometryCollection *) geometryCollection;
+
+/**
+ *  Create
+ *
+ *  @param geometries list of geometries
+ *
+ *  @return new geometry collection
+ */
++(SFGGeometryCollection *) geometryCollectionWithGeometries: (NSArray<SFGGeometry *> *) geometries;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new geometry collection
+ */
++(SFGGeometryCollection *) geometryCollectionWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param geometryCollection simple geometry collection
+ *
+ *  @return new geometry collection
+ */
++(SFGGeometryCollection *) geometryCollectionWithGeometryCollection: (SFGeometryCollection *) geometryCollection;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new geometry collection
+ */
++(SFGGeometryCollection *) geometryCollectionWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new geometry collection

@@ -11,6 +11,26 @@
 
 @implementation SFGLineString
 
++(SFGLineString *) lineString{
+    return [[SFGLineString alloc] init];
+}
+
++(SFGLineString *) lineStringWithCoordinates: (NSArray *) coordinates{
+    return [[SFGLineString alloc] initWithCoordinates:coordinates];
+}
+
++(SFGLineString *) lineStringWithPoints: (NSArray<SFGPoint *> *) points{
+    return [[SFGLineString alloc] initWithPoints:points];
+}
+
++(SFGLineString *) lineStringWithLineString: (SFLineString *) lineString{
+    return [[SFGLineString alloc] initWithLineString:lineString];
+}
+
++(SFGLineString *) lineStringWithTree: (NSDictionary *) tree{
+    return [[SFGLineString alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -55,13 +75,13 @@
     for(SFGPoint *point in _points){
         [simplePoints addObject:[point point]];
     }
-    return [[SFLineString alloc] initWithPoints:simplePoints];
+    return [SFLineString lineStringWithPoints:simplePoints];
 }
 
 -(void) setLineString: (SFLineString *) lineString{
     _points = [NSMutableArray array];
     for(SFPoint *point in lineString.points){
-        [_points addObject:[[SFGPoint alloc] initWithPoint:point]];
+        [_points addObject:[SFGPoint pointWithPoint:point]];
     }
 }
 
@@ -76,7 +96,7 @@
 -(void) setCoordinates: (NSArray *) coordinates{
     _points = [NSMutableArray array];
     for(NSArray *pointCoordinates in coordinates){
-        [_points addObject:[[SFGPoint alloc] initWithCoordinates:pointCoordinates]];
+        [_points addObject:[SFGPoint pointWithCoordinates:pointCoordinates]];
     }
 }
 

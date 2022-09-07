@@ -21,6 +21,49 @@
 @property (nonatomic, strong) NSMutableArray<SFGPoint *> *points;
 
 /**
+ *  Create
+ *
+ *  @return new multi point
+ */
++(SFGMultiPoint *) multiPoint;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new multi point
+ */
++(SFGMultiPoint *) multiPointWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param points points list
+ *
+ *  @return new multi point
+ */
++(SFGMultiPoint *) multiPointWithPoints: (NSArray<SFGPoint *> *) points;
+
+/**
+ *  Create
+ *
+ *  @param multiPoint simple multi point
+ *
+ *  @return new multi point
+ */
++(SFGMultiPoint *) multiPointWithMultiPoint: (SFMultiPoint *) multiPoint;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new multi point
+ */
++(SFGMultiPoint *) multiPointWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new multi point

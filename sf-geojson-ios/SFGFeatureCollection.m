@@ -24,6 +24,22 @@ static NSOrderedSet *keys = nil;
     }
 }
 
++(SFGFeatureCollection *) featureCollection{
+    return [[SFGFeatureCollection alloc] init];
+}
+
++(SFGFeatureCollection *) featureCollectionWithFeature: (SFGFeature *) feature{
+    return [[SFGFeatureCollection alloc] initWithFeature:feature];
+}
+
++(SFGFeatureCollection *) featureCollectionWithFeatures: (NSArray<SFGFeature *> *) features{
+    return [[SFGFeatureCollection alloc] initWithFeatures:features];
+}
+
++(SFGFeatureCollection *) featureCollectionWithTree: (NSDictionary *) tree{
+    return [[SFGFeatureCollection alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     if(self != nil){

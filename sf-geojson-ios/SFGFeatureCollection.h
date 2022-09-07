@@ -30,6 +30,40 @@ extern NSString * const SFG_MEMBER_FEATURES;
 @property (nonatomic, strong) NSMutableArray<SFGFeature *> *features;
 
 /**
+ *  Create
+ *
+ *  @return new feature collection
+ */
++(SFGFeatureCollection *) featureCollection;
+
+/**
+ *  Create
+ *
+ *  @param feature feature
+ *
+ *  @return new feature collection
+ */
++(SFGFeatureCollection *) featureCollectionWithFeature: (SFGFeature *) feature;
+
+/**
+ *  Create
+ *
+ *  @param features array of features
+ *
+ *  @return new feature collection
+ */
++(SFGFeatureCollection *) featureCollectionWithFeatures: (NSArray<SFGFeature *> *) features;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new feature
+ */
++(SFGFeatureCollection *) featureCollectionWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new feature collection

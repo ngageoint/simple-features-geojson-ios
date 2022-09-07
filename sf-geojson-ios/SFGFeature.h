@@ -50,6 +50,31 @@ extern NSString * const SFG_MEMBER_PROPERTIES;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSObject *> *properties;
 
 /**
+ *  Create
+ *
+ *  @return new feature
+ */
++(SFGFeature *) feature;
+
+/**
+ *  Create
+ *
+ *  @param geometry geometry
+ *
+ *  @return new feature
+ */
++(SFGFeature *) featureWithGeometry: (SFGGeometry *) geometry;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new feature
+ */
++(SFGFeature *) featureWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new feature

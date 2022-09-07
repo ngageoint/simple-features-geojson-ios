@@ -21,6 +21,49 @@
 @property (nonatomic, strong) NSMutableArray<SFGLineString *> *rings;
 
 /**
+ *  Create
+ *
+ *  @return new polygon
+ */
++(SFGPolygon *) polygon;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new polygon
+ */
++(SFGPolygon *) polygonWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param rings ring line string list
+ *
+ *  @return new polygon
+ */
++(SFGPolygon *) polygonWithRings: (NSArray<SFGLineString *> *) rings;
+
+/**
+ *  Create
+ *
+ *  @param polygon simple polygon
+ *
+ *  @return new polygon
+ */
++(SFGPolygon *) polygonWithPolygon: (SFPolygon *) polygon;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new polygon
+ */
++(SFGPolygon *) polygonWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new polygon

@@ -21,6 +21,26 @@ static NSOrderedSet *keys = nil;
     }
 }
 
++(SFGGeometryCollection *) geometryCollection{
+    return [[SFGGeometryCollection alloc] init];
+}
+
++(SFGGeometryCollection *) geometryCollectionWithGeometries: (NSArray<SFGGeometry *> *) geometries{
+    return [[SFGGeometryCollection alloc] initWithGeometries:geometries];
+}
+
++(SFGGeometryCollection *) geometryCollectionWithCoordinates: (NSArray *) coordinates{
+    return [[SFGGeometryCollection alloc] initWithCoordinates:coordinates];
+}
+
++(SFGGeometryCollection *) geometryCollectionWithGeometryCollection: (SFGeometryCollection *) geometryCollection{
+    return [[SFGGeometryCollection alloc] initWithGeometryCollection:geometryCollection];
+}
+
++(SFGGeometryCollection *) geometryCollectionWithTree: (NSDictionary *) tree{
+    return [[SFGGeometryCollection alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -61,7 +81,7 @@ static NSOrderedSet *keys = nil;
 }
 
 -(SFGeometryCollection *) geometryCollection{
-    SFGeometryCollection *simpleGeometryCollection = [[SFGeometryCollection alloc] init];
+    SFGeometryCollection *simpleGeometryCollection = [SFGeometryCollection geometryCollection];
     for(SFGGeometry *geometry in _geometries){
         [simpleGeometryCollection addGeometry:[geometry geometry]];
     }
@@ -115,7 +135,7 @@ static NSOrderedSet *keys = nil;
         SFGGeometry *geometry = [SFGFeatureConverter treeToGeometry:geometryCoordinates];
         [geometryCollection addObject:[geometry geometry]];
     }
-    return [[SFGeometryCollection alloc] initWithGeometries:geometryCollection];
+    return [SFGeometryCollection geometryCollectionWithGeometries:geometryCollection];
 }
 
 +(NSArray *) treeGeometries: (NSDictionary *) tree{

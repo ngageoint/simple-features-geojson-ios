@@ -28,6 +28,18 @@ static NSOrderedSet *keys = nil;
     }
 }
 
++(SFGFeature *) feature{
+    return [[SFGFeature alloc] init];
+}
+
++(SFGFeature *) featureWithGeometry: (SFGGeometry *) geometry{
+    return [[SFGFeature alloc] initWithGeometry:geometry];
+}
+
++(SFGFeature *) featureWithTree: (NSDictionary *) tree{
+    return [[SFGFeature alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     if(self != nil){

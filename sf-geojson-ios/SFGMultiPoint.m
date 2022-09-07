@@ -11,6 +11,26 @@
 
 @implementation SFGMultiPoint
 
++(SFGMultiPoint *) multiPoint{
+    return [[SFGMultiPoint alloc] init];
+}
+
++(SFGMultiPoint *) multiPointWithCoordinates: (NSArray *) coordinates{
+    return [[SFGMultiPoint alloc] initWithCoordinates:coordinates];
+}
+
++(SFGMultiPoint *) multiPointWithPoints: (NSArray<SFGPoint *> *) points{
+    return [[SFGMultiPoint alloc] initWithPoints:points];
+}
+
++(SFGMultiPoint *) multiPointWithMultiPoint: (SFMultiPoint *) multiPoint{
+    return [[SFGMultiPoint alloc] initWithMultiPoint:multiPoint];
+}
+
++(SFGMultiPoint *) multiPointWithTree: (NSDictionary *) tree{
+    return [[SFGMultiPoint alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -55,13 +75,13 @@
     for(SFGPoint *point in _points){
         [simplePoints addObject:[point point]];
     }
-    return [[SFMultiPoint alloc] initWithPoints:simplePoints];
+    return [SFMultiPoint multiPointWithPoints:simplePoints];
 }
 
 -(void) setMultiPoint: (SFMultiPoint *) multiPoint{
     _points = [NSMutableArray array];
     for(SFPoint *point in multiPoint.points){
-        [_points addObject:[[SFGPoint alloc] initWithPoint:point]];
+        [_points addObject:[SFGPoint pointWithPoint:point]];
     }
 }
 
@@ -76,7 +96,7 @@
 -(void) setCoordinates: (NSArray *) coordinates{
     _points = [NSMutableArray array];
     for(NSArray *pointCoordinates in coordinates){
-        [_points addObject:[[SFGPoint alloc] initWithCoordinates:pointCoordinates]];
+        [_points addObject:[SFGPoint pointWithCoordinates:pointCoordinates]];
     }
 }
 

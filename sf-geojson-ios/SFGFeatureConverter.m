@@ -15,12 +15,12 @@
 }
 
 +(SFGFeature *) treeToFeature: (NSDictionary *) tree{
-    return [[SFGFeature alloc] initWithTree:tree];
+    return [SFGFeature featureWithTree:tree];
 }
 
 +(SFGFeature *) simpleGeometryToFeature: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = [self simpleGeometryToGeometry:simpleGeometry];
-    SFGFeature *feature = [[SFGFeature alloc] initWithGeometry:geometry];
+    SFGFeature *feature = [SFGFeature featureWithGeometry:geometry];
     return feature;
 }
 
@@ -29,12 +29,12 @@
 }
 
 +(SFGFeatureCollection *) treeToFeatureCollection: (NSDictionary *) tree{
-    return [[SFGFeatureCollection alloc] initWithTree:tree];
+    return [SFGFeatureCollection featureCollectionWithTree:tree];
 }
 
 +(SFGFeatureCollection *) simpleGeometryToFeatureCollection: (SFGeometry *) simpleGeometry{
     SFGFeature *feature = [self simpleGeometryToFeature:simpleGeometry];
-    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeature:feature];
+    SFGFeatureCollection *featureCollection = [SFGFeatureCollection featureCollectionWithFeature:feature];
     return featureCollection;
 }
 
@@ -44,7 +44,7 @@
         SFGFeature *feature = [self simpleGeometryToFeature:simpleGeometry];
         [features addObject:feature];
     }
-    SFGFeatureCollection *featureCollection = [[SFGFeatureCollection alloc] initWithFeatures:features];
+    SFGFeatureCollection *featureCollection = [SFGFeatureCollection featureCollectionWithFeatures:features];
     return featureCollection;
 }
 
@@ -189,25 +189,25 @@
         enum SFGeometryType geometryType = simpleGeometry.geometryType;
         switch (geometryType) {
             case SF_POINT:
-                geometry = [[SFGPoint alloc] initWithPoint:(SFPoint *)simpleGeometry];
+                geometry = [SFGPoint pointWithPoint:(SFPoint *)simpleGeometry];
                 break;
             case SF_LINESTRING:
-                geometry = [[SFGLineString alloc] initWithLineString:(SFLineString *)simpleGeometry];
+                geometry = [SFGLineString lineStringWithLineString:(SFLineString *)simpleGeometry];
                 break;
             case SF_POLYGON:
-                geometry = [[SFGPolygon alloc] initWithPolygon:(SFPolygon *)simpleGeometry];
+                geometry = [SFGPolygon polygonWithPolygon:(SFPolygon *)simpleGeometry];
                 break;
             case SF_MULTIPOINT:
-                geometry = [[SFGMultiPoint alloc] initWithMultiPoint:(SFMultiPoint *)simpleGeometry];
+                geometry = [SFGMultiPoint multiPointWithMultiPoint:(SFMultiPoint *)simpleGeometry];
                 break;
             case SF_MULTILINESTRING:
-                geometry = [[SFGMultiLineString alloc] initWithMultiLineString:(SFMultiLineString *)simpleGeometry];
+                geometry = [SFGMultiLineString multiLineStringWithMultiLineString:(SFMultiLineString *)simpleGeometry];
                 break;
             case SF_MULTIPOLYGON:
-                geometry = [[SFGMultiPolygon alloc] initWithMultiPolygon:(SFMultiPolygon *)simpleGeometry];
+                geometry = [SFGMultiPolygon multiPolygonWithMultiPolygon:(SFMultiPolygon *)simpleGeometry];
                 break;
             case SF_GEOMETRYCOLLECTION:
-                geometry = [[SFGGeometryCollection alloc] initWithGeometryCollection:(SFGeometryCollection *)simpleGeometry];
+                geometry = [SFGGeometryCollection geometryCollectionWithGeometryCollection:(SFGeometryCollection *)simpleGeometry];
                 break;
             default:
                 [NSException raise:@"Unsupported" format:@"Unsupported Geometry Type: %@", [SFGeometryTypes name:geometryType]];
@@ -218,31 +218,31 @@
 }
 
 +(SFGPoint *) treeToPoint: (NSDictionary *) tree{
-    return [[SFGPoint alloc] initWithTree:tree];
+    return [SFGPoint pointWithTree:tree];
 }
 
 +(SFGLineString *) treeToLineString: (NSDictionary *) tree{
-    return [[SFGLineString alloc] initWithTree:tree];
+    return [SFGLineString lineStringWithTree:tree];
 }
 
 +(SFGPolygon *) treeToPolygon: (NSDictionary *) tree{
-    return [[SFGPolygon alloc] initWithTree:tree];
+    return [SFGPolygon polygonWithTree:tree];
 }
 
 +(SFGMultiPoint *) treeToMultiPoint: (NSDictionary *) tree{
-    return [[SFGMultiPoint alloc] initWithTree:tree];
+    return [SFGMultiPoint multiPointWithTree:tree];
 }
 
 +(SFGMultiLineString *) treeToMultiLineString: (NSDictionary *) tree{
-    return [[SFGMultiLineString alloc] initWithTree:tree];
+    return [SFGMultiLineString multiLineStringWithTree:tree];
 }
 
 +(SFGMultiPolygon *) treeToMultiPolygon: (NSDictionary *) tree{
-    return [[SFGMultiPolygon alloc] initWithTree:tree];
+    return [SFGMultiPolygon multiPolygonWithTree:tree];
 }
 
 +(SFGGeometryCollection *) treeToGeometryCollection: (NSDictionary *) tree{
-    return [[SFGGeometryCollection alloc] initWithTree:tree];
+    return [SFGGeometryCollection geometryCollectionWithTree:tree];
 }
 
 @end

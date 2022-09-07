@@ -15,7 +15,7 @@
 
 -(void) testSerializeFeature{
     
-    SFGFeature *feature = [[SFGFeature alloc] init];
+    SFGFeature *feature = [SFGFeature feature];
     
     [SFGTestUtils assertNotNil:[feature properties]];
     
@@ -42,7 +42,7 @@
     [SFGTestUtils assertNotNil:object];
     [SFGTestUtils assertTrue:[object class] == [SFGFeature class]];
     SFGFeature *feature = (SFGFeature *) object;
-    SFGeometry * geometry = [feature simpleGeometry];
+    SFGeometry *geometry = [feature simpleGeometry];
     [SFGTestUtils assertTrue:[geometry class] == [SFPoint class]];
     SFPoint *point = (SFPoint *) geometry;
     [SFGTestUtils assertPointWithLongitude:100 andLatitude:5 andAltitude:nil andPoint:(SFGPoint *)[SFGFeatureConverter simpleGeometryToGeometry:point]];

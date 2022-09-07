@@ -20,6 +20,49 @@
 @property (nonatomic, strong) NSMutableArray<SFGLineString *> *lineStrings;
 
 /**
+ *  Create
+ *
+ *  @return new multi line string
+ */
++(SFGMultiLineString *) multiLineString;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new multi line string
+ */
++(SFGMultiLineString *) multiLineStringWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param lineStrings line string list
+ *
+ *  @return new multi line string
+ */
++(SFGMultiLineString *) multiLineStringWithLineStrings: (NSArray<SFGLineString *> *) lineStrings;
+
+/**
+ *  Create
+ *
+ *  @param multiLineString simple multi line string
+ *
+ *  @return new multi line string
+ */
++(SFGMultiLineString *) multiLineStringWithMultiLineString: (SFMultiLineString *) multiLineString;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new multi line string
+ */
++(SFGMultiLineString *) multiLineStringWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new multi line string

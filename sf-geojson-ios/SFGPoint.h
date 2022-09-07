@@ -21,6 +21,49 @@
 @property (nonatomic, strong) SFGPosition *position;
 
 /**
+ *  Create
+ *
+ *  @return new point
+ */
++(SFGPoint *) point;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new point
+ */
++(SFGPoint *) pointWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param position position
+ *
+ *  @return new point
+ */
++(SFGPoint *) pointWithPosition: (SFGPosition *) position;
+
+/**
+ *  Create
+ *
+ *  @param point simple point
+ *
+ *  @return new point
+ */
++(SFGPoint *) pointWithPoint: (SFPoint *) point;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new point
+ */
++(SFGPoint *) pointWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new point

@@ -10,6 +10,26 @@
 
 @implementation SFGPoint
 
++(SFGPoint *) point{
+    return [[SFGPoint alloc] init];
+}
+
++(SFGPoint *) pointWithCoordinates: (NSArray *) coordinates{
+    return [[SFGPoint alloc] initWithCoordinates:coordinates];
+}
+
++(SFGPoint *) pointWithPosition: (SFGPosition *) position{
+    return [[SFGPoint alloc] initWithPosition:position];
+}
+
++(SFGPoint *) pointWithPoint: (SFPoint *) point{
+    return [[SFGPoint alloc] initWithPoint:point];
+}
+
++(SFGPoint *) pointWithTree: (NSDictionary *) tree{
+    return [[SFGPoint alloc] initWithTree:tree];
+}
+
 -(instancetype) init{
     self = [super init];
     return self;
@@ -54,7 +74,7 @@
 }
 
 -(void) setPoint: (SFPoint *) point{
-    _position = [[SFGPosition alloc] initWithPoint:point];
+    _position = [SFGPosition positionWithPoint:point];
 }
 
 -(NSArray *) coordinates{
@@ -62,7 +82,7 @@
 }
 
 -(void) setCoordinates: (NSArray *) coordinates{
-    _position = [[SFGPosition alloc] initWithCoordinates:coordinates];
+    _position = [SFGPosition positionWithCoordinates:coordinates];
 }
 
 @end

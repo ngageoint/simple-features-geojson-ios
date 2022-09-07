@@ -18,7 +18,7 @@ static SFGeometry *TEST_GEOMETRY;
 static NSString *TEST_CONTENT;
 
 -(void) setUp{
-    TEST_GEOMETRY = [[SFPoint alloc] initWithXValue:1.0 andYValue:1.0];
+    TEST_GEOMETRY = [SFPoint pointWithXValue:1.0 andYValue:1.0];
     TEST_CONTENT = @"{\"type\":\"Point\",\"coordinates\":[1,1]}";
 }
 

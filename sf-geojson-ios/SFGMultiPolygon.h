@@ -21,6 +21,49 @@
 @property (nonatomic, strong) NSMutableArray<SFGPolygon *> *polygons;
 
 /**
+ *  Create
+ *
+ *  @return new multi polygon
+ */
++(SFGMultiPolygon *) multiPolygon;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new multi polygon
+ */
++(SFGMultiPolygon *) multiPolygonWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param polygons polygon list
+ *
+ *  @return new multi polygon
+ */
++(SFGMultiPolygon *) multiPolygonWithPolygons: (NSArray<SFGPolygon *> *) polygons;
+
+/**
+ *  Create
+ *
+ *  @param multiPolygon simple multi polygon
+ *
+ *  @return new multi polygon
+ */
++(SFGMultiPolygon *) multiPolygonWithMultiPolygon: (SFMultiPolygon *) multiPolygon;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new multi polygon
+ */
++(SFGMultiPolygon *) multiPolygonWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new multi polygon

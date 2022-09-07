@@ -21,6 +21,49 @@
 @property (nonatomic, strong) NSMutableArray<SFGPoint *> *points;
 
 /**
+ *  Create
+ *
+ *  @return new line string
+ */
++(SFGLineString *) lineString;
+
+/**
+ *  Create
+ *
+ *  @param coordinates coordinate positions
+ *
+ *  @return new line string
+ */
++(SFGLineString *) lineStringWithCoordinates: (NSArray *) coordinates;
+
+/**
+ *  Create
+ *
+ *  @param points list of points
+ *
+ *  @return new line string
+ */
++(SFGLineString *) lineStringWithPoints: (NSArray<SFGPoint *> *) points;
+
+/**
+ *  Create
+ *
+ *  @param lineString simple line string
+ *
+ *  @return new line string
+ */
++(SFGLineString *) lineStringWithLineString: (SFLineString *) lineString;
+
+/**
+ *  Create
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new line string
+ */
++(SFGLineString *) lineStringWithTree: (NSDictionary *) tree;
+
+/**
  *  Initialize
  *
  *  @return new line string
