@@ -100,4 +100,39 @@
     }
 }
 
+-(BOOL) isEqualToMultiPoint: (SFGMultiPoint *) multiPoint{
+    if (self == multiPoint)
+        return YES;
+    if (multiPoint == nil)
+        return NO;
+    if (![super isEqual:multiPoint])
+        return NO;
+    if (self.points == nil) {
+        if (multiPoint.points != nil)
+            return NO;
+    } else if (![self.points isEqual:multiPoint.points])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGMultiPoint class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToMultiPoint:(SFGMultiPoint *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.points == nil) ? 0 : [self.points hash]);
+    return result;
+}
+
 @end

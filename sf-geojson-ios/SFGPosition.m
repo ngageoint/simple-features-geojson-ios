@@ -159,4 +159,37 @@
     return point;
 }
 
+-(BOOL) isEqualToPosition: (SFGPosition *) position{
+    if (self == position)
+        return YES;
+    if (position == nil)
+        return NO;
+    if (self.coordinates == nil) {
+        if (position.coordinates != nil)
+            return NO;
+    } else if (![self.coordinates isEqual:position.coordinates])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGPosition class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToPosition:(SFGPosition *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.coordinates == nil) ? 0 : [self.coordinates hash]);
+    return result;
+}
+
 @end

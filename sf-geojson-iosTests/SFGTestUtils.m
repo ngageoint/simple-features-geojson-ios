@@ -123,6 +123,7 @@ static double EPSILON = 0.00001;
     SFGGeometry *geometryFromTree = [SFGFeatureConverter treeToGeometry:tree];
     [SFGTestUtils assertNotNil:geometryFromTree];
     
+    [SFGTestUtils assertTrue:[geometry isEqual:geometryFromTree]];
     [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromTree geometry]]];
    
     SFGGeoJSONObject *objectFromTree = [SFGFeatureConverter treeToObject:tree];
@@ -130,6 +131,7 @@ static double EPSILON = 0.00001;
     [SFGTestUtils assertTrue:[objectFromTree isKindOfClass:[SFGGeometry class]]];
     
     SFGGeometry *geometryFromTree2 = (SFGGeometry *) objectFromTree;
+    [SFGTestUtils assertTrue:[geometry isEqual:geometryFromTree2]];
     [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromTree2 geometry]]];
 }
 
@@ -151,6 +153,7 @@ static double EPSILON = 0.00001;
     SFGGeometry *geometryFromJSON = [SFGFeatureConverter jsonToGeometry:json];
     [SFGTestUtils assertNotNil:geometryFromJSON];
     
+    [SFGTestUtils assertTrue:[geometry isEqual:geometryFromJSON]];
     [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromJSON geometry]]];
 
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
@@ -158,6 +161,7 @@ static double EPSILON = 0.00001;
     [SFGTestUtils assertTrue:[objectFromJSON isKindOfClass:[SFGGeometry class]]];
     
     SFGGeometry *geometryFromJSON2 = (SFGGeometry *) objectFromJSON;
+    [SFGTestUtils assertTrue:[geometry isEqual:geometryFromJSON2]];
     [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromJSON2 geometry]]];
 }
 

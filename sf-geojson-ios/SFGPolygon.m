@@ -102,4 +102,39 @@
     }
 }
 
+-(BOOL) isEqualToPolygon: (SFGPolygon *) polygon{
+    if (self == polygon)
+        return YES;
+    if (polygon == nil)
+        return NO;
+    if (![super isEqual:polygon])
+        return NO;
+    if (self.rings == nil) {
+        if (polygon.rings != nil)
+            return NO;
+    } else if (![self.rings isEqual:polygon.rings])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGPolygon class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToPolygon:(SFGPolygon *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.rings == nil) ? 0 : [self.rings hash]);
+    return result;
+}
+
 @end

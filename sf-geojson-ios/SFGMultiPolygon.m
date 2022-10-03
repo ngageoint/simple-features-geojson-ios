@@ -100,4 +100,39 @@
     }
 }
 
+-(BOOL) isEqualToMultiPolygon: (SFGMultiPolygon *) multiPolygon{
+    if (self == multiPolygon)
+        return YES;
+    if (multiPolygon == nil)
+        return NO;
+    if (![super isEqual:multiPolygon])
+        return NO;
+    if (self.polygons == nil) {
+        if (multiPolygon.polygons != nil)
+            return NO;
+    } else if (![self.polygons isEqual:multiPolygon.polygons])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGMultiPolygon class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToMultiPolygon:(SFGMultiPolygon *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.polygons == nil) ? 0 : [self.polygons hash]);
+    return result;
+}
+
 @end

@@ -100,4 +100,39 @@
     }
 }
 
+-(BOOL) isEqualToLineString: (SFGLineString *) lineString{
+    if (self == lineString)
+        return YES;
+    if (lineString == nil)
+        return NO;
+    if (![super isEqual:lineString])
+        return NO;
+    if (self.points == nil) {
+        if (lineString.points != nil)
+            return NO;
+    } else if (![self.points isEqual:lineString.points])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGLineString class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToLineString:(SFGLineString *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.points == nil) ? 0 : [self.points hash]);
+    return result;
+}
+
 @end

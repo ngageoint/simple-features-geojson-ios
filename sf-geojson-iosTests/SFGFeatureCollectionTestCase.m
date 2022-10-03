@@ -220,7 +220,9 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     
     [SFGTestUtils assertEqualIntWithValue:[featureCollection numFeatures] andValue2:[featureCollectionFromTree numFeatures]];
     [SFGTestUtils assertEqualIntWithValue:2 andValue2:[featureCollectionFromTree numFeatures]];
+    [SFGTestUtils assertEqualWithValue:featureCollection andValue2:featureCollectionFromTree];
     for(int i = 0; i < [featureCollection numFeatures]; i++){
+        [SFGTestUtils assertEqualWithValue:[featureCollection featureAtIndex:i] andValue2:[featureCollectionFromTree featureAtIndex:i]];
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionFromTree featureAtIndex:i] simpleGeometry]];
     }
     
@@ -231,7 +233,9 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     SFGFeatureCollection *featureCollectionObject = (SFGFeatureCollection *) objectFromTree;
     [SFGTestUtils assertEqualIntWithValue:[featureCollection numFeatures] andValue2:[featureCollectionObject numFeatures]];
     [SFGTestUtils assertEqualIntWithValue:2 andValue2:[featureCollectionObject numFeatures]];
+    [SFGTestUtils assertEqualWithValue:featureCollection andValue2:featureCollectionObject];
     for(int i = 0; i < [featureCollection numFeatures]; i++){
+        [SFGTestUtils assertEqualWithValue:[featureCollection featureAtIndex:i] andValue2:[featureCollectionObject featureAtIndex:i]];
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionObject featureAtIndex:i] simpleGeometry]];
     }
 
@@ -263,7 +267,9 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     
     [SFGTestUtils assertEqualIntWithValue:[featureCollection numFeatures] andValue2:[featureCollectionFromJSON numFeatures]];
     [SFGTestUtils assertEqualIntWithValue:2 andValue2:[featureCollectionFromJSON numFeatures]];
+    [SFGTestUtils assertEqualWithValue:featureCollection andValue2:featureCollectionFromJSON];
     for(int i = 0; i < [featureCollection numFeatures]; i++){
+        [SFGTestUtils assertEqualWithValue:[featureCollection featureAtIndex:i] andValue2:[featureCollectionFromJSON featureAtIndex:i]];
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionFromJSON featureAtIndex:i] simpleGeometry]];
     }
     
@@ -274,7 +280,9 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     SFGFeatureCollection *featureCollectionObject = (SFGFeatureCollection *) objectFromJSON;
     [SFGTestUtils assertEqualIntWithValue:[featureCollection numFeatures] andValue2:[featureCollectionObject numFeatures]];
     [SFGTestUtils assertEqualIntWithValue:2 andValue2:[featureCollectionObject numFeatures]];
+    [SFGTestUtils assertEqualWithValue:featureCollection andValue2:featureCollectionObject];
     for(int i = 0; i < [featureCollection numFeatures]; i++){
+        [SFGTestUtils assertEqualWithValue:[featureCollection featureAtIndex:i] andValue2:[featureCollectionObject featureAtIndex:i]];
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionObject featureAtIndex:i] simpleGeometry]];
     }
 

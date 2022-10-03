@@ -85,4 +85,39 @@
     _position = [SFGPosition positionWithCoordinates:coordinates];
 }
 
+-(BOOL) isEqualToPoint: (SFGPoint *) point{
+    if (self == point)
+        return YES;
+    if (point == nil)
+        return NO;
+    if (![super isEqual:point])
+        return NO;
+    if (self.position == nil) {
+        if (point.position != nil)
+            return NO;
+    } else if (![self.position isEqual:point.position])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGPoint class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToPoint:(SFGPoint *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.position == nil) ? 0 : [self.position hash]);
+    return result;
+}
+
 @end

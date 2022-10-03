@@ -121,6 +121,41 @@ static NSOrderedSet *keys = nil;
     return keys;
 }
 
+-(BOOL) isEqualToGeometryCollection: (SFGGeometryCollection *) geometryCollection{
+    if (self == geometryCollection)
+        return YES;
+    if (geometryCollection == nil)
+        return NO;
+    if (![super isEqual:geometryCollection])
+        return NO;
+    if (self.geometries == nil) {
+        if (geometryCollection.geometries != nil)
+            return NO;
+    } else if (![self.geometries isEqual:geometryCollection.geometries])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGGeometryCollection class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToGeometryCollection:(SFGGeometryCollection *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.geometries == nil) ? 0 : [self.geometries hash]);
+    return result;
+}
+
 +(NSMutableArray *) geometriesFromGeometryCollection: (SFGeometryCollection *) geometryCollection{
     NSMutableArray *geometries = [NSMutableArray array];
     for(SFGeometry *geometry in geometryCollection.geometries){

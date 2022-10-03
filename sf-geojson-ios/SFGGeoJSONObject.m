@@ -72,6 +72,46 @@ NSString * const SFG_MEMBER_BBOX = @"bbox";
     return nil;
 }
 
+-(BOOL) isEqualToGeoJSONObject: (SFGGeoJSONObject *) geoJSONObject{
+    if (self == geoJSONObject)
+        return YES;
+    if (geoJSONObject == nil)
+        return NO;
+    if (self.bbox == nil) {
+        if (geoJSONObject.bbox != nil)
+            return NO;
+    } else if (![self.bbox isEqual:geoJSONObject.bbox])
+        return NO;
+    if (self.foreignMembers == nil) {
+        if (geoJSONObject.foreignMembers != nil)
+            return NO;
+    } else if (![self.foreignMembers isEqual:geoJSONObject.foreignMembers])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGGeoJSONObject class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToGeoJSONObject:(SFGGeoJSONObject *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.bbox == nil) ? 0 : [self.bbox hash]);
+    result = prime * result
+        + ((self.foreignMembers == nil) ? 0 : [self.foreignMembers hash]);
+    return result;
+}
+
 +(NSString *) treeType: (NSDictionary *) tree{
     return [tree objectForKey:SFG_MEMBER_TYPE];
 }

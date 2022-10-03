@@ -100,4 +100,39 @@
     }
 }
 
+-(BOOL) isEqualToMultiLineString: (SFGMultiLineString *) multiLineString{
+    if (self == multiLineString)
+        return YES;
+    if (multiLineString == nil)
+        return NO;
+    if (![super isEqual:multiLineString])
+        return NO;
+    if (self.lineStrings == nil) {
+        if (multiLineString.lineStrings != nil)
+            return NO;
+    } else if (![self.lineStrings isEqual:multiLineString.lineStrings])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGMultiLineString class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToMultiLineString:(SFGMultiLineString *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.lineStrings == nil) ? 0 : [self.lineStrings hash]);
+    return result;
+}
+
 @end

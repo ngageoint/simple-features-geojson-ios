@@ -143,4 +143,39 @@ static NSOrderedSet *keys = nil;
     return keys;
 }
 
+-(BOOL) isEqualToFeatureCollection: (SFGFeatureCollection *) featureCollection{
+    if (self == featureCollection)
+        return YES;
+    if (featureCollection == nil)
+        return NO;
+    if (![super isEqual:featureCollection])
+        return NO;
+    if (self.features == nil) {
+        if (featureCollection.features != nil)
+            return NO;
+    } else if (![self.features isEqual:featureCollection.features])
+        return NO;
+    return YES;
+}
+
+-(BOOL) isEqual: (id) object{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[SFGFeatureCollection class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToFeatureCollection:(SFGFeatureCollection *)object];
+}
+
+-(NSUInteger) hash{
+    NSUInteger prime = 31;
+    NSUInteger result = [super hash];
+    result = prime * result
+        + ((self.features == nil) ? 0 : [self.features hash]);
+    return result;
+}
+
 @end

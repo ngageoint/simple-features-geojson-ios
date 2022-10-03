@@ -70,6 +70,7 @@
     SFGFeature *featureFromTree = [SFGFeatureConverter treeToFeature:tree];
     [SFGTestUtils assertNotNil:featureFromTree];
     
+    [SFGTestUtils assertTrue:[feature isEqual:featureFromTree]];
     [SFGTestUtils assertTrue:[[feature simpleGeometry] isEqual:[featureFromTree simpleGeometry]]];
 
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter treeToObject:tree];
@@ -77,6 +78,7 @@
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeature class]];
 
     SFGFeature *featureFromJSON = (SFGFeature *) objectFromJSON;
+    [SFGTestUtils assertTrue:[feature isEqual:featureFromJSON]];
     [SFGTestUtils assertTrue:[[feature simpleGeometry] isEqual:[featureFromJSON simpleGeometry]]];
 }
 
@@ -101,6 +103,7 @@
     SFGFeature *featureFromJSON = [SFGFeatureConverter jsonToFeature:json];
     [SFGTestUtils assertNotNil:featureFromJSON];
     
+    [SFGTestUtils assertTrue:[feature isEqual:featureFromJSON]];
     [SFGTestUtils assertTrue:[[feature simpleGeometry] isEqual:[featureFromJSON simpleGeometry]]];
     
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
@@ -108,6 +111,7 @@
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeature class]];
 
     SFGFeature *featureFromJSON2 = (SFGFeature *) objectFromJSON;
+    [SFGTestUtils assertTrue:[feature isEqual:featureFromJSON2]];
     [SFGTestUtils assertTrue:[[feature simpleGeometry] isEqual:[featureFromJSON2 simpleGeometry]]];
 }
 
