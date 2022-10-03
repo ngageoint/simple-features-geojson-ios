@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 4.2.1 (TBD)
+
+* TBD
+
 ## [4.2.0](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.2.0) (10-03-2022)
 
 * SFGGeoJSONObject hierarchy (Geometries and Features) isEqual and hash implementations
