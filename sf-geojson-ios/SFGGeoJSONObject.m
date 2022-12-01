@@ -50,7 +50,7 @@ NSString * const SFG_MEMBER_BBOX = @"bbox";
 
 -(void) fromTree: (NSDictionary *) tree{
     NSArray *boundingBox = (NSArray *)[tree objectForKey:SFG_MEMBER_BBOX];
-    if(boundingBox != nil){
+    if(![boundingBox isEqual:[NSNull null]] && boundingBox != nil){
         self.bbox = [NSMutableArray array];
         for(NSNumber *number in boundingBox){
             [self.bbox addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
