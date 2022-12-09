@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.2.1 (TBD)
+## [4.2.1](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.2.1) (12-09-2022)
 
 * JSON parsing null bounding box fix
 

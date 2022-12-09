@@ -66,7 +66,7 @@ Open sf-geojson-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'sf-geojson-ios.xcworkspace' -scheme sf-geojson-ios -destination 'platform=iOS Simulator,name=iPhone 13'
+    xcodebuild test -workspace 'sf-geojson-ios.xcworkspace' -scheme sf-geojson-ios -destination 'platform=iOS Simulator,name=iPhone 14'
 
 ### Include Library ###
 
@@ -74,12 +74,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/sf-geojson-ios):
 
-    pod 'sf-geojson-ios', '~> 4.2.0'
+    pod 'sf-geojson-ios', '~> 4.2.1'
 
 Pull from GitHub:
 
     pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :branch => 'master'
-    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag => '4.2.0'
+    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag => '4.2.1'
 
 Include as local project:
 
