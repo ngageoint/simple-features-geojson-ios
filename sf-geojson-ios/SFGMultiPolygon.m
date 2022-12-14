@@ -7,7 +7,6 @@
 //
 
 #import "SFGMultiPolygon.h"
-#import "SFGPolygon.h"
 
 @implementation SFGMultiPolygon
 

@@ -8,7 +8,6 @@
 
 #import "SFGMultiPointTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGMultiPoint.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGMultiPointTestCase

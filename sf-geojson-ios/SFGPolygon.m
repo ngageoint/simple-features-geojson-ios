@@ -7,9 +7,7 @@
 //
 
 #import "SFGPolygon.h"
-#import "SFGeometryUtils.h"
 #import "SFLinearRing.h"
-#import "SFGPoint.h"
 
 @implementation SFGPolygon
 

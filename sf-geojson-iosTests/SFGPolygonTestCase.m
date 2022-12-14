@@ -8,9 +8,7 @@
 
 #import "SFGPolygonTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFLineString.h"
 #import "SFLinearRing.h"
-#import "SFPolygon.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGPolygonTestCase

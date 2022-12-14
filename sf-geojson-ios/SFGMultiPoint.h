@@ -6,7 +6,6 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeometry.h"
 #import "SFGPoint.h"
 #import "SFMultiPoint.h"
 

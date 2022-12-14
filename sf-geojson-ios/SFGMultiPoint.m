@@ -7,7 +7,6 @@
 //
 
 #import "SFGMultiPoint.h"
-#import "SFGPoint.h"
 
 @implementation SFGMultiPoint
 

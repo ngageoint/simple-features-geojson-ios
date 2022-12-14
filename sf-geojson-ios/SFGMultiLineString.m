@@ -7,7 +7,6 @@
 //
 
 #import "SFGMultiLineString.h"
-#import "SFGLineString.h"
 
 @implementation SFGMultiLineString
 

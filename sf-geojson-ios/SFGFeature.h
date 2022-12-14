@@ -6,7 +6,6 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJSONObject.h"
 #import "SFGGeometry.h"
 
 /**

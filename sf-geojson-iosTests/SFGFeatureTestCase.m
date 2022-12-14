@@ -8,7 +8,6 @@
 
 #import "SFGFeatureTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGFeature.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGFeatureTestCase

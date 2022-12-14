@@ -8,10 +8,6 @@
 
 #import "SFGGeometryCollectionTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGeometryCollection.h"
-#import "SFPoint.h"
-#import "SFLineString.h"
-#import "SFGGeometryCollection.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGGeometryCollectionTestCase
