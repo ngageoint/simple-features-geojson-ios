@@ -6,11 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "SFGeometry.h"
-#import "SFGGeometry.h"
 #import "SFMultiPolygon.h"
-#import "SFGPosition.h"
 #import "SFGPoint.h"
 
 @interface SFGTestUtils : NSObject

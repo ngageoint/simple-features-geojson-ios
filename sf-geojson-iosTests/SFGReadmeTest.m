@@ -8,8 +8,6 @@
 
 #import "SFGReadmeTest.h"
 #import "SFGTestUtils.h"
-#import "SFGeometry.h"
-#import "SFPoint.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGReadmeTest

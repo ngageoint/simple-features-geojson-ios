@@ -8,7 +8,6 @@
 
 #import "SFGLineStringTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGLineString.h"
 #import "SFGFeatureConverter.h"
 
 @implementation SFGLineStringTestCase

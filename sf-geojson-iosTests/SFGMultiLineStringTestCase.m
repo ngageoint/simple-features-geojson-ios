@@ -8,7 +8,6 @@
 
 #import "SFGMultiLineStringTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGMultiLineString.h"
 #import "SFGFeatureConverter.h"
 
 static NSString *MULTILINESTRING = @"{\"type\":\"MultiLineString\",\"coordinates\":[[[100,10],[101,1],[101,10]]]}";

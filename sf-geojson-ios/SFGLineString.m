@@ -7,7 +7,6 @@
 //
 
 #import "SFGLineString.h"
-#import "SFGPoint.h"
 
 @implementation SFGLineString
 

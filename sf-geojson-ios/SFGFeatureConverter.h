@@ -6,17 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "SFGGeometry.h"
-#import "SFGeometry.h"
-#import "SFGPoint.h"
-#import "SFGLineString.h"
-#import "SFGPolygon.h"
 #import "SFGMultiPoint.h"
 #import "SFGMultiLineString.h"
 #import "SFGMultiPolygon.h"
 #import "SFGGeometryCollection.h"
-#import "SFGFeature.h"
 #import "SFGFeatureCollection.h"
 
 /**
