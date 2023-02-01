@@ -74,12 +74,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/sf-geojson-ios):
 
-    pod 'sf-geojson-ios', '~> 4.2.2'
+    pod 'sf-geojson-ios', '~> 4.2.3'
 
 Pull from GitHub:
 
     pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :branch => 'master'
-    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag => '4.2.2'
+    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag => '4.2.3'
 
 Include as local project:
 
