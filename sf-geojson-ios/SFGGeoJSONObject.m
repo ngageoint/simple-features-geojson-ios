@@ -36,6 +36,11 @@ NSString * const SFG_MEMBER_BBOX = @"bbox";
     return nil;
 }
 
+-(SFGeometry *) simpleGeometry{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[SFGOrderedDictionary alloc] init];
     [tree setObject:[self type] forKey:SFG_MEMBER_TYPE];

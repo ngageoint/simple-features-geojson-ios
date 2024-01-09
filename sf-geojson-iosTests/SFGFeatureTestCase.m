@@ -112,6 +112,11 @@
     SFGFeature *featureFromJSON2 = (SFGFeature *) objectFromJSON;
     [SFGTestUtils assertTrue:[feature isEqual:featureFromJSON2]];
     [SFGTestUtils assertTrue:[[feature simpleGeometry] isEqual:[featureFromJSON2 simpleGeometry]]];
+    
+    SFGeometry *geometry = [SFGFeatureConverter jsonToSimpleGeometry:json];
+    [SFGTestUtils assertEqualWithValue:[objectFromJSON simpleGeometry] andValue2:geometry];
+    [SFGTestUtils assertEqualWithValue:[feature simpleGeometry] andValue2:geometry];
+    
 }
 
 -(void) compareFeature: (SFGFeature *) feature withJSON: (NSString *) json{

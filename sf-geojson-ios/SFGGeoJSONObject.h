@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SFGeometry.h"
 
 /**
  * Type key
@@ -55,6 +56,13 @@ extern NSString * const SFG_MEMBER_BBOX;
  * @return GeoJSON object type
  */
 -(NSString *) type;
+
+/**
+ * Get the simple feature geometry
+ *
+ * @return simple feature geometry
+ */
+-(SFGeometry *) simpleGeometry;
 
 /**
  * Convert to a JSON tree

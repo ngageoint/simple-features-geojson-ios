@@ -163,6 +163,11 @@ static double EPSILON = 0.00001;
     SFGGeometry *geometryFromJSON2 = (SFGGeometry *) objectFromJSON;
     [SFGTestUtils assertTrue:[geometry isEqual:geometryFromJSON2]];
     [SFGTestUtils assertTrue:[[geometry geometry] isEqual:[geometryFromJSON2 geometry]]];
+    
+    [SFGTestUtils assertEqualWithValue:simpleGeometry andValue2:[objectFromJSON simpleGeometry]];
+    [SFGTestUtils assertEqualWithValue:simpleGeometry andValue2:[geometryFromJSON simpleGeometry]];
+    [SFGTestUtils assertEqualWithValue:simpleGeometry andValue2:[SFGFeatureConverter jsonToSimpleGeometry:json]];
+    
 }
 
 +(void)assertNil:(id) value{

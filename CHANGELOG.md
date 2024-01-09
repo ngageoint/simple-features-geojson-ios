@@ -6,7 +6,8 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 4.2.5 (TBD)
 
-* TBD
+* SFGGeoJSONObject simple geometry retrieval method
+* SFGFeatureConverter conversion to simple geometry utility methods
 
 ## [4.2.4](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.2.4) (11-13-2023)
 

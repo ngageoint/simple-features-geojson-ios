@@ -68,6 +68,22 @@
     return object;
 }
 
++(SFGeometry *) jsonToSimpleGeometry: (NSString *) json{
+    return [self objectToSimpleGeometry:[self jsonToObject:json]];
+}
+
++(SFGeometry *) treeToSimpleGeometry: (NSDictionary *) tree{
+    return [self objectToSimpleGeometry:[self treeToObject:tree]];
+}
+
++(SFGeometry *) objectToSimpleGeometry: (SFGGeoJSONObject *) geoJson{
+    SFGeometry *geometry = nil;
+    if(geoJson != nil){
+        geometry = [geoJson simpleGeometry];
+    }
+    return geometry;
+}
+
 +(NSString *) objectToJSON: (SFGGeoJSONObject *) object{
     NSDictionary *tree = [self objectToTree:object];
     NSString *json = [self treeToJSON:tree];

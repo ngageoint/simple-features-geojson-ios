@@ -85,6 +85,23 @@ static NSOrderedSet *keys = nil;
     return [self.features objectAtIndex:index];
 }
 
+-(SFGeometry *) simpleGeometry{
+    SFGeometry *geometry = nil;
+    if(_features != nil && _features.count > 0){
+        SFGeometryCollection *geomCollection = [SFGeometryCollection geometryCollection];
+        for(SFGFeature *feature in _features){
+            SFGeometry *geom = [feature simpleGeometry];
+            if(geom != nil){
+                [geomCollection addGeometry:geom];
+            }
+        }
+        if(![geomCollection isEmpty]){
+            geometry = geomCollection;
+        }
+    }
+    return geometry;
+}
+
 -(enum SFGGeometryType) geometryType{
     enum SFGGeometryType result = -1;
     

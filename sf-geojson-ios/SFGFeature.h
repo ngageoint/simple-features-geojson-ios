@@ -99,13 +99,6 @@ extern NSString * const SFG_MEMBER_PROPERTIES;
 -(instancetype) initWithTree: (NSDictionary *) tree;
 
 /**
- * Get the simple feature geometry
- *
- * @return simple feature geometry
- */
--(SFGeometry *) simpleGeometry;
-
-/**
  * Get the geometry type
  *
  * @return geometry type

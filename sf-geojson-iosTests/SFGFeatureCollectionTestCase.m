@@ -285,6 +285,14 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
         [SFGTestUtils assertEqualWithValue:[[featureCollection featureAtIndex:i] simpleGeometry] andValue2:[[featureCollectionObject featureAtIndex:i] simpleGeometry]];
     }
 
+    SFGeometry *geometry = [SFGFeatureConverter jsonToSimpleGeometry:json];
+    [SFGTestUtils assertEqualWithValue:[objectFromJSON simpleGeometry] andValue2:geometry];
+    SFGeometryCollection *geomCollection = [SFGeometryCollection geometryCollection];
+    for(SFGFeature *feature in featureCollection.features){
+        [geomCollection addGeometry:[feature simpleGeometry]];
+    }
+    [SFGTestUtils assertEqualWithValue:geomCollection andValue2:geometry];
+    
 }
 
 -(void) testAdditionalAttributes{

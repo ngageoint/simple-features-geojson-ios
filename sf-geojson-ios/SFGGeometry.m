@@ -48,6 +48,10 @@ static NSOrderedSet *keys = nil;
     return nil;
 }
 
+-(SFGeometry *) simpleGeometry{
+    return [self geometry];
+}
+
 -(NSArray *) coordinates{
     [self doesNotRecognizeSelector:_cmd];
     return nil;

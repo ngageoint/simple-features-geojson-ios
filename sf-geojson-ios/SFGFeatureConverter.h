@@ -99,6 +99,33 @@
 +(SFGGeoJSONObject *) treeToObject: (NSDictionary *) tree;
 
 /**
+ * Convert the string content to a simple geometry
+ *
+ * @param json
+ *            JSON string
+ * @return simple geometry
+ */
++(SFGeometry *) jsonToSimpleGeometry: (NSString *) json;
+
+/**
+ * Convert the JSON tree to a simple geometry
+ *
+ * @param tree
+ *            JSON tree
+ * @return simple geometry
+ */
++(SFGeometry *) treeToSimpleGeometry: (NSDictionary *) tree;
+
+/**
+ * Convert the GeoJSON object to a simple geometry
+ *
+ * @param geoJson
+ *            GeoJSON object
+ * @return simple geometry
+ */
++(SFGeometry *) objectToSimpleGeometry: (SFGGeoJSONObject *) geoJson;
+
+/**
  * Convert the object to a JSON value
  *
  * @param object
