@@ -6,6 +6,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 4.2.5 (TBD)
 
+* sf-ios 4.1.4
 * SFGGeoJSONObject simple geometry retrieval method
 * SFGFeatureConverter conversion to simple geometry utility methods
 
