@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.2.5 (TBD)
+## [4.2.5](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.2.5) (04-08-2024)
 
 * sf-ios 4.1.4
 * SFGGeoJSONObject simple geometry retrieval method
