@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.2.6 (TBD)
+## 5.0.0
 
-* TBD
+* sf-ios 5.0.0 - Breaking Change: Using `NS_ENUM` for types: `SFGeometryType`, `SFFiniteFilterType`, and `SFEventType`
 
 ## [4.2.5](https://github.com/ngageoint/simple-features-geojson-ios/releases/tag/4.2.5) (04-08-2024)
 
