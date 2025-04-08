@@ -8,7 +8,8 @@
 
 #import "SFGReadmeTest.h"
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
+@import SimpleFeaturesGeoJSON;
+@import SimpleFeatureGeoJSONTestHelpers;
 
 @implementation SFGReadmeTest
 

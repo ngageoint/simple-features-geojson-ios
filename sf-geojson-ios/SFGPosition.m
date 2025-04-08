@@ -6,7 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPosition.h"
+#import <SimpleFeaturesGeoJSON/SFGPosition.h>
+@import SimpleFeatures;
 
 @implementation SFGPosition
 

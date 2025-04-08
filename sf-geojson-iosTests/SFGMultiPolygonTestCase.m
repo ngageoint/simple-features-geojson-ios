@@ -6,10 +6,11 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
+@import SimpleFeatures;
+
 #import "SFGMultiPolygonTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
-#import "SFLinearRing.h"
+@import SimpleFeaturesGeoJSON;
 
 @implementation SFGMultiPolygonTestCase
 

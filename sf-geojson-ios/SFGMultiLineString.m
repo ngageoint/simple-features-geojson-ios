@@ -6,7 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGMultiLineString.h"
+#import <SimpleFeaturesGeoJSON/SFGMultiLineString.h>
+
+@import SimpleFeatures;
 
 @implementation SFGMultiLineString
 
@@ -61,7 +63,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_MULTILINESTRING;
 }
 

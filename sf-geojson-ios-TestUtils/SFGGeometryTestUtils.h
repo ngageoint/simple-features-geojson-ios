@@ -6,15 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
-#import "SFGeometryEnvelope.h"
-#import "SFMultiPoint.h"
-#import "SFMultiLineString.h"
-#import "SFCircularString.h"
-#import "SFCompoundCurve.h"
-#import "SFCurvePolygon.h"
-#import "SFTIN.h"
-#import "SFTriangle.h"
-
+@import SimpleFeatures;
 
 @interface SFGGeometryTestUtils : NSObject
 

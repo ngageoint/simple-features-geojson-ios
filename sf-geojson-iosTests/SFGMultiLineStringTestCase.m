@@ -8,7 +8,7 @@
 
 #import "SFGMultiLineStringTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
+@import SimpleFeaturesGeoJSON;
 
 static NSString *MULTILINESTRING = @"{\"type\":\"MultiLineString\",\"coordinates\":[[[100,10],[101,1],[101,10]]]}";
 static NSString *MULTILINESTRING_WITH_ALT = @"{\"type\":\"MultiLineString\",\"coordinates\":[[[100,10,5],[101,1,10],[101,10,15]]]}";

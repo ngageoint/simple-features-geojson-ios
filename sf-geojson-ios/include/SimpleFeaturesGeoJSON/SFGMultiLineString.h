@@ -6,8 +6,11 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGLineString.h"
-#import "SFMultiLineString.h"
+#import <Foundation/Foundation.h>
+#import <SimpleFeaturesGeoJSON/SFGLineString.h>
+
+@class SFMultiLineString;
+
 /**
  * Multi Line String
  */

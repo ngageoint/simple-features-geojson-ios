@@ -6,8 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPolygon.h"
-#import "SFLinearRing.h"
+#import <SimpleFeaturesGeoJSON/SFGPolygon.h>
+
+@import SimpleFeatures;
 
 @implementation SFGPolygon
 
@@ -62,7 +63,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_POLYGON;
 }
 

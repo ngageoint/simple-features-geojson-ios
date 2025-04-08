@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SFGeometry.h"
+
+@class SFGeometry;
+
 
 /**
  * Type key

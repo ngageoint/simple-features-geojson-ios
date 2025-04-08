@@ -8,7 +8,7 @@
 
 #import "SFGMultiPointTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
+@import SimpleFeaturesGeoJSON;
 
 @implementation SFGMultiPointTestCase
 

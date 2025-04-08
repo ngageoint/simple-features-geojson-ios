@@ -7,9 +7,9 @@
 //
 
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
 #import "SFGGeometryTestUtils.h"
-#import "SFLinearRing.h"
+@import SimpleFeatures;
+@import SimpleFeaturesGeoJSON;
 
 #define ARC4RANDOM_MAX      0x100000000
 

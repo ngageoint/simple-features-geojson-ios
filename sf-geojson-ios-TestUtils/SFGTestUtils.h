@@ -6,9 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGeometry.h"
-#import "SFMultiPolygon.h"
-#import "SFGPoint.h"
+@import SimpleFeatures;
+@import SimpleFeaturesGeoJSON;
 
 @interface SFGTestUtils : NSObject
 

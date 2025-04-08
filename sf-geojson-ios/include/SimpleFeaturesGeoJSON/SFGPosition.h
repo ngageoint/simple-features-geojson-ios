@@ -6,7 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFPoint.h"
+#import <Foundation/Foundation.h>
+
+@class SFPoint;
 
 /**
  * Position

@@ -6,9 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
+@import SimpleFeaturesGeoJSON;
 #import "SFGFeatureCollectionTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFGFeatureConverter.h"
 
 @implementation SFGFeatureCollectionTestCase
 
@@ -30,10 +30,22 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
     [self compareFeatureCollection:featureCollection withJSON:json];
 }
 
+- (NSBundle *)getBundle {
+#if SWIFT_PACKAGE
+    return SWIFTPM_MODULE_BUNDLE;
+#else
+    return [NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]];
+#endif
+}
+
 -(void) testDeserializeFeatureCollection2{
-    
-    NSString *filePath  = [[[NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]] resourcePath] stringByAppendingPathComponent:@"fc-points.geojson"];
-    NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *filePath  = [[[self getBundle] resourcePath] stringByAppendingPathComponent:@"fc-points.geojson"];
+
+    NSError *error = nil;
+    NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeatureCollection class]];
     [SFGTestUtils assertEqualWithValue:SFG_TYPE_FEATURE_COLLECTION andValue2:[objectFromJSON type]];
@@ -58,7 +70,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 
 -(void) testDeserializeFeatureCollection3{
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]] resourcePath] stringByAppendingPathComponent:@"fc-points-altitude.geojson"];
+    NSString *filePath  = [[[self getBundle] resourcePath] stringByAppendingPathComponent:@"fc-points-altitude.geojson"];
     NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeatureCollection class]];
@@ -101,7 +113,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 
 -(void) testDeserializeFeatureCollection4{
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]] resourcePath] stringByAppendingPathComponent:@"gc.geojson"];
+    NSString *filePath  = [[[self getBundle] resourcePath] stringByAppendingPathComponent:@"gc.geojson"];
     NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeatureCollection class]];
@@ -138,7 +150,7 @@ static NSString *FEATURECOLLECTION = @"{\"type\":\"FeatureCollection\",\"feature
 
 -(void) testDeserializeFeatureCollection5{
     
-    NSString *filePath  = [[[NSBundle bundleForClass:[SFGFeatureCollectionTestCase class]] resourcePath] stringByAppendingPathComponent:@"gc-multiple.geojson"];
+    NSString *filePath  = [[[self getBundle] resourcePath] stringByAppendingPathComponent:@"gc-multiple.geojson"];
     NSString *json = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     SFGGeoJSONObject *objectFromJSON = [SFGFeatureConverter jsonToObject:json];
     [SFGTestUtils assertTrue:[objectFromJSON class] == [SFGFeatureCollection class]];

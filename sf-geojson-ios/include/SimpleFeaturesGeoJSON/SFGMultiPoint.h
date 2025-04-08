@@ -6,8 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPoint.h"
-#import "SFMultiPoint.h"
+#import <SimpleFeaturesGeoJSON/SFGPoint.h>
+
+@class SFMultiPoint;
 
 /**
  * Multi Point

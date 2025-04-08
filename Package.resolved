@@ -1,0 +1,15 @@
+{
+  "originHash" : "b680c6e80265b8437c99e8e32ef54347ccbc3a721e8456d485bf224e020789a5",
+  "pins" : [
+    {
+      "identity" : "simple-features-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ngageoint/simple-features-ios",
+      "state" : {
+        "revision" : "615127133c83122077dcf71daa53a9a93f05a347",
+        "version" : "5.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

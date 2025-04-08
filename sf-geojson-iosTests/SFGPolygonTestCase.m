@@ -8,8 +8,8 @@
 
 #import "SFGPolygonTestCase.h"
 #import "SFGTestUtils.h"
-#import "SFLinearRing.h"
-#import "SFGFeatureConverter.h"
+@import SimpleFeatures;
+@import SimpleFeaturesGeoJSON;
 
 @implementation SFGPolygonTestCase
 
