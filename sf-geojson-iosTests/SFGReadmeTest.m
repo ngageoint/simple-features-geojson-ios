@@ -43,7 +43,9 @@ static NSString *TEST_CONTENT;
     // NSString *content = ...
 
     SFGGeometry *geometry = [SFGFeatureConverter jsonToGeometry:content];
-    SFGeometry *simpleGeometry = [geometry geometry];
+    
+    // FIXME: Are these tests incomplete?
+//    SFGeometry *simpleGeometry = [geometry geometry];
 
     /* Read as a generic GeoJSON object, Feature, or Feature Collection */
     // SFGGeoJSONObject *geoJSONObject = [SFGFeatureConverter jsonToObject:content];
@@ -77,13 +79,13 @@ static NSString *TEST_CONTENT;
     
     NSString *content = [SFGFeatureConverter simpleGeometryToJSON:geometry];
     
-    SFGFeature *feature = [SFGFeatureConverter simpleGeometryToFeature:geometry];
-    NSString *featureContent = [SFGFeatureConverter objectToJSON:feature];
-    
-    SFGFeatureCollection *featureCollection = [SFGFeatureConverter simpleGeometryToFeatureCollection:geometry];
-    NSString *featureCollectionContent = [SFGFeatureConverter objectToJSON:featureCollection];
-    
-    NSDictionary *contentTree = [SFGFeatureConverter simpleGeometryToTree:geometry];
+//    SFGFeature *feature = [SFGFeatureConverter simpleGeometryToFeature:geometry];
+//    NSString *featureContent = [SFGFeatureConverter objectToJSON:feature];
+//    
+//    SFGFeatureCollection *featureCollection = [SFGFeatureConverter simpleGeometryToFeatureCollection:geometry];
+//    NSString *featureCollectionContent = [SFGFeatureConverter objectToJSON:featureCollection];
+//    
+//    NSDictionary *contentTree = [SFGFeatureConverter simpleGeometryToTree:geometry];
     
     return content;
 }

@@ -102,11 +102,11 @@ static NSOrderedSet *keys = nil;
     return geometry;
 }
 
--(enum SFGGeometryType) geometryType{
-    enum SFGGeometryType result = -1;
+-(SFGGeometryType) geometryType{
+    SFGGeometryType result = -1;
     
     for(SFGFeature *feature in self.features){
-        enum SFGGeometryType gt = [feature geometryType];
+        SFGGeometryType gt = [feature geometryType];
         if(result == -1){
             result = gt;
         }else if(gt != result){

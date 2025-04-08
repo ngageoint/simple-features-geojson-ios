@@ -38,7 +38,7 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     [self doesNotRecognizeSelector:_cmd];
     return -1;
 }

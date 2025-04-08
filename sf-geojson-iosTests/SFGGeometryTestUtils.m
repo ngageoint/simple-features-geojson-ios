@@ -6,6 +6,7 @@
 //  Copyright © 2015 NGA. All rights reserved.
 //
 
+@import XCTest;
 #import "SFGGeometryTestUtils.h"
 #import "SFGTestUtils.h"
 
@@ -38,7 +39,7 @@
     }else{
         [SFGTestUtils assertNotNil:actual];
         
-        enum SFGeometryType geometryType = expected.geometryType;
+        SFGeometryType geometryType = expected.geometryType;
         switch(geometryType){
             case SF_GEOMETRY:
                 [NSException raise:@"Unexpected Geometry Type" format:@"Unexpected Geometry Type of %@ which is abstract", [SFGeometryTypes name:geometryType]];
@@ -90,13 +91,13 @@
                 [self compareTriangleWithExpected:(SFTriangle *)expected andActual:(SFTriangle *)actual];
                 break;
             default:
-                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %d", geometryType];
+                [NSException raise:@"Geometry Type Not Supported" format:@"Geometry Type not supported: %ld", geometryType];
         }
     }
 }
 
 +(void) compareBaseGeometryAttributesWithExpected: (SFGeometry *) expected andActual: (SFGeometry *) actual{
-    [SFGTestUtils assertEqualIntWithValue:expected.geometryType andValue2:actual.geometryType];
+    XCTAssertEqual(expected.geometryType, actual.geometryType);
     [SFGTestUtils assertEqualBoolWithValue:expected.hasZ andValue2:actual.hasZ];
     [SFGTestUtils assertEqualBoolWithValue:expected.hasM andValue2:actual.hasM];
 }

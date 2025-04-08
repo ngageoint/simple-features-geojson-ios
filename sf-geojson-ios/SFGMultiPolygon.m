@@ -61,7 +61,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_MULTIPOLYGON;
 }
 

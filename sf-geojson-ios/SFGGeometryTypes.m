@@ -10,8 +10,8 @@
 
 @interface SFGGeometryTypes()
 
-@property (nonatomic) enum SFGGeometryType type;
-@property (nonatomic) enum SFGeometryType simpleType;
+@property (nonatomic) SFGGeometryType type;
+@property (nonatomic) SFGeometryType simpleType;
 @property (nonatomic, strong) NSString *name;
 
 @end
@@ -47,11 +47,11 @@ static NSMutableDictionary<NSString *, SFGGeometryTypes *> *nameTypes = nil;
     [nameTypes setObject:type forKey:[type.name lowercaseString]];
 }
 
-+(SFGGeometryTypes *) createWithType: (enum SFGGeometryType) type andSimpleType: (enum SFGeometryType) simpleType andName: (NSString *) name{
++(SFGGeometryTypes *) createWithType: (SFGGeometryType) type andSimpleType: (SFGeometryType) simpleType andName: (NSString *) name{
     return [[SFGGeometryTypes alloc] initWithType:type andSimpleType:simpleType andName:name];
 }
 
--(instancetype) initWithType: (enum SFGGeometryType) type andSimpleType: (enum SFGeometryType) simpleType andName: (NSString *) name{
+-(instancetype) initWithType: (SFGGeometryType) type andSimpleType: (SFGeometryType) simpleType andName: (NSString *) name{
     self = [super init];
     if(self != nil){
         _type = type;
@@ -61,11 +61,11 @@ static NSMutableDictionary<NSString *, SFGGeometryTypes *> *nameTypes = nil;
     return self;
 }
 
--(enum SFGGeometryType) type{
+-(SFGGeometryType) type{
     return _type;
 }
 
--(enum SFGeometryType) simpleType{
+-(SFGeometryType) simpleType{
     return _simpleType;
 }
 
@@ -73,11 +73,11 @@ static NSMutableDictionary<NSString *, SFGGeometryTypes *> *nameTypes = nil;
     return _name;
 }
 
-+(SFGGeometryTypes *) type: (enum SFGGeometryType) geometryType{
++(SFGGeometryTypes *) type: (SFGGeometryType) geometryType{
     return [types objectForKey:[NSNumber numberWithInteger:geometryType]];
 }
 
-+(NSString *) name: (enum SFGGeometryType) geometryType{
++(NSString *) name: (SFGGeometryType) geometryType{
     return [self type:geometryType].name;
 }
 

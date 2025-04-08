@@ -50,7 +50,7 @@ extern NSString * const SFG_MEMBER_COORDINATES;
  *
  * @return geometry type
  */
--(enum SFGGeometryType) geometryType;
+-(SFGGeometryType) geometryType;
 
 /**
  * Get the simple geometry

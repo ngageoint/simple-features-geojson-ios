@@ -103,7 +103,7 @@ extern NSString * const SFG_MEMBER_PROPERTIES;
  *
  * @return geometry type
  */
--(enum SFGGeometryType) geometryType;
+-(SFGGeometryType) geometryType;
 
 @end
 

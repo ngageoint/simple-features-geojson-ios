@@ -202,7 +202,7 @@
 +(SFGGeometry *) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = nil;
     if(simpleGeometry != nil){
-        enum SFGeometryType geometryType = simpleGeometry.geometryType;
+        SFGeometryType geometryType = simpleGeometry.geometryType;
         switch (geometryType) {
             case SF_POINT:
                 geometry = [SFGPoint pointWithPoint:(SFPoint *)simpleGeometry];

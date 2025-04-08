@@ -133,7 +133,7 @@ extern NSString * const SFG_MEMBER_FEATURES;
  *
  * @return geometry type
  */
--(enum SFGGeometryType) geometryType;
+-(SFGGeometryType) geometryType;
 
 /**
  * Get the combined properties from all features

@@ -65,7 +65,7 @@ static NSOrderedSet *keys = nil;
     return _geometry != nil ? [_geometry geometry] : nil;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return _geometry != nil ? [_geometry geometryType] : -1;
 }
 
