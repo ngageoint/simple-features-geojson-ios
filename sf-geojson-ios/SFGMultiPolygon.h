@@ -7,7 +7,7 @@
 //
 
 #import "SFGPolygon.h"
-#import "SFMultiPolygon.h"
+@import sf_ios;
 
 /**
  * Multi Polygon

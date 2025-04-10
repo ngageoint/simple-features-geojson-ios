@@ -6,6 +6,5 @@
 //  Copyright © 2020 NGA. All rights reserved.
 //
 
-#import "sf-geojson-ios-Bridging-Header.h"
 #import "SFGTestUtils.h"
 #import "SFGGeometryTestUtils.h"

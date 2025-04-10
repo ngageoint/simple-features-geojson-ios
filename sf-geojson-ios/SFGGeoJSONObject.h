@@ -6,8 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "SFGeometry.h"
+@import Foundation;
+@import sf_ios;
+//#import "SFGeometry.h"
 
 /**
  * Type key

@@ -13,8 +13,9 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '12.0'
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'sf-geojson-ios/**/*.{h,m}'
-
+  s.source_files = 'sf-geojson-ios/**/*.{m}'
+  s.public_header_files = 'sf-geojson-ios/**/*.h'
+	
   s.frameworks = 'Foundation'
 
   s.dependency 'sf-ios', '~> 5.0.0'

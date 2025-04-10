@@ -7,7 +7,7 @@
 //
 
 #import "SFGPoint.h"
-#import "SFLineString.h"
+@import sf_ios;
 
 /**
  * Line String

@@ -7,7 +7,7 @@
 //
 
 #import "SFGLineString.h"
-#import "SFMultiLineString.h"
+@import sf_ios;
 /**
  * Multi Line String
  */

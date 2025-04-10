@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFPoint.h"
+@import sf_ios;
 
 /**
  * Position

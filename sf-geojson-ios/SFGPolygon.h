@@ -7,7 +7,7 @@
 //
 
 #import "SFGLineString.h"
-#import "SFPolygon.h"
+@import sf_ios;
 
 /**
  * Polygon

@@ -7,7 +7,7 @@
 //
 
 #import "SFGGeometry.h"
-#import "SFGeometryCollection.h"
+@import sf_ios;
 
 /**
  * Geometries key

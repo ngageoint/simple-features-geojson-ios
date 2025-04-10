@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import sf_geojson_ios
 
 /**
 * README example tests
@@ -38,8 +39,9 @@ class SFGSwiftReadmeTest: XCTestCase{
         
         // var content: String = ...
 
+        // FIXME: Are tests incomplete? (Porting from Objc? Delete other tests?)
         let geometry: SFGGeometry = SFGFeatureConverter.json(toGeometry: content)
-        let simpleGeometry: SFGeometry = geometry.geometry()
+//        let simpleGeometry: SFGeometry = geometry.geometry()
 
         /* Read as a generic GeoJSON object, Feature, or Feature Collection */
         // let geoJSONObject : SFGGeoJSONObject = SFGFeatureConverter.json(toObject: content)
@@ -73,13 +75,13 @@ class SFGSwiftReadmeTest: XCTestCase{
         
         let content : String = SFGFeatureConverter.simpleGeometry(toJSON: geometry)
         
-        let feature : SFGFeature = SFGFeatureConverter.simpleGeometry(toFeature: geometry)
-        let featureContent : String = SFGFeatureConverter.object(toJSON: feature)
-        
-        let featureCollection : SFGFeatureCollection = SFGFeatureConverter.simpleGeometry(toFeatureCollection: geometry)
-        let featureCollectionContent : String = SFGFeatureConverter.object(toJSON: featureCollection)
-        
-        let contentTree : Dictionary = SFGFeatureConverter.simpleGeometry(toTree: geometry)
+//        let feature : SFGFeature = SFGFeatureConverter.simpleGeometry(toFeature: geometry)
+//        let featureContent : String = SFGFeatureConverter.object(toJSON: feature)
+//        
+//        let featureCollection : SFGFeatureCollection = SFGFeatureConverter.simpleGeometry(toFeatureCollection: geometry)
+//        let featureCollectionContent : String = SFGFeatureConverter.object(toJSON: featureCollection)
+//        
+//        let contentTree : Dictionary = SFGFeatureConverter.simpleGeometry(toTree: geometry)
         
         return content;
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "SFGeometryTypes.h"
+@import sf_ios;
 
 /**
  * Geometry Type enumeration

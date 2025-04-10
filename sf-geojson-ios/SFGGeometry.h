@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
+@import sf_ios;
 #import "SFGGeoJSONObject.h"
-#import "SFGeometry.h"
 #import "SFGGeometryTypes.h"
 
 /**

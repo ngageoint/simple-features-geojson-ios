@@ -7,7 +7,7 @@
 //
 
 #import "SFGPoint.h"
-#import "SFMultiPoint.h"
+@import sf_ios;
 
 /**
  * Multi Point
