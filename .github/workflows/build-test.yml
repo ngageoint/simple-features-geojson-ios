@@ -18,4 +18,7 @@ jobs:
     - name: Install
       run: pod install
     - name: Build & Test
-      run: xcodebuild test -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+      run: |
+    	  iphone_names=$(xcrun simctl list devices --json | jq -r '.devices | to_entries[] | .value[] | select(.name | startswith("iPhone")) | .name')
+    	  latest_iphone=$(echo "$iphone_names" | sort | head -n 1)
+    	  xcodebuild test -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=$latest_iphone'
