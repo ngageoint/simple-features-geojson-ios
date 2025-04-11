@@ -23,3 +23,8 @@ jobs:
         latest_iphone=$(echo "$iphone_names" | sort | head -n 1)
         echo "latest_iphone: $latest_iphone"
         xcodebuild test -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+        echo "2nD TEST!"
+        iphone_names=$(xcrun simctl list devices available --json | jq -r '.devices | to_entries[] | .value[] | select(.name | startswith("iPhone")) | .name')
+        latest_iphone=$(echo "$iphone_names" | sort | head -n 1)
+        echo "latest_iphone: $latest_iphone"
+        xcodebuild test -workspace sf-geojson-ios.xcworkspace -scheme sf-geojson-ios -destination 'platform=iOS Simulator,OS=latest,name=$latest_iPhone'
