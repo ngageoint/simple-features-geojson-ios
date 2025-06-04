@@ -66,7 +66,7 @@
 }
 
 -(SFGeometry *) geometry{
-    return [self point]; // FIXME: BUG? What is this suppose to return? 
+    return (SFGeometry *)[self point];
 }
 
 -(SFPoint *) point{
