@@ -6,7 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGLineString.h"
+#import <SimpleFeaturesGeoJSON/SFGLineString.h>
+
+@import SimpleFeatures;
 
 @implementation SFGLineString
 
@@ -61,7 +63,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_LINESTRING;
 }
 

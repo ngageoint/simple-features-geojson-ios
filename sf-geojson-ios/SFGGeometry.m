@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeometry.h"
+#import <SimpleFeaturesGeoJSON/SFGGeometry.h>
 
 NSString * const SFG_MEMBER_COORDINATES = @"coordinates";
 
@@ -38,7 +38,7 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     [self doesNotRecognizeSelector:_cmd];
     return -1;
 }

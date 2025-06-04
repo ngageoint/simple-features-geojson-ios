@@ -6,8 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPolygon.h"
-#import "SFMultiPolygon.h"
+#import <Foundation/Foundation.h>
+#import <SimpleFeaturesGeoJSON/SFGPolygon.h>
+
+@class SFMultiPolygon;
 
 /**
  * Multi Polygon

@@ -7,9 +7,12 @@
 //
 
 import XCTest
+import SimpleFeatures
+import SimpleFeaturesGeoJSON
+import SimpleFeatureGeoJSONTestHelpers
 
 /**
-* README example tests
+* README.md example tests for sample code
 */
 class SFGSwiftReadmeTest: XCTestCase{
     
@@ -17,7 +20,7 @@ class SFGSwiftReadmeTest: XCTestCase{
     static var TEST_CONTENT: String = "{\"type\":\"Point\",\"coordinates\":[1,1]}"
     
     /**
-     * Test read
+     * Test read for README.md
      */
     func testRead(){
         
@@ -28,7 +31,7 @@ class SFGSwiftReadmeTest: XCTestCase{
     }
     
     /**
-     * Test read
+     * Test read for README.md
      *
      * @param content
      *            content
@@ -46,11 +49,14 @@ class SFGSwiftReadmeTest: XCTestCase{
         // let feature: SFGFeature = SFGFeatureConverter.json(toFeature: content)
         // let featureCollection : SFGFeatureCollection = SFGFeatureConverter.json(toFeatureCollection: content)
         
+        // Suppress warnings
+        print(simpleGeometry)
+        
         return geometry;
     }
     
     /**
-     * Test write
+     * Test write for README.md
      */
     func testWrite(){
         
@@ -61,7 +67,7 @@ class SFGSwiftReadmeTest: XCTestCase{
     }
     
     /**
-     * Test write
+     * Test write for README.md
      *
      * @param geometry
      *            geometry
@@ -80,6 +86,11 @@ class SFGSwiftReadmeTest: XCTestCase{
         let featureCollectionContent : String = SFGFeatureConverter.object(toJSON: featureCollection)
         
         let contentTree : Dictionary = SFGFeatureConverter.simpleGeometry(toTree: geometry)
+        
+        // Suppress warnings
+        print(featureContent)
+        print(featureCollectionContent)
+        print(contentTree)
         
         return content;
     }

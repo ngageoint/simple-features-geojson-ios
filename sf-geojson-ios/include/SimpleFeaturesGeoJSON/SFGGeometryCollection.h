@@ -6,8 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeometry.h"
-#import "SFGeometryCollection.h"
+#import <SimpleFeaturesGeoJSON/SFGGeometry.h>
+
+@class SFGeometryCollection;
 
 /**
  * Geometries key

@@ -6,7 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGFeatureConverter.h"
+#import <SimpleFeaturesGeoJSON/SFGFeatureConverter.h>
+@import SimpleFeatures;
 
 @implementation SFGFeatureConverter
 
@@ -202,7 +203,7 @@
 +(SFGGeometry *) simpleGeometryToGeometry: (SFGeometry *) simpleGeometry{
     SFGGeometry *geometry = nil;
     if(simpleGeometry != nil){
-        enum SFGeometryType geometryType = simpleGeometry.geometryType;
+        SFGeometryType geometryType = simpleGeometry.geometryType;
         switch (geometryType) {
             case SF_POINT:
                 geometry = [SFGPoint pointWithPoint:(SFPoint *)simpleGeometry];

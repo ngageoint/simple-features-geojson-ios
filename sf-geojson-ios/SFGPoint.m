@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPoint.h"
+#import <SimpleFeaturesGeoJSON/SFGPoint.h>
 
 @implementation SFGPoint
 
@@ -61,12 +61,12 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_POINT;
 }
 
 -(SFGeometry *) geometry{
-    return [self point];
+    return [self point]; // FIXME: BUG? What is this suppose to return? 
 }
 
 -(SFPoint *) point{

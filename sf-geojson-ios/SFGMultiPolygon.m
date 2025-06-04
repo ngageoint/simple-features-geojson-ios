@@ -6,7 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGMultiPolygon.h"
+#import <SimpleFeaturesGeoJSON/SFGMultiPolygon.h>
+@import SimpleFeatures;
 
 @implementation SFGMultiPolygon
 
@@ -61,7 +62,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_MULTIPOLYGON;
 }
 

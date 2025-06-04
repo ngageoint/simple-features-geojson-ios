@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeometry.h"
-#import "SFGPosition.h"
+#import <SimpleFeaturesGeoJSON/SFGGeometry.h>
+#import <SimpleFeaturesGeoJSON/SFGPosition.h>
 
 /**
  * Point

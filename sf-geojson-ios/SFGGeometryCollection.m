@@ -6,8 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeometryCollection.h"
-#import "SFGFeatureConverter.h"
+#import <SimpleFeaturesGeoJSON/SFGGeometryCollection.h>
+#import <SimpleFeaturesGeoJSON/SFGFeatureConverter.h>
+
+@import SimpleFeatures;
 
 NSString * const SFG_MEMBER_GEOMETRIES = @"geometries";
 
@@ -72,7 +74,7 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_GEOMETRYCOLLECTION;
 }
 

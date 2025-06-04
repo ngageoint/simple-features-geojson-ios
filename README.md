@@ -21,6 +21,8 @@ View the latest [Appledoc](http://ngageoint.github.io/simple-features-geojson-io
 
 ```objectivec
 
+@import SimpleFeaturesGeoJSON;
+
 // NSString *content = ...
 
 SFGGeometry *geometry = [SFGFeatureConverter jsonToGeometry:content];
@@ -36,6 +38,8 @@ SFGeometry *simpleGeometry = [geometry geometry];
 #### Write ####
 
 ```objectivec
+
+@import SimpleFeaturesGeoJSON;
 
 // SFGeometry *geometry = ...
 
@@ -53,43 +57,48 @@ NSDictionary *contentTree = [SFGFeatureConverter simpleGeometryToTree:geometry];
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/simple-features-geojson-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/simple-features-geojson-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/simple-features-geojson-ios/actions/workflows/build.yml/badge.svg)](https://github.com/ngageoint/simple-features-geojson-ios/actions/workflows/build.yml)
 
-Build this repository using Xcode and/or CocoaPods:
+Build this repository using SPM:
 
-    pod repo update
-    pod install
+    swift build
 
-Open sf-geojson-ios.xcworkspace in Xcode or build from command line:
+Open the Swift Package in Xcode:
 
-    xcodebuild -workspace 'sf-geojson-ios.xcworkspace' -scheme sf-geojson-ios build
+    open Package.swift
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'sf-geojson-ios.xcworkspace' -scheme sf-geojson-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    swift test
 
 ### Include Library ###
 
-Include this repository by specifying it in a Podfile using a supported option.
+Add a package dependency version:
 
-Pull from [CocoaPods](https://cocoapods.org/pods/sf-geojson-ios):
+    .package(url: "https://github.com/ngageoint/simple-features-geojson-ios", from: "5.0.0"),
 
-    pod 'sf-geojson-ios', '~> 4.2.5'
+    # Or specific branch:
 
-Pull from GitHub:
+    .package(url: "https://github.com/ngageoint/simple-features-geojson-ios", branch: "release/5.0.0"),
+    
+    # Or as a local dependency:        
 
-    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :branch => 'master'
-    pod 'sf-geojson-ios', :git => 'https://github.com/ngageoint/simple-features-geojson-ios.git', :tag => '4.2.5'
+    .package(name: "simple-features-geojson-ios", path: "../simple-features-geojson-ios"),
 
-Include as local project:
+Use it in a target:
 
-    pod 'sf-geojson-ios', :path => '../simple-features-geojson-ios'
+        .target(
+            name: "MyLibrary",
+            dependencies: [
+                .product(name: "SimpleFeaturesGeoJSON", package: "simple-features-geojson-ios")
+            ]
+        )
 
 ### Swift ###
 
-To use from Swift, import the sf-geojson-ios bridging header from the Swift project's bridging header
+To use from Swift, import the framework:
 
-    #import "sf-geojson-ios-Bridging-Header.h"
+    import SimpleFeaturesGeoJSON
 
 #### Read ####
 

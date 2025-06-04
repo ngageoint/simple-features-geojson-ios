@@ -6,12 +6,15 @@
 //  Copyright © 2021 NGA. All rights reserved.
 //
 
-#import "SFGeometryTypes.h"
+#import <Foundation/Foundation.h>
+
+// Forward declare enum
+typedef NS_ENUM(NSInteger, SFGeometryType);
 
 /**
  * Geometry Type enumeration
  */
-enum SFGGeometryType{
+typedef NS_ENUM(NSInteger, SFGGeometryType) {
     SFG_GEOMETRY = 0,
     SFG_POINT,
     SFG_LINESTRING,
@@ -32,14 +35,14 @@ enum SFGGeometryType{
  *
  * @return type
  */
--(enum SFGGeometryType) type;
+-(SFGGeometryType) type;
 
 /**
  * Get the simple geometry type
  *
  * @return simple geometry type
  */
--(enum SFGeometryType) simpleType;
+-(SFGeometryType) simpleType;
 
 /**
  * Get the name
@@ -55,7 +58,7 @@ enum SFGGeometryType{
  *
  *  @return geometry type
  */
-+(SFGGeometryTypes *) type: (enum SFGGeometryType) geometryType;
++(SFGGeometryTypes *) type: (SFGGeometryType) geometryType;
 
 /**
  *  Get the geometry name
@@ -64,7 +67,7 @@ enum SFGGeometryType{
  *
  *  @return geometry name
  */
-+(NSString *) name: (enum SFGGeometryType) geometryType;
++(NSString *) name: (SFGGeometryType) geometryType;
 
 /**
  *  Get the geometry type of the name

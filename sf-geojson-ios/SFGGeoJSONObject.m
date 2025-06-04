@@ -6,8 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJSONObject.h"
-#import "SFGOrderedDictionary.h"
+#import <SimpleFeaturesGeoJSON/SFGGeoJSONObject.h>
+#import <SimpleFeaturesGeoJSON/SFGOrderedDictionary.h>
+
+@import SimpleFeatures;
 
 NSString * const SFG_MEMBER_TYPE = @"type";
 

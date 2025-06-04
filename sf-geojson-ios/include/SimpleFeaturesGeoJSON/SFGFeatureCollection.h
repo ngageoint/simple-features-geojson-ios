@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGFeature.h"
+#import <SimpleFeaturesGeoJSON/SFGFeature.h>
 
 /**
  * Feature Collection type
@@ -133,7 +133,7 @@ extern NSString * const SFG_MEMBER_FEATURES;
  *
  * @return geometry type
  */
--(enum SFGGeometryType) geometryType;
+-(SFGGeometryType) geometryType;
 
 /**
  * Get the combined properties from all features

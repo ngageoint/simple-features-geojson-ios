@@ -6,8 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGPoint.h"
-#import "SFLineString.h"
+#import <Foundation/Foundation.h>
+#import <SimpleFeaturesGeoJSON/SFGPoint.h>
+
+@class SFLineString;
 
 /**
  * Line String

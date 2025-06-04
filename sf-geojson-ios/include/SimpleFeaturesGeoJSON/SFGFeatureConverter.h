@@ -6,11 +6,11 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGMultiPoint.h"
-#import "SFGMultiLineString.h"
-#import "SFGMultiPolygon.h"
-#import "SFGGeometryCollection.h"
-#import "SFGFeatureCollection.h"
+#import <SimpleFeaturesGeoJSON/SFGMultiPoint.h>
+#import <SimpleFeaturesGeoJSON/SFGMultiLineString.h>
+#import <SimpleFeaturesGeoJSON/SFGMultiPolygon.h>
+#import <SimpleFeaturesGeoJSON/SFGGeometryCollection.h>
+#import <SimpleFeaturesGeoJSON/SFGFeatureCollection.h>
 
 /**
  * Feature Converter

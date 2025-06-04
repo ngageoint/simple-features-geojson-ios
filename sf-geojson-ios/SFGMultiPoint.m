@@ -6,7 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGMultiPoint.h"
+#import <SimpleFeaturesGeoJSON/SFGMultiPoint.h>
+
+@import SimpleFeatures;
 
 @implementation SFGMultiPoint
 
@@ -61,7 +63,7 @@
     return self;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return SFG_MULTIPOINT;
 }
 

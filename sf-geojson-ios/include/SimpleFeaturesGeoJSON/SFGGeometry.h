@@ -6,9 +6,11 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGGeoJSONObject.h"
-#import "SFGeometry.h"
-#import "SFGGeometryTypes.h"
+
+#import <SimpleFeaturesGeoJSON/SFGGeoJSONObject.h>
+#import <SimpleFeaturesGeoJSON/SFGGeometryTypes.h>
+
+@class SFGeometry;
 
 /**
  * Coordinates key
@@ -50,7 +52,7 @@ extern NSString * const SFG_MEMBER_COORDINATES;
  *
  * @return geometry type
  */
--(enum SFGGeometryType) geometryType;
+-(SFGGeometryType) geometryType;
 
 /**
  * Get the simple geometry

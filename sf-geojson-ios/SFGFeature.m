@@ -6,9 +6,9 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGFeature.h"
-#import "SFGFeatureConverter.h"
-#import "SFGOrderedDictionary.h"
+#import <SimpleFeaturesGeoJSON/SFGFeature.h>
+#import <SimpleFeaturesGeoJSON/SFGFeatureConverter.h>
+#import <SimpleFeaturesGeoJSON/SFGOrderedDictionary.h>
 
 NSString * const SFG_TYPE_FEATURE = @"Feature";
 
@@ -65,7 +65,7 @@ static NSOrderedSet *keys = nil;
     return _geometry != nil ? [_geometry geometry] : nil;
 }
 
--(enum SFGGeometryType) geometryType{
+-(SFGGeometryType) geometryType{
     return _geometry != nil ? [_geometry geometryType] : -1;
 }
 

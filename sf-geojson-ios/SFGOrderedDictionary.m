@@ -23,7 +23,7 @@
 //     distribution.
 //
 
-#import "SFGOrderedDictionary.h"
+#import <SimpleFeaturesGeoJSON/SFGOrderedDictionary.h>
 
 static NSString *DescriptionForObject(id object, id locale, NSUInteger indent)
 {
